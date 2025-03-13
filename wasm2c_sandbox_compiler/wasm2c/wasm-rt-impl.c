@@ -205,10 +205,8 @@ static int is_power_of_two(uint64_t x) {
 #if UINTPTR_MAX == 0xffffffffffffffff
 // Guard page of 4GiB
 #define WASM_HEAP_GUARD_PAGE_SIZE 0x100000000ull
-//#define WASM_HEAP_GUARD_PAGE_SIZE 0x10000ull
 // Heap aligned to 4GB
 #define WASM_HEAP_ALIGNMENT 0x100000000ull
-//#define WASM_HEAP_ALIGNMENT 0x100000ull
 // By default max heap is 4GB
 #define WASM_HEAP_DEFAULT_MAX_PAGES 65536
 // Runtime can override the max heap up to 4GB

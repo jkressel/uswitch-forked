@@ -182,7 +182,6 @@ typedef struct wasm_func_type_t {
 #define WASM2C_WASI_MAX_FDS 32
 typedef struct wasm_sandbox_wasi_data {
   wasm_rt_memory_t* heap_memory;
-  void *custom_data;
 
   uint32_t tempRet0;
 

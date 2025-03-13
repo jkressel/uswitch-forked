@@ -2,15 +2,8 @@
 # Unified Makefile for i386 and x86_64
 
 # select defconfig based on actual architecture
-ifeq ($(ARCH),x86)
-  ifeq ($(shell uname -m),x86_64)
+
         KBUILD_DEFCONFIG := x86_64_defconfig
-  else
-        KBUILD_DEFCONFIG := i386_defconfig
-  endif
-else
-        KBUILD_DEFCONFIG := $(ARCH)_defconfig
-endif
 
 # For gcc stack alignment is specified with -mpreferred-stack-boundary,
 # clang has the option -mstack-alignment for that purpose.
@@ -53,40 +46,40 @@ KBUILD_CFLAGS += -mno-sse -mno-mmx -mno-sse2 -mno-3dnow -mno-avx
 # Intel CET isn't enabled in the kernel
 KBUILD_CFLAGS += $(call cc-option,-fcf-protection=none)
 
-ifeq ($(CONFIG_X86_32),y)
-        BITS := 32
-        UTS_MACHINE := i386
-        CHECKFLAGS += -D__i386__
-
-        KBUILD_AFLAGS += -m32
-        KBUILD_CFLAGS += -m32
-
-        KBUILD_CFLAGS += -msoft-float -mregparm=3 -freg-struct-return
+#ifeq ($(CONFIG_X86_32),y)
+#        BITS := 32
+#        UTS_MACHINE := i386
+#        CHECKFLAGS += -D__i386__
+#
+#        KBUILD_AFLAGS += -m32
+#        KBUILD_CFLAGS += -m32
+#
+#        KBUILD_CFLAGS += -msoft-float -mregparm=3 -freg-struct-return
 
         # Never want PIC in a 32-bit kernel, prevent breakage with GCC built
         # with nonstandard options
-        KBUILD_CFLAGS += -fno-pic
+#        KBUILD_CFLAGS += -fno-pic
 
         # Align the stack to the register width instead of using the default
         # alignment of 16 bytes. This reduces stack usage and the number of
         # alignment instructions.
-        KBUILD_CFLAGS += $(cc_stack_align4)
+#        KBUILD_CFLAGS += $(cc_stack_align4)
 
         # CPU-specific tuning. Anything which can be shared with UML should go here.
-        include $(srctree)/arch/x86/Makefile_32.cpu
-        KBUILD_CFLAGS += $(cflags-y)
+#        include $(srctree)/arch/x86/Makefile_32.cpu
+#        KBUILD_CFLAGS += $(cflags-y)
 
         # temporary until string.h is fixed
-        KBUILD_CFLAGS += -ffreestanding
+#        KBUILD_CFLAGS += -ffreestanding
 
-	ifeq ($(CONFIG_STACKPROTECTOR),y)
-		ifeq ($(CONFIG_SMP),y)
-			KBUILD_CFLAGS += -mstack-protector-guard-reg=fs -mstack-protector-guard-symbol=__stack_chk_guard
-		else
-			KBUILD_CFLAGS += -mstack-protector-guard=global
-		endif
-	endif
-else
+#	ifeq ($(CONFIG_STACKPROTECTOR),y)
+#		ifeq ($(CONFIG_SMP),y)
+#			KBUILD_CFLAGS += -mstack-protector-guard-reg=fs -mstack-protector-guard-symbol=__stack_chk_guard
+#		else
+#			KBUILD_CFLAGS += -mstack-protector-guard=global
+#		endif
+#	endif
+#else
         BITS := 64
         UTS_MACHINE := x86_64
         CHECKFLAGS += -D__x86_64__
@@ -126,22 +119,22 @@ else
 
         KBUILD_CFLAGS += -mno-red-zone
         KBUILD_CFLAGS += -mcmodel=kernel
-endif
+#endif
 
-ifdef CONFIG_X86_X32
-	x32_ld_ok := $(call try-run,\
-			/bin/echo -e '1: .quad 1b' | \
-			$(CC) $(KBUILD_AFLAGS) -c -x assembler -o "$$TMP" - && \
-			$(OBJCOPY) -O elf32-x86-64 "$$TMP" "$$TMP.o" && \
-			$(LD) -m elf32_x86_64 "$$TMP.o" -o "$$TMP",y,n)
-        ifeq ($(x32_ld_ok),y)
-                CONFIG_X86_X32_ABI := y
-                KBUILD_AFLAGS += -DCONFIG_X86_X32_ABI
-                KBUILD_CFLAGS += -DCONFIG_X86_X32_ABI
-        else
-                $(warning CONFIG_X86_X32 enabled but no binutils support)
-        endif
-endif
+#ifdef CONFIG_X86_X32
+#	x32_ld_ok := $(call try-run,\
+#			/bin/echo -e '1: .quad 1b' | \
+#			$(CC) $(KBUILD_AFLAGS) -c -x assembler -o "$$TMP" - && \
+#			$(OBJCOPY) -O elf32-x86-64 "$$TMP" "$$TMP.o" && \
+#			$(LD) -m elf32_x86_64 "$$TMP.o" -o "$$TMP",y,n)
+ #       ifeq ($(x32_ld_ok),y)
+#                CONFIG_X86_X32_ABI := y
+#                KBUILD_AFLAGS += -DCONFIG_X86_X32_ABI
+#                KBUILD_CFLAGS += -DCONFIG_X86_X32_ABI
+#        else
+#                $(warning CONFIG_X86_X32 enabled but no binutils support)
+#        endif
+#endif
 export CONFIG_X86_X32_ABI
 
 #

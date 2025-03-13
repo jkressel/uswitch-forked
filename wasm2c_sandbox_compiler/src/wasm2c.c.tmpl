@@ -104,6 +104,20 @@ void WASM2C_MALLOC_FAIL_CALLBACK(u32 ptr_size);
 #  define MEM_ACCESS_REF(mem, addr) (char*) addr
 #endif
 
+#ifdef __GNUC__
+#define wasm_asm __asm__
+#else
+#define wasm_asm(X)
+#endif
+
+#ifndef WABT_BIG_ENDIAN
+#  if __BYTE_ORDER__ == __ORDER_BIG_ENDIAN__
+#    define WABT_BIG_ENDIAN 1
+#  elif __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
+#    define WABT_BIG_ENDIAN 0
+#  endif
+#endif
+
 #if WABT_BIG_ENDIAN
 static inline void load_data(void *dest, const void *src, size_t n) {
   size_t i = 0;
@@ -126,6 +140,7 @@ static inline void load_data(void *dest, const void *src, size_t n) {
     t1 result;                                                                             \
     memcpy(&result, MEM_ACCESS_REF(mem, mem->size - addr - sizeof(t1)), sizeof(t1));       \
     WASM2C_SHADOW_MEMORY_LOAD(mem, func_name, mem->size - addr - sizeof(t1), sizeof(t1));  \
+    wasm_asm("" ::"r"(result));                                                            \
     return (t3)(t2)result;                                                                 \
   }
 
@@ -133,8 +148,8 @@ static inline void load_data(void *dest, const void *src, size_t n) {
   static inline void name(wasm_rt_memory_t* mem, u64 addr, t2 value, const char* func_name) { \
     MEMCHECK(mem, addr, t1);                                                                  \
     t1 wrapped = (t1)value;                                                                   \
-    memcpy(MEM_ACCESS_REF(mem, mem->size - addr - sizeof(t1), &wrapped, sizeof(t1));          \
-    WASM2C_SHADOW_MEMORY_STORE(mem, func_name, mem->size - addr - sizeof(t1)), sizeof(t1));   \
+    memcpy(MEM_ACCESS_REF(mem, mem->size - addr - sizeof(t1)), &wrapped, sizeof(t1));         \
+    WASM2C_SHADOW_MEMORY_STORE(mem, func_name, mem->size - addr - sizeof(t1), sizeof(t1));    \
   }
 #else
 static inline void load_data(void *dest, const void *src, size_t n) {
@@ -151,6 +166,7 @@ static inline void load_data(void *dest, const void *src, size_t n) {
     t1 result;                                                                      \
     memcpy(&result, MEM_ACCESS_REF(mem, addr), sizeof(t1));                         \
     WASM2C_SHADOW_MEMORY_LOAD(mem, func_name, addr, sizeof(t1));                    \
+    wasm_asm("" ::"r"(result));                                                     \
     return (t3)(t2)result;                                                          \
   }
 
@@ -399,6 +415,7 @@ static void* create_wasm2c_sandbox(uint32_t max_wasm_pages) {
   init_table(sbx);
   wasm_rt_init_wasi(&(sbx->wasi_data));
   init_module_starts();
+  // w2c___wasm_call_ctors(sbx);
   return sbx;
 }
 
