@@ -15,6 +15,7 @@ struct sigaction;
 USWITCH_PUBLIC int uswitch_start(uswctx_t ctx, void (*entry)(void *), void *data);
 USWITCH_PUBLIC int uswitch_resume(uswctx_t ctx);
 USWITCH_PUBLIC int uswitch_yield();
+USWITCH_PUBLIC int get_pkey(USwitchContext *ctx);
 USWITCH_PUBLIC void uswitch_ret();
 USWITCH_PUBLIC int uswitch_init(int flags);
 USWITCH_PUBLIC int uswitch_new_context(uswctx_t *ctx, void *stack, size_t stack_size, void *userdata1, void *userdata2);

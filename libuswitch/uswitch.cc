@@ -172,7 +172,7 @@ struct MemoryMap {
 
 enum PkeyMapping {
     PkeyDefault,
-    PkeyReadonly,
+    PkeyReadonly = 2,
     PkeyShared,
     PkeySandbox,
 };
@@ -330,18 +330,23 @@ constexpr static size_t AltSignalStackSize = 4096 * 2;
 // alt stack is only used to store the signal frame
 
 extern "C" int uswitch_init(int flags) {
+    printf("uswitch init\n");
     USwitchReadonlyState &uswitch_rostate = get_uswitch_rostate();
     if (uswitch_rostate.has_init) {
         return -1;
     }
+    printf("uswitch init1\n");
     if ((unsigned long)&uswitch_rostate & 0xfff) {
         return -1;
     }
+    printf("uswitch init2\n");
     if (!uswitch_prstate.has_init) {
         if (uswitch_process_init() == -1) {
+	    printf("failed process init\n");
             return -1;
         }
     }
+    printf("uswitch init3\n");
 #ifdef __GLIBC_HAVE_KERNEL_RSEQ
     uintptr_t thread_pointer = (uintptr_t)__builtin_thread_pointer();
     uintptr_t rseq_addr = thread_pointer + __rseq_offset;
@@ -350,9 +355,12 @@ extern "C" int uswitch_init(int flags) {
 #endif
     uswitch_rostate.cid = 0;
     uswitch_rostate.ctx = nullptr;
+    printf("uswitch init4\n");
     if (pkey_mprotect((void *)&uswitch_rostate, 4096, PROT_READ | PROT_WRITE, PkeyReadonly) == -1) {
+	printf("uswitch init4.5\n");
         return -1;
     }
+    printf("uswitch init5\n");
 #ifdef USWITCH_ONLYMEMPROT
     uswitch_state.kernel_cid = new int[2];
 #else
@@ -375,9 +383,11 @@ extern "C" int uswitch_init(int flags) {
         // the first page of the signal stack is readonly to the sandboxes
         // because sigreturn requires the stack frame be readable after
         // restoring pkru
+	printf("uswitch init6\n");
         if (pkey_mprotect(uswitch_state.signal_stack_base, 4096, PROT_WRITE | PROT_READ, PkeyReadonly) == -1) {
             return -1;
         }
+	printf("uswitch ini7\n");
         uswitch_state.signal_stack_size = SignalStackSize;
         uswitch_state.signal_stack = uswitch_state.signal_stack_base + SignalStackSize;
         uswitch_state.signal_alt_stack = (uint8_t *)mmap(nullptr, AltSignalStackSize, PROT_WRITE | PROT_READ,
@@ -388,10 +398,12 @@ extern "C" int uswitch_init(int flags) {
             return -1;
         }
         // the alt signal stack should be writable from all contexts
+	printf("uswitch init8\n");
         if (pkey_mprotect(uswitch_state.signal_alt_stack, AltSignalStackSize,
                 PROT_WRITE | PROT_READ, PkeyShared) == -1) {
             return -1;
         }
+	printf("uswitch init9\n");
         stack_t stack;
         stack.ss_flags = 0;
         stack.ss_sp = uswitch_state.signal_alt_stack;
@@ -400,6 +412,7 @@ extern "C" int uswitch_init(int flags) {
             return -1;
         }
     }
+    printf("uswitch init10\n");
     asm volatile ("wrgsbase %0" :: "r" (&uswitch_function_table));
     uswitch_rostate.has_init = true;
     uswitch_state.signal_number = -1;
@@ -411,10 +424,13 @@ extern "C" int uswitch_new_context(USwitchContext **ctx_, void *stack, size_t st
     void *userdata1, void *userdata2) {
     USwitchReadonlyState &uswitch_rostate = get_uswitch_rostate();
     if (!uswitch_rostate.has_init || uswitch_rostate.cid != 0) {
+	    printf("Prob with rostate, %d, cid %d\n", uswitch_rostate.has_init, uswitch_rostate.cid);
         return -1;
     }
     int new_vpkey;
+    printf("Pre new context\n");
     USwitchProcessContext *pctx = new USwitchProcessContext;
+    printf("Post new context %p\n", pctx);
     pctx->ref = 1;
     pctx->max_callback_id = 1;
     {
@@ -432,10 +448,13 @@ extern "C" int uswitch_new_context(USwitchContext **ctx_, void *stack, size_t st
 #else
     int cid = (int)syscall(450, USWITCH_CLONE_FD_COPY | USWITCH_CLONE_FS_COPY);
 #endif
+    printf("Cid\n");
     if (cid < 0) {
         return -1;
     }
+    printf("Pre new context1\n");
     USwitchContext *ctx = new USwitchContext;
+    printf("Post new context 1 %p\n", ctx);
     ctx->cid = cid;
     ctx->stack_base = (uint8_t *)stack;
     ctx->stack_size = stack_size;
@@ -1412,16 +1431,19 @@ fail:
 }
 
 int uswitch_process_init() {
+    printf("Do this\n");
     if (uswitch_prstate.has_init) {
+	printf("Do this1\n");
         return -1;
     }
     USWITCH_MT(std::lock_guard<std::mutex> lock(uswitch_prstate.mutex));
-    if (!inspect_code()) {
-        return -1;
-    }
+//    if (!inspect_code()) {
+//        return -1;
+//    }
     bool fail = false;
     int i;
-    for (i = 1; i < 16; ++i) {
+    for (i = 1; i < 15; ++i) {
+	    printf("Pkey alloc\n");
         if (pkey_alloc(0, 0) == -1) {
             fail = true;
             break;
@@ -1431,13 +1453,17 @@ int uswitch_process_init() {
         for (int j = 1; i < i; ++j) {
             pkey_free(j);
         }
+	printf("Do this2\n");
         return -1;
     }
+    printf("Do this3\n");
     for (int i = 0; i < 16; ++i) {
         uswitch_prstate.pkeys[i].vpkey = -1;
         uswitch_prstate.pkeys[i].ref = 0;
     }
+    printf("Do this4\n");
     if (pkey_mprotect(&uswitch_function_table, 4096, PROT_WRITE | PROT_READ, PkeyReadonly) == -1) {
+	    printf("Do this5\n");
         return -1;
     }
     uswitch_function_table.uswitch_current = uswitch_current_;
@@ -1474,6 +1500,10 @@ int reset_pkey(int vpkey, int pkey) {
         }
     }
     return fail ? -1 : 0;
+}
+
+extern "C" int get_pkey(USwitchContext *ctx) {
+  return ctx->process_context->pkey;
 }
 
 int get_real_pkey(int vpkey, int old_pkey) {

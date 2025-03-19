@@ -14,26 +14,26 @@
 
 void *msp;
 
-void *__libc_malloc_impl(size_t size) {
-    return mspace_malloc(msp, size);
-}
+//void *__libc_malloc_impl(size_t size) {
+//    return mspace_malloc(msp, size);
+//}
 
-void *__libc_realloc(void *ptr, size_t size) {
-    return mspace_realloc(msp, ptr, size);
-}
+//void *__libc_realloc(void *ptr, size_t size) {
+//    return mspace_realloc(msp, ptr, size);
+//}
 
-void __libc_free(void *ptr) {
-    mspace_free(msp, ptr);
-}
+//void __libc_free(void *ptr) {
+//    mspace_free(msp, ptr);
+//}
 
-void *aligned_alloc(size_t align, size_t size) {
-    return mspace_memalign(msp, align, size);
-}
+//void *aligned_alloc(size_t align, size_t size) {
+//    return mspace_memalign(msp, align, size);
+//}
 
-void malloc_init(void *base, size_t size) {
-    msp = create_mspace_with_base(base, size, 1);
-}
+//void malloc_init(void *base, size_t size) {
+//    msp = create_mspace_with_base(base, size, 1);
+//}
 
-void __malloc_donate(char *start, char *end) {
+//void __malloc_donate(char *start, char *end) {
     // do nothing
-}
+//}

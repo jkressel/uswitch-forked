@@ -17,6 +17,7 @@ static uint64_t time_nanosec() {
 }
 
 static void load_jpeg_file(USwitchSandbox *sandbox, uint8_t *input, size_t size) {
+	printf("Do malloc in sandbox\n");
     struct jpeg_decompress_struct *cinfo = (struct jpeg_decompress_struct *)sandbox->malloc_in_sandbox(sizeof(struct jpeg_decompress_struct));
     struct jpeg_error_mgr *jerr = (struct jpeg_error_mgr *)sandbox->malloc_in_sandbox(sizeof(struct jpeg_error_mgr));
     uint8_t *sandbox_buffer = (uint8_t *)sandbox->malloc_in_sandbox(size);
@@ -30,10 +31,13 @@ static void load_jpeg_file(USwitchSandbox *sandbox, uint8_t *input, size_t size)
     GET_FUNC_PTR(jpeg_finish_decompress);
     GET_FUNC_PTR(jpeg_destroy_decompress);
 #undef GET_FUNC_PTR
-
+    printf("Did mallocs\n");
     uswctx_t ctx = sandbox->get_context();
+    printf("Got context\n");
     memcpy(sandbox_buffer, input, size);
+    printf("Did memcpy\n");
     uswitch_call_dynamic(ctx, jpeg_std_error_s, cinfo->err, jerr);
+    printf("Did first call\n");
     uswitch_call_dynamic(ctx, jpeg_CreateDecompress_s, cinfo, JPEG_LIB_VERSION, sizeof(struct jpeg_decompress_struct));
     uswitch_call_dynamic(ctx, jpeg_mem_src_s, cinfo, sandbox_buffer, size);
     uswitch_call_dynamic(ctx, jpeg_read_header_s, nullptr, cinfo, TRUE);
@@ -73,7 +77,9 @@ int main(int argc, char **argv) {
         return 1;
     }
     USwitchSandbox sandbox("../libraries_uswitch/libjpeg/libjpeg.so", 1024l << 20, 2l << 20);
+    printf("Created sandbox\n");
     sandbox.init();
+    printf("Did init\n");
 
     static const std::vector<unsigned int> AllowedSyscalls {
 #ifdef ONLYMEMPROT

@@ -5,7 +5,7 @@
 top_srcdir	= ..
 srcdir		= .
 
-prefix		= /usr/local
+prefix		= /usr
 exec_prefix	= ${prefix}
 bindir		= ${exec_prefix}/bin
 mandir		= ${datarootdir}/man
