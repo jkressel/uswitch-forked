@@ -81,6 +81,26 @@ int main(int argc, char **argv) {
     }
     USwitchSandbox sandbox("../libraries_uswitch/libvpx/libvpx.so.4.1.0", 4096l << 20, 2l << 20);
     sandbox.init();
+    USwitchSandbox sandbox1("../libraries_uswitch/libvpx/libvpx.so.4.1.0", 4096l << 20, 2l << 20);
+    sandbox1.init();
+    USwitchSandbox sandbox2("../libraries_uswitch/libvpx/libvpx.so.4.1.0", 4096l << 20, 2l << 20);
+    sandbox2.init();
+    USwitchSandbox sandbox3("../libraries_uswitch/libvpx/libvpx.so.4.1.0", 4096l << 20, 2l << 20);
+    sandbox3.init();
+    USwitchSandbox sandbox4("../libraries_uswitch/libvpx/libvpx.so.4.1.0", 4096l << 20, 2l << 20);
+    sandbox4.init();
+    USwitchSandbox sandbox5("../libraries_uswitch/libvpx/libvpx.so.4.1.0", 4096l << 20, 2l << 20);
+    sandbox5.init();
+    USwitchSandbox sandbox6("../libraries_uswitch/libvpx/libvpx.so.4.1.0", 4096l << 20, 2l << 20);
+    sandbox6.init();
+    USwitchSandbox sandbox7("../libraries_uswitch/libvpx/libvpx.so.4.1.0", 4096l << 20, 2l << 20);
+    sandbox7.init();
+    USwitchSandbox sandbox8("../libraries_uswitch/libvpx/libvpx.so.4.1.0", 4096l << 20, 2l << 20);
+    sandbox8.init();
+    USwitchSandbox sandbox9("../libraries_uswitch/libvpx/libvpx.so.4.1.0", 4096l << 20, 2l << 20);
+    sandbox9.init();
+    USwitchSandbox sandbox10("../libraries_uswitch/libvpx/libvpx.so.4.1.0", 4096l << 20, 2l << 20);
+    sandbox10.init();
     static const std::vector<unsigned int> AllowedSyscalls {__NR_exit, __NR_futex, __NR_sched_yield, 451,
 #ifdef ONLYMEMPROT
         __NR_brk, __NR_mmap, __NR_munmap,
@@ -93,11 +113,31 @@ int main(int argc, char **argv) {
 #endif
     };
     sandbox.init_seccomp(AllowedSyscalls);
+    sandbox1.init_seccomp(AllowedSyscalls);
+    sandbox2.init_seccomp(AllowedSyscalls);
+    sandbox3.init_seccomp(AllowedSyscalls);
+    sandbox4.init_seccomp(AllowedSyscalls);
+    sandbox5.init_seccomp(AllowedSyscalls);
+    sandbox6.init_seccomp(AllowedSyscalls);
+    sandbox7.init_seccomp(AllowedSyscalls);
+    sandbox8.init_seccomp(AllowedSyscalls);
+    sandbox9.init_seccomp(AllowedSyscalls);
+    sandbox10.init_seccomp(AllowedSyscalls);
     if (print) {
         std::vector<uint64_t> times(n);
         for (int i= 0; i < n; ++i) {
             uint64_t t1 = time_nanosec();
             load_vp9_file(&sandbox, threads, input, size);
+	    load_vp9_file(&sandbox1, threads, input, size);
+	    load_vp9_file(&sandbox2, threads, input, size);
+	    load_vp9_file(&sandbox3, threads, input, size);
+	    load_vp9_file(&sandbox4, threads, input, size);
+	    load_vp9_file(&sandbox5, threads, input, size);
+	    load_vp9_file(&sandbox6, threads, input, size);
+	    load_vp9_file(&sandbox7, threads, input, size);
+	    load_vp9_file(&sandbox8, threads, input, size);
+	    load_vp9_file(&sandbox9, threads, input, size);
+	    load_vp9_file(&sandbox10, threads, input, size);
             uint64_t t2 = time_nanosec();
             times[i] = t2 - t1;
         }
@@ -109,5 +149,6 @@ int main(int argc, char **argv) {
             load_vp9_file(&sandbox, threads, input, size);
         }
     }
+    sleep(2000);
     return 0;
 }

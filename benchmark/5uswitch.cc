@@ -40,5 +40,6 @@ int main(int argc, char **argv) {
     }
     uint64_t t2 = time_nanosec();
     std::cout << (double)(t2 - t1) / n << std::endl;
+    sleep(2000);
     return 0;
 }

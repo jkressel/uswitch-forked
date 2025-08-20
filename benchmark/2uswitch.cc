@@ -105,5 +105,6 @@ int main(int argc, char **argv) {
         std::cout << times[i] << std::endl;
     }
     //printf("%lu\n", (t2 - t1) / n);
+    sleep(2000);
     return 0;
 }

@@ -274,5 +274,6 @@ main(int argc, char **argv)
     }
 
     uswitch_call_dynamic(ctx, event_base_dispatch_s, nullptr, base);
+    sleep(2000);
     return 0;
 }

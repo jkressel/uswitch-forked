@@ -6,7 +6,7 @@
 #include <cinttypes>
 #include <cstring>
 #include <sys/syscall.h>
-#include "jpeglib.h"
+#include "testtest.h"
 #include "uswitchsandbox.h"
 #include "uswitch.hpp"
 
@@ -19,9 +19,7 @@ static uint64_t time_nanosec() {
 }
 
 static void load_jpeg_file(USwitchSandbox *sandbox, uint8_t *input, size_t size) {
-    struct jpeg_decompress_struct *cinfo = (struct jpeg_decompress_struct *)sandbox->malloc_in_sandbox(sizeof(struct jpeg_decompress_struct));
-    struct jpeg_error_mgr *jerr = (struct jpeg_error_mgr *)sandbox->malloc_in_sandbox(sizeof(struct jpeg_error_mgr));
-    uint8_t *sandbox_buffer = (uint8_t *)sandbox->malloc_in_sandbox(size);
+    printf("In sandbox\n");
     sandbox->malloc_in_sandbox(27);
     sandbox->malloc_in_sandbox(27);
     sandbox->malloc_in_sandbox(27);
@@ -42,33 +40,12 @@ static void load_jpeg_file(USwitchSandbox *sandbox, uint8_t *input, size_t size)
     sandbox->malloc_in_sandbox(278);
     sandbox->malloc_in_sandbox(2784);
 #define GET_FUNC_PTR(name) decltype(name) *name##_s = (decltype(name) *)sandbox->get_symbol_addr(#name)
-    GET_FUNC_PTR(jpeg_CreateDecompress);
-    GET_FUNC_PTR(jpeg_std_error);
-    GET_FUNC_PTR(jpeg_mem_src);
-    GET_FUNC_PTR(jpeg_read_header);
-    GET_FUNC_PTR(jpeg_start_decompress);
-    GET_FUNC_PTR(jpeg_read_scanlines);
-    GET_FUNC_PTR(jpeg_finish_decompress);
-    GET_FUNC_PTR(jpeg_destroy_decompress);
+    GET_FUNC_PTR(testtest);
 #undef GET_FUNC_PTR
     uswctx_t ctx = sandbox->get_context();
-    memcpy(sandbox_buffer, input, size);
-    uswitch_call_dynamic(ctx, jpeg_std_error_s, cinfo->err, jerr);
-    uswitch_call_dynamic(ctx, jpeg_CreateDecompress_s, cinfo, JPEG_LIB_VERSION, sizeof(struct jpeg_decompress_struct));
-    uswitch_call_dynamic(ctx, jpeg_mem_src_s, cinfo, sandbox_buffer, size);
-    uswitch_call_dynamic(ctx, jpeg_read_header_s, nullptr, cinfo, TRUE);
-    uswitch_call_dynamic(ctx, jpeg_start_decompress_s, nullptr, cinfo);
-    int row_stride = cinfo->output_width * cinfo->output_components;
-    JSAMPARRAY buffer;
-    uswitch_call_dynamic(ctx, cinfo->mem->alloc_sarray, buffer, (j_common_ptr)cinfo, JPOOL_IMAGE, row_stride, 1);
-    while (cinfo->output_scanline < cinfo->output_height) {
-        uswitch_call_dynamic(ctx, jpeg_read_scanlines_s, nullptr, cinfo, buffer, 1);
-    }
-    uswitch_call_dynamic(ctx, jpeg_finish_decompress_s, nullptr, cinfo);
-    uswitch_call_dynamic(ctx, jpeg_destroy_decompress_s, cinfo);
-    sandbox->free_in_sandbox(sandbox_buffer);
-    sandbox->free_in_sandbox(cinfo);
-    sandbox->free_in_sandbox(jerr);
+    int ret;
+    uswitch_call_dynamic(ctx, testtest_s, ret);
+    printf("Return value %d\n", ret);
 }
 
 int main(int argc, char **argv) {
@@ -94,10 +71,11 @@ int main(int argc, char **argv) {
         return 1;
     }
 
+//printf("Number %d\n", testtest());
     std::vector<USwitchSandbox*> sandboxes;
 
     for (int i = 0; i < comps; i++) {
-	sandboxes.push_back(new USwitchSandbox("../libraries_uswitch/libjpeg/libjpeg.so", 1024l << 20, 2l << 20));
+	sandboxes.push_back(new USwitchSandbox("/home/dev/uswitch-standard/benchmark/libhello.so", 1024l << 20, 2l << 20));
     	sandboxes[i]->init();
 
     }

@@ -7,7 +7,8 @@ all: test1-native test1-uswitch  \
 	test4-native test4-uswitch  \
 	test5-native test5-uswitch  \
 	test6-native test6-uswitch  \
-	test8-native test8-uswitch 
+	test8-native test8-uswitch  \
+	test15-uswitch testtest-uswitch
 test1-ps: 1ps.cc
 	$(CXX) 1ps.cc -std=c++17 -O3 -g -o test1-ps -I../libraries_uswitch/libjpeg -I./ProcessSandbox \
 		-L./ProcessSandbox -lProcessSandbox_jpeg64 -pthread -lrt
@@ -87,6 +88,15 @@ test8-uswitch: 8uswitch.cc
 test8-ps: 8ps.cc
 	$(CXX) 8ps.cc -std=c++17 -O3 -g -o test8-ps -I../libraries_uswitch/libevent/include -I./ProcessSandbox \
 		-L./ProcessSandbox -lProcessSandbox_event64 -pthread -lrt
+
+test15-uswitch: 15comps.cc
+	cc $(CFLAGS) ../../allocator/SlimGuard/slimguard-standalone.c -shared -fPIC -o sg.o
+	$(CXX) -std=c++17 -O3 -g -o test15-uswitch -I../libraries_uswitch/libjpeg -I../libraries_native/libpng -I../libuswitch -I../rlbox_uswitch/ \
+                15comps.cc ../libuswitch/libuswitch.a ../rlbox_uswitch/librlbox_uswitch.a sg.o -ldl -pthread
+
+testtest-uswitch: testuswitch.cc
+	$(CXX) -std=c++17 -O3 -g -o testtest-uswitch -I./ -I../libuswitch -I../rlbox_uswitch/ \
+		testuswitch.cc -L/home/dev/uswitch-standard/benchmark/ ../libuswitch/libuswitch.a ../rlbox_uswitch/librlbox_uswitch.a  -ldl -pthread
 clean:
 	rm -f test1-ps test1-native test1-uswitch test1-wasm \
 		test2-native test2-uswitch test2-wasm test2-ps \
@@ -94,4 +104,4 @@ clean:
 		test4-native test4-uswitch test4-wasm test4-ps \
 		test5-native test5-uswitch test5-wasm test5-ps \
 		test6-native test6-uswitch test6-wasm test6-ps \
-		test8-native test8-uswitch test8-ps sg.o
+		test8-native test8-uswitch test8-ps sg.o test15-uswitch
