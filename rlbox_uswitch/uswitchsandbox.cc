@@ -295,9 +295,7 @@ USwitchSandbox::~USwitchSandbox() {
 static std::string get_shared_object_copy(const std::string &filename);
 
 bool USwitchSandbox::init() {
-    printf("start init\n");
     if (has_init) {
-	printf("start init has init\n");
         return false;
     }
     //handle = dlopen(get_shared_object_copy(library).c_str(), RTLD_NOW | RTLD_DEEPBIND);
@@ -313,9 +311,7 @@ bool USwitchSandbox::init() {
     }
     tls_segment.addr_start = 0;
     tls_segment.addr_end = 0;
-    printf("init uswitch init pre\n");
     uswitch_init(0);
-    printf("init uswitch init post\n");
     if (!get_dl_segments(handle, tls_segment, rw_segments)) {
         return false;
     }
@@ -368,7 +364,6 @@ bool USwitchSandbox::init() {
     thread_occupied.resize(max_threads);
     thread_occupied[0] = 1;
     if (!init_hook() || !init_callback()) {
-	    printf("interesting\n");
         return false;
     }
     uswitch_set_cleanup_routine(main_ctx, [] (uswctx_t ctx, void *userdata1, void *userdata2) {
@@ -630,7 +625,6 @@ USwitchThread *USwitchSandbox::init_thread() {
     thread_occupied[thread_index] = 1;
     ++num_threads;
     USwitchThread *th = new USwitchThread;
-    printf("USwitch thread %p\n", th);
     th->ctx = new_ctx;
     th->stack = stack_start + thread_index * stack_size;
     th->stack_size = stack_size;
@@ -666,28 +660,24 @@ USwitchThread *USwitchSandbox::init_thread() {
 void *USwitchSandbox::malloc_in_sandbox(size_t size) {
     void *ret = nullptr;
     uswctx_t ctx = get_context();
-    printf("sandbox malloc get context\n");
     if (!ctx) {
         return nullptr;
     }
-    //printf("Sandbox pkey = %d\n", get_pkey(ctx));
+    printf("Sandbox pkey = %d\n", get_pkey(ctx));
 //    uswitch_call_dynamic(ctx, malloc_addr, ret, size);
     ret = sg_malloc(size, get_pkey(ctx));
 
-    printf("sandbox malloc did malloc\n");
     
     return ret;
 }
 
 void USwitchSandbox::free_in_sandbox(void *ptr) {
     uswctx_t ctx = get_context();
-    printf("sandbox Free get context\n");
     if (!ctx) {
         return;
     }
     //printf("Sandbox free pkey = %d\n", get_pkey(ctx));
   // uswitch_call_dynamic(ctx, free_addr, ptr);
-    printf("sandbox Free do free\n");
     sg_free(ptr, get_pkey(ctx));
 }
 
