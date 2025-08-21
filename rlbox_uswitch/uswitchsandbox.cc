@@ -37,6 +37,7 @@ const std::vector<unsigned int> USwitchSandbox::DefaultTrappedSyscalls;
 
 extern "C" void* sg_malloc(size_t, uint8_t);
 extern "C" void sg_free(void*, uint8_t);
+extern "C" int init_delegation(int in_pkey, int allocator_pkey, size_t quota, int alloc_only);
 
 static void print_map() {
     std::ifstream ifs("/proc/self/maps");
@@ -459,6 +460,9 @@ void *USwitchSandbox::get_symbol_addr(const char *symbol) {
     if (!has_init || !handle) {
         return nullptr;
     }
+    //if (strcmp(symbol, "malloc") == 0) {
+	//fprintf(stderr, "%s\n", symbol);
+//	   }
     return dlsym(handle, symbol);
 }
 
@@ -468,7 +472,7 @@ bool USwitchSandbox::init_hook() {
         void (*free)(void *);
     };
     typedef FuncAddr (*set_uswitch_functions_t)(int, void *, size_t,
-        void *, void*, void *, void *, void *, void *, void *, void *, void *, void *);
+        void *, void*, void *, void *, void *, void *, void *, void *, void *, void *, void *, void*);
     set_uswitch_functions_t set_uswitch_functions = (set_uswitch_functions_t)dlsym(handle, "set_uswitch_functions");
     if (!set_uswitch_functions) {
         return false;
@@ -488,7 +492,7 @@ bool USwitchSandbox::init_hook() {
         tid, memory, heap_size,
         (void *)pthread_create_hook, (void *)pthread_join_hook, (void *)pthread_detach_hook, (void *)pthread_exit_hook,
         (void *)mmap_hook, (void *)munmap_hook, (void *)mremap_hook, (void *)mprotect_hook,
-        (void *)uswitch_callback, (void *)get_thread_pointer) == -1) {
+        (void *)uswitch_callback, (void *)get_thread_pointer, (void*)malloc_in_sandbox_hook, (void*)free_in_sandbox_hook) == -1) {
         return false;
     }
     malloc_addr = malloc;
@@ -521,7 +525,9 @@ bool USwitchSandbox::init_callback() {
         uswitch_register_callback_dynamic(main_ctx, mmap_callback, this) != CallbackIDMmap ||
         uswitch_register_callback_dynamic(main_ctx, munmap_callback, this) != CallbackIDMunmap ||
         uswitch_register_callback_dynamic(main_ctx, mremap_callback, this) != CallbackIDMremap ||
-        uswitch_register_callback_dynamic(main_ctx, mprotect_callback, this) != CallbackIDMprotect) {
+        uswitch_register_callback_dynamic(main_ctx, mprotect_callback, this) != CallbackIDMprotect ||
+	uswitch_register_callback_dynamic(main_ctx, malloc_in_sandbox_callback, this) != CallbackIDMmallocsb ||
+	uswitch_register_callback_dynamic(main_ctx, free_in_sandbox_callback, this) != CallbackIDMfreesb) {
         return false;
     }
     register_syscall_handler(__NR_rt_sigaction,
@@ -663,12 +669,29 @@ void *USwitchSandbox::malloc_in_sandbox(size_t size) {
     if (!ctx) {
         return nullptr;
     }
-    printf("Sandbox pkey = %d\n", get_pkey(ctx));
+    //printf("Sandbox pkey = %d\n", get_pkey(ctx));
 //    uswitch_call_dynamic(ctx, malloc_addr, ret, size);
     ret = sg_malloc(size, get_pkey(ctx));
 
     
     return ret;
+}
+
+void* USwitchSandbox::malloc_in_sandbox_callback(uswctx_t ctx, void *data, size_t size) {
+	void *ret = nullptr;
+    if (!ctx) {
+        return nullptr;
+    }
+    //printf("Sandbox pkey1 = %d\n", get_pkey(ctx));
+//    uswitch_call_dynamic(ctx, malloc_addr, ret, size);
+    ret = sg_malloc(size, get_pkey(ctx));
+
+
+    return ret;	
+}
+
+NOCANARY void *USwitchSandbox::malloc_in_sandbox_hook(size_t size) {
+	return uswitch_callback_static(CallbackIDMmallocsb, void*(*)(size_t),size);
 }
 
 void USwitchSandbox::free_in_sandbox(void *ptr) {
@@ -681,9 +704,31 @@ void USwitchSandbox::free_in_sandbox(void *ptr) {
     sg_free(ptr, get_pkey(ctx));
 }
 
+void USwitchSandbox::free_in_sandbox_callback(uswctx_t ctx, void *data, void* ptr) {
+    if (!ctx) {
+        return;
+    }
+    //printf("Sandbox pkey1 = %d\n", get_pkey(ctx));
+//    uswitch_call_dynamic(ctx, malloc_addr, ret, size);
+    sg_free(ptr, get_pkey(ctx));
+
+}
+
+NOCANARY void USwitchSandbox::free_in_sandbox_hook(void* ptr) {
+        uswitch_callback_static(CallbackIDMmallocsb, void(*)(void*),ptr);
+}
+
+void USwitchSandbox::init_delegation(int quota, int alloc_only) {
+
+
+}
+
 NOCANARY void *USwitchSandbox::get_symbol_addr_in_sandbox(const char *symbol) {
     size_t len;
     for (len = 0; symbol[len]; ++len);
+    fprintf(stderr, "symbol %s\n", symbol);
+    if (!strcmp(symbol, "mspace malloc"))
+	    fprintf(stderr, "Caught malloc\n");
     return uswitch_callback_static(CallbackIDGetSymbol, void *(*)(const char *, size_t), symbol, len);
 }
 

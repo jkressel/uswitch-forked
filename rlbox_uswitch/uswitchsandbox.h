@@ -43,6 +43,8 @@ public:
         CallbackIDMunmap = 7,
         CallbackIDMremap = 8,
         CallbackIDMprotect = 9,
+	CallbackIDMmallocsb = 10,
+	CallbackIDMfreesb = 11,
         CallbackIDStart
     };
     enum class SeccompAction {
@@ -67,6 +69,7 @@ public:
     USWITCH_PUBLIC void *get_symbol_addr(const char *symbol);
     USWITCH_PUBLIC void *malloc_in_sandbox(size_t size);
     USWITCH_PUBLIC void free_in_sandbox(void *ptr);
+    USWITCH_PUBLIC void init_delegation(int quota, int alloc_only);
     USWITCH_PUBLIC bool init_seccomp(const std::vector<unsigned int> &allowed_syscalls,
         const std::vector<unsigned int> &trapped_syscalls = DefaultTrappedSyscalls,
         SeccompAction default_action = SeccompAction::SeccompKill);
@@ -91,6 +94,8 @@ private:
     static void *realloc_hook(void *ptr, size_t size);
     static void free_hook(void *ptr);
     static void *aligned_alloc_hook(size_t align, size_t len);
+    static void* malloc_in_sandbox_hook(size_t size);
+    static void free_in_sandbox_hook(void*);
     static int pthread_create_hook(pthread_t *thread, const pthread_attr_t *attr,
         void *(*start_routine)(void *), void *arg);
     static std::pair<int, pthread_t> pthread_create_callback(uswctx_t ctx, void *data,
@@ -112,6 +117,8 @@ private:
     static int munmap_callback(uswctx_t ctx, void *data, void *addr, size_t length);
     static void *mremap_callback(uswctx_t ctx, void *data, void *old_address, size_t old_size,
         size_t new_size, int flags, void *new_address);
+    static void* malloc_in_sandbox_callback(uswctx_t ctx, void *data,size_t size);
+    static void free_in_sandbox_callback(uswctx_t ctx, void *data,void* ptr);
     static int mprotect_callback(uswctx_t ctx, void *data, void *addr, size_t length, int prot);
     static uintptr_t get_thread_pointer();
     static void *thread_routine(void *data);

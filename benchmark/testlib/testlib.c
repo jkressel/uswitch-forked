@@ -6,7 +6,10 @@
 #include <malloc.h>
 
 int testtest() {
-	return 69;
+	fprintf(stderr, "Herro\n");
+	int *test = malloc(sizeof(int));
+	*test = 68;
+	return *test;
 }
 
 void testtest1() {

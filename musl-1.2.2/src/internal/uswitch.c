@@ -6,7 +6,7 @@
 
 //void *__dso_handle = (void *)&__dso_handle;
 
-extern void malloc_init(void *base, size_t size);
+extern void malloc_init(void *base, size_t size, void* mal);
 int (*pthread_create_hook)(pthread_t *thread, const pthread_attr_t *attr, void *(*start_routine)(void *), void *arg);
 int (*pthread_join_hook)(pthread_t thread, void **retval);
 int (*pthread_detach_hook)(pthread_t thread);
@@ -15,6 +15,8 @@ void *(*mmap_hook)(void *addr, size_t length, int prot, int flags, int fd, off_t
 int (*munmap_hook)(void *addr, size_t length);
 void *(*mremap_hook)(void *old_addr, size_t old_size, size_t new_size, int flags, void *new_addr);
 int (*mprotect_hook)(void *addr, size_t length, int prot);
+void* (*sg_malloc_hook)(size_t size);
+void (*sg_free_hook)(void* ptr);
 uintptr_t (*uswitch_get_tp)();
 
 int (*uswitch_callback)(int id, long *ret, long arg1, long arg2, long arg3,
@@ -63,7 +65,7 @@ struct set_uswitch_functions_ret_t set_uswitch_functions(
     void *heap_base, size_t heap_size,
     void *pthread_create_hook_, void *pthread_join_hook_, void *pthread_detach_hook_, void *pthread_exit_hook_,
     void *mmap_hook_, void *munmap_hook_, void *mremap_hook_, void *mprotect_hook_,
-    void *uswitch_callback_, void *uswitch_get_tp_) {
+    void *uswitch_callback_, void *uswitch_get_tp_, void* sg_malloc_hook_, void* sg_free_hook_) {
     pthread_create_hook = pthread_create_hook_;
     pthread_join_hook = pthread_join_hook_;
     pthread_detach_hook = pthread_detach_hook_;
@@ -73,9 +75,12 @@ struct set_uswitch_functions_ret_t set_uswitch_functions(
     mremap_hook = mremap_hook_;
     mprotect_hook = mprotect_hook_;
     uswitch_callback = uswitch_callback_;
+    //fprintf(stderr, "SG_MALLOC_HOOK ptr %p\n", sg_malloc_hook_);
+    sg_malloc_hook = sg_malloc_hook_;
+    sg_free_hook = sg_free_hook_;
     uswitch_get_tp = uswitch_get_tp_;
     uswitch_init_tp(tid);
-    malloc_init(heap_base, heap_size);
+    malloc_init(heap_base, heap_size, sg_malloc_hook);
     struct set_uswitch_functions_ret_t ret = {malloc, free};
     return ret;
 }
@@ -98,6 +103,15 @@ int pthread_cancel(pthread_t thread) {
 
 void pthread_exit(void *retval) {
 
+}
+
+void* malloc(size_t size) {
+	//fprintf(stderr, "malloc in musl\n");
+	return sg_malloc_hook(size);
+}
+
+void free(void* ptr) {
+	return sg_free_hook(ptr);
 }
 
 __asm__ (

@@ -5493,6 +5493,7 @@ size_t destroy_mspace(mspace msp) {
 */
 
 void* mspace_malloc(mspace msp, size_t bytes) {
+	fprintf(stderr, "mspace malloc\n");
   mstate ms = (mstate)msp;
   if (!ok_magic(ms)) {
     USAGE_ERROR_ACTION(ms,ms);

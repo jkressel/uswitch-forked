@@ -6,7 +6,7 @@ all: libhello.so
 .PHONY: all clean
 
 %.o: %.c
-	$(CC) -static $< -o $@ -fPIC -O3 -g -c -fno-stack-protector
+	$(CC) $< -o $@ -fPIC -O0 -g -c -fno-stack-protector
 %.o: %.asm
 	$(AS) $< -o $@ -f elf64 -I./simd/ -D__x86_64__ -DPIC -DELF
 libhello.so: $(OBJECTS)

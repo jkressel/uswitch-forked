@@ -19,7 +19,6 @@ static uint64_t time_nanosec() {
 }
 
 static void load_jpeg_file(USwitchSandbox *sandbox, uint8_t *input, size_t size) {
-    printf("In sandbox\n");
     sandbox->malloc_in_sandbox(27);
     sandbox->malloc_in_sandbox(27);
     sandbox->malloc_in_sandbox(27);
@@ -75,22 +74,20 @@ int main(int argc, char **argv) {
     std::vector<USwitchSandbox*> sandboxes;
 
     for (int i = 0; i < comps; i++) {
-	sandboxes.push_back(new USwitchSandbox("/home/dev/uswitch-standard/benchmark/libhello.so", 1024l << 20, 2l << 20));
+	sandboxes.push_back(new USwitchSandbox("/home/dev/uswitch/benchmark/libhello.so", 1024l << 20, 2l << 20));
     	sandboxes[i]->init();
 
     }
 
     static const std::vector<unsigned int> AllowedSyscalls {
-#ifdef ONLYMEMPROT
         __NR_brk, __NR_mmap, __NR_munmap,
         __NR_lseek, __NR_fstat, __NR_read, __NR_write,
         __NR_close, __NR_exit_group, __NR_newfstatat,
-#endif
         __NR_exit, __NR_futex, __NR_sched_yield, 451};
-    for (int i = 0; i < comps; i++) {
-        sandboxes[i]->init_seccomp(AllowedSyscalls);
+   // for (int i = 0; i < comps; i++) {
+   //     sandboxes[i]->init_seccomp(AllowedSyscalls);
 
-    }
+   // }
     if (print) {
         std::vector<uint64_t> times(n);
         for (int i= 0; i < n; ++i) {
