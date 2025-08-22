@@ -45,6 +45,8 @@ public:
         CallbackIDMprotect = 9,
 	CallbackIDMmallocsb = 10,
 	CallbackIDMfreesb = 11,
+	CallbackIDMmallocin = 12,
+        CallbackIDMrelinquish = 13,
         CallbackIDStart
     };
     enum class SeccompAction {
@@ -95,7 +97,9 @@ private:
     static void free_hook(void *ptr);
     static void *aligned_alloc_hook(size_t align, size_t len);
     static void* malloc_in_sandbox_hook(size_t size);
-    static void free_in_sandbox_hook(void*);
+    static void* malloc_in_hook(size_t size);
+    static void free_in_sandbox_hook(void* ptr);
+    static void* relinquish_hook(void* ptr);
     static int pthread_create_hook(pthread_t *thread, const pthread_attr_t *attr,
         void *(*start_routine)(void *), void *arg);
     static std::pair<int, pthread_t> pthread_create_callback(uswctx_t ctx, void *data,
@@ -118,6 +122,8 @@ private:
     static void *mremap_callback(uswctx_t ctx, void *data, void *old_address, size_t old_size,
         size_t new_size, int flags, void *new_address);
     static void* malloc_in_sandbox_callback(uswctx_t ctx, void *data,size_t size);
+    static void* malloc_in_callback(uswctx_t ctx, void *data,size_t size);
+    static void* relinquish_callback(uswctx_t ctx, void *data,void* ptr);
     static void free_in_sandbox_callback(uswctx_t ctx, void *data,void* ptr);
     static int mprotect_callback(uswctx_t ctx, void *data, void *addr, size_t length, int prot);
     static uintptr_t get_thread_pointer();

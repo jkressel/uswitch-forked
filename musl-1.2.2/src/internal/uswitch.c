@@ -17,6 +17,8 @@ void *(*mremap_hook)(void *old_addr, size_t old_size, size_t new_size, int flags
 int (*mprotect_hook)(void *addr, size_t length, int prot);
 void* (*sg_malloc_hook)(size_t size);
 void (*sg_free_hook)(void* ptr);
+void* (*sg_malloc_in_hook)(size_t size);
+void* (*sg_relinquish_hook)(void* ptr);
 uintptr_t (*uswitch_get_tp)();
 
 int (*uswitch_callback)(int id, long *ret, long arg1, long arg2, long arg3,
@@ -65,7 +67,7 @@ struct set_uswitch_functions_ret_t set_uswitch_functions(
     void *heap_base, size_t heap_size,
     void *pthread_create_hook_, void *pthread_join_hook_, void *pthread_detach_hook_, void *pthread_exit_hook_,
     void *mmap_hook_, void *munmap_hook_, void *mremap_hook_, void *mprotect_hook_,
-    void *uswitch_callback_, void *uswitch_get_tp_, void* sg_malloc_hook_, void* sg_free_hook_) {
+    void *uswitch_callback_, void *uswitch_get_tp_, void* sg_malloc_hook_, void* sg_free_hook_, void* sg_malloc_in_hook_, void* sg_relinquish_hook_) {
     pthread_create_hook = pthread_create_hook_;
     pthread_join_hook = pthread_join_hook_;
     pthread_detach_hook = pthread_detach_hook_;
@@ -78,6 +80,8 @@ struct set_uswitch_functions_ret_t set_uswitch_functions(
     //fprintf(stderr, "SG_MALLOC_HOOK ptr %p\n", sg_malloc_hook_);
     sg_malloc_hook = sg_malloc_hook_;
     sg_free_hook = sg_free_hook_;
+    sg_malloc_in_hook = sg_malloc_in_hook_;
+    sg_relinquish_hook = sg_relinquish_hook_;
     uswitch_get_tp = uswitch_get_tp_;
     uswitch_init_tp(tid);
     malloc_init(heap_base, heap_size, sg_malloc_hook);
@@ -112,6 +116,14 @@ void* malloc(size_t size) {
 
 void free(void* ptr) {
 	return sg_free_hook(ptr);
+}
+
+void *malloc_in(size_t size) {
+	return sg_malloc_in_hook(size);
+}
+
+void* relinquish(void* ptr) {
+	return sg_relinquish_hook(ptr);
 }
 
 __asm__ (
