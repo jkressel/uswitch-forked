@@ -707,7 +707,8 @@ void* USwitchSandbox::malloc_in_callback(uswctx_t ctx, void *data, size_t size) 
     if (!ctx) {
         return nullptr;
     }
-    ret = sg_malloc(size, get_pkey(ctx));
+    // I think it's using PkeyDefault which is 0 for the default world
+    ret = malloc_for(size, 0, get_pkey(ctx));
 
 
     return ret;
@@ -725,6 +726,8 @@ void* USwitchSandbox::relinquish_callback(uswctx_t ctx, void *data, void* ptr) {
     //printf("Sandbox pkey1 = %d\n", get_pkey(ctx));
 //    uswitch_call_dynamic(ctx, malloc_addr, ret, size);
     //ret = sg_malloc(size, get_pkey(ctx));
+    // I think it's using PkeyDefault which is 0 for the default world
+    ret = relinquish(ptr, 0, get_pkey(ctx));
 
 
     return ret;
@@ -758,8 +761,9 @@ NOCANARY void USwitchSandbox::free_in_sandbox_hook(void* ptr) {
         uswitch_callback_static(CallbackIDMmallocsb, void(*)(void*),ptr);
 }
 
-void USwitchSandbox::init_delegation(int quota, int alloc_only) {
-
+void USwitchSandbox::init_del(int quota, int alloc_only) {
+	uswctx_t ctx = get_context();
+	init_delegation(0, get_pkey(ctx), quota, alloc_only);
 
 }
 

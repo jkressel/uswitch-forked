@@ -11,6 +11,8 @@ extern "C" {
 
 
 extern int testtest();
+extern void* testallocandrel(size_t size);
+extern void* testalloc(size_t size);
 
 #ifdef __cplusplus
 }

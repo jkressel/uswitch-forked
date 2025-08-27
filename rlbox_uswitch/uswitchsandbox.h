@@ -71,7 +71,7 @@ public:
     USWITCH_PUBLIC void *get_symbol_addr(const char *symbol);
     USWITCH_PUBLIC void *malloc_in_sandbox(size_t size);
     USWITCH_PUBLIC void free_in_sandbox(void *ptr);
-    USWITCH_PUBLIC void init_delegation(int quota, int alloc_only);
+    USWITCH_PUBLIC void init_del(int quota, int alloc_only);
     USWITCH_PUBLIC bool init_seccomp(const std::vector<unsigned int> &allowed_syscalls,
         const std::vector<unsigned int> &trapped_syscalls = DefaultTrappedSyscalls,
         SeccompAction default_action = SeccompAction::SeccompKill);

@@ -40,10 +40,16 @@ static void load_jpeg_file(USwitchSandbox *sandbox, uint8_t *input, size_t size)
     sandbox->malloc_in_sandbox(2784);
 #define GET_FUNC_PTR(name) decltype(name) *name##_s = (decltype(name) *)sandbox->get_symbol_addr(#name)
     GET_FUNC_PTR(testtest);
+    GET_FUNC_PTR(testalloc);
+    GET_FUNC_PTR(testallocandrel);
 #undef GET_FUNC_PTR
     uswctx_t ctx = sandbox->get_context();
     int ret;
     uswitch_call_dynamic(ctx, testtest_s, ret);
+    void* retptr;
+    uswitch_call_dynamic(ctx, testalloc_s, retptr, 80);
+    uswitch_call_dynamic(ctx, testallocandrel_s, retptr, 80);
+    printf("Ret char %c\n", *(char*)retptr);
     printf("Return value %d\n", ret);
 }
 
@@ -76,6 +82,7 @@ int main(int argc, char **argv) {
     for (int i = 0; i < comps; i++) {
 	sandboxes.push_back(new USwitchSandbox("/home/dev/uswitch/benchmark/libhello.so", 1024l << 20, 2l << 20));
     	sandboxes[i]->init();
+	sandboxes[i]->init_del(8UL<<10, 1);
 
     }
 
