@@ -1,0 +1,180 @@
+Performing C SOURCE FILE Test C_FLAG__Wshorten_64_to_32 failed with the following output:
+Change Dir: /home/dev/uswitch/benchmark/bzip2/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_5820a/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_5820a.dir/build.make CMakeFiles/cmTC_5820a.dir/build
+gmake[1]: Entering directory '/home/dev/uswitch/benchmark/bzip2/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_5820a.dir/src.c.o
+/home/dev/uswitch/musl/bin/musl-gcc -DC_FLAG__Wshorten_64_to_32  -Wshorten-64-to-32 -o CMakeFiles/cmTC_5820a.dir/src.c.o -c /home/dev/uswitch/benchmark/bzip2/build/CMakeFiles/CMakeTmp/src.c
+cc1: error: unrecognized command-line option '-Wshorten-64-to-32'
+gmake[1]: *** [CMakeFiles/cmTC_5820a.dir/build.make:78: CMakeFiles/cmTC_5820a.dir/src.c.o] Error 1
+gmake[1]: Leaving directory '/home/dev/uswitch/benchmark/bzip2/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_5820a/fast] Error 2
+
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test C_FLAG__Wextended_offsetof failed with the following output:
+Change Dir: /home/dev/uswitch/benchmark/bzip2/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_825cb/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_825cb.dir/build.make CMakeFiles/cmTC_825cb.dir/build
+gmake[1]: Entering directory '/home/dev/uswitch/benchmark/bzip2/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_825cb.dir/src.c.o
+/home/dev/uswitch/musl/bin/musl-gcc -DC_FLAG__Wextended_offsetof  -Wextended-offsetof -o CMakeFiles/cmTC_825cb.dir/src.c.o -c /home/dev/uswitch/benchmark/bzip2/build/CMakeFiles/CMakeTmp/src.c
+cc1: error: unrecognized command-line option '-Wextended-offsetof'
+gmake[1]: *** [CMakeFiles/cmTC_825cb.dir/build.make:78: CMakeFiles/cmTC_825cb.dir/src.c.o] Error 1
+gmake[1]: Leaving directory '/home/dev/uswitch/benchmark/bzip2/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_825cb/fast] Error 2
+
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test C_FLAG__Wlanguage_extension_token failed with the following output:
+Change Dir: /home/dev/uswitch/benchmark/bzip2/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_aeb57/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_aeb57.dir/build.make CMakeFiles/cmTC_aeb57.dir/build
+gmake[1]: Entering directory '/home/dev/uswitch/benchmark/bzip2/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_aeb57.dir/src.c.o
+/home/dev/uswitch/musl/bin/musl-gcc -DC_FLAG__Wlanguage_extension_token  -Wlanguage-extension-token -o CMakeFiles/cmTC_aeb57.dir/src.c.o -c /home/dev/uswitch/benchmark/bzip2/build/CMakeFiles/CMakeTmp/src.c
+cc1: error: unrecognized command-line option '-Wlanguage-extension-token'
+gmake[1]: *** [CMakeFiles/cmTC_aeb57.dir/build.make:78: CMakeFiles/cmTC_aeb57.dir/src.c.o] Error 1
+gmake[1]: Leaving directory '/home/dev/uswitch/benchmark/bzip2/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_aeb57/fast] Error 2
+
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test C_FLAG__Wmissing_variable_declarations failed with the following output:
+Change Dir: /home/dev/uswitch/benchmark/bzip2/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_dd9e6/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_dd9e6.dir/build.make CMakeFiles/cmTC_dd9e6.dir/build
+gmake[1]: Entering directory '/home/dev/uswitch/benchmark/bzip2/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_dd9e6.dir/src.c.o
+/home/dev/uswitch/musl/bin/musl-gcc -DC_FLAG__Wmissing_variable_declarations  -Wmissing-variable-declarations -o CMakeFiles/cmTC_dd9e6.dir/src.c.o -c /home/dev/uswitch/benchmark/bzip2/build/CMakeFiles/CMakeTmp/src.c
+cc1: error: unrecognized command-line option '-Wmissing-variable-declarations'
+gmake[1]: *** [CMakeFiles/cmTC_dd9e6.dir/build.make:78: CMakeFiles/cmTC_dd9e6.dir/src.c.o] Error 1
+gmake[1]: Leaving directory '/home/dev/uswitch/benchmark/bzip2/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_dd9e6/fast] Error 2
+
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test C_FLAG__Wunreachable_code_break failed with the following output:
+Change Dir: /home/dev/uswitch/benchmark/bzip2/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_baa66/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_baa66.dir/build.make CMakeFiles/cmTC_baa66.dir/build
+gmake[1]: Entering directory '/home/dev/uswitch/benchmark/bzip2/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_baa66.dir/src.c.o
+/home/dev/uswitch/musl/bin/musl-gcc -DC_FLAG__Wunreachable_code_break  -Wunreachable-code-break -o CMakeFiles/cmTC_baa66.dir/src.c.o -c /home/dev/uswitch/benchmark/bzip2/build/CMakeFiles/CMakeTmp/src.c
+cc1: error: unrecognized command-line option '-Wunreachable-code-break'
+gmake[1]: *** [CMakeFiles/cmTC_baa66.dir/build.make:78: CMakeFiles/cmTC_baa66.dir/src.c.o] Error 1
+gmake[1]: Leaving directory '/home/dev/uswitch/benchmark/bzip2/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_baa66/fast] Error 2
+
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test C_FLAG__Wheader_guard failed with the following output:
+Change Dir: /home/dev/uswitch/benchmark/bzip2/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_650f8/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_650f8.dir/build.make CMakeFiles/cmTC_650f8.dir/build
+gmake[1]: Entering directory '/home/dev/uswitch/benchmark/bzip2/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_650f8.dir/src.c.o
+/home/dev/uswitch/musl/bin/musl-gcc -DC_FLAG__Wheader_guard  -Wheader-guard -o CMakeFiles/cmTC_650f8.dir/src.c.o -c /home/dev/uswitch/benchmark/bzip2/build/CMakeFiles/CMakeTmp/src.c
+cc1: error: unrecognized command-line option '-Wheader-guard'
+gmake[1]: *** [CMakeFiles/cmTC_650f8.dir/build.make:78: CMakeFiles/cmTC_650f8.dir/src.c.o] Error 1
+gmake[1]: Leaving directory '/home/dev/uswitch/benchmark/bzip2/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_650f8/fast] Error 2
+
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test C_FLAG__Wshorten_64_to_32 failed with the following output:
+Change Dir: /home/dev/uswitch/benchmark/bzip2/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_4b7b0/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_4b7b0.dir/build.make CMakeFiles/cmTC_4b7b0.dir/build
+gmake[1]: Entering directory '/home/dev/uswitch/benchmark/bzip2/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_4b7b0.dir/src.c.o
+/usr/bin/cc -DC_FLAG__Wshorten_64_to_32  -Wshorten-64-to-32 -o CMakeFiles/cmTC_4b7b0.dir/src.c.o -c /home/dev/uswitch/benchmark/bzip2/build/CMakeFiles/CMakeTmp/src.c
+cc: error: unrecognized command-line option '-Wshorten-64-to-32'
+gmake[1]: *** [CMakeFiles/cmTC_4b7b0.dir/build.make:78: CMakeFiles/cmTC_4b7b0.dir/src.c.o] Error 1
+gmake[1]: Leaving directory '/home/dev/uswitch/benchmark/bzip2/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_4b7b0/fast] Error 2
+
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test C_FLAG__Wextended_offsetof failed with the following output:
+Change Dir: /home/dev/uswitch/benchmark/bzip2/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_6884c/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_6884c.dir/build.make CMakeFiles/cmTC_6884c.dir/build
+gmake[1]: Entering directory '/home/dev/uswitch/benchmark/bzip2/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_6884c.dir/src.c.o
+/usr/bin/cc -DC_FLAG__Wextended_offsetof  -Wextended-offsetof -o CMakeFiles/cmTC_6884c.dir/src.c.o -c /home/dev/uswitch/benchmark/bzip2/build/CMakeFiles/CMakeTmp/src.c
+cc: error: unrecognized command-line option '-Wextended-offsetof'
+gmake[1]: *** [CMakeFiles/cmTC_6884c.dir/build.make:78: CMakeFiles/cmTC_6884c.dir/src.c.o] Error 1
+gmake[1]: Leaving directory '/home/dev/uswitch/benchmark/bzip2/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_6884c/fast] Error 2
+
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test C_FLAG__Wlanguage_extension_token failed with the following output:
+Change Dir: /home/dev/uswitch/benchmark/bzip2/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_985df/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_985df.dir/build.make CMakeFiles/cmTC_985df.dir/build
+gmake[1]: Entering directory '/home/dev/uswitch/benchmark/bzip2/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_985df.dir/src.c.o
+/usr/bin/cc -DC_FLAG__Wlanguage_extension_token  -Wlanguage-extension-token -o CMakeFiles/cmTC_985df.dir/src.c.o -c /home/dev/uswitch/benchmark/bzip2/build/CMakeFiles/CMakeTmp/src.c
+cc: error: unrecognized command-line option '-Wlanguage-extension-token'
+gmake[1]: *** [CMakeFiles/cmTC_985df.dir/build.make:78: CMakeFiles/cmTC_985df.dir/src.c.o] Error 1
+gmake[1]: Leaving directory '/home/dev/uswitch/benchmark/bzip2/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_985df/fast] Error 2
+
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test C_FLAG__Wmissing_variable_declarations failed with the following output:
+Change Dir: /home/dev/uswitch/benchmark/bzip2/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_de873/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_de873.dir/build.make CMakeFiles/cmTC_de873.dir/build
+gmake[1]: Entering directory '/home/dev/uswitch/benchmark/bzip2/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_de873.dir/src.c.o
+/usr/bin/cc -DC_FLAG__Wmissing_variable_declarations  -Wmissing-variable-declarations -o CMakeFiles/cmTC_de873.dir/src.c.o -c /home/dev/uswitch/benchmark/bzip2/build/CMakeFiles/CMakeTmp/src.c
+cc: error: unrecognized command-line option '-Wmissing-variable-declarations'; did you mean '-Wmissing-declarations'?
+gmake[1]: *** [CMakeFiles/cmTC_de873.dir/build.make:78: CMakeFiles/cmTC_de873.dir/src.c.o] Error 1
+gmake[1]: Leaving directory '/home/dev/uswitch/benchmark/bzip2/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_de873/fast] Error 2
+
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test C_FLAG__Wunreachable_code_break failed with the following output:
+Change Dir: /home/dev/uswitch/benchmark/bzip2/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_d0c3f/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_d0c3f.dir/build.make CMakeFiles/cmTC_d0c3f.dir/build
+gmake[1]: Entering directory '/home/dev/uswitch/benchmark/bzip2/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_d0c3f.dir/src.c.o
+/usr/bin/cc -DC_FLAG__Wunreachable_code_break  -Wunreachable-code-break -o CMakeFiles/cmTC_d0c3f.dir/src.c.o -c /home/dev/uswitch/benchmark/bzip2/build/CMakeFiles/CMakeTmp/src.c
+cc: error: unrecognized command-line option '-Wunreachable-code-break'; did you mean '-Wunreachable-code'?
+gmake[1]: *** [CMakeFiles/cmTC_d0c3f.dir/build.make:78: CMakeFiles/cmTC_d0c3f.dir/src.c.o] Error 1
+gmake[1]: Leaving directory '/home/dev/uswitch/benchmark/bzip2/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_d0c3f/fast] Error 2
+
+
+Source file was:
+int main(void) { return 0; }
+Performing C SOURCE FILE Test C_FLAG__Wheader_guard failed with the following output:
+Change Dir: /home/dev/uswitch/benchmark/bzip2/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_c6b2f/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_c6b2f.dir/build.make CMakeFiles/cmTC_c6b2f.dir/build
+gmake[1]: Entering directory '/home/dev/uswitch/benchmark/bzip2/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_c6b2f.dir/src.c.o
+/usr/bin/cc -DC_FLAG__Wheader_guard  -Wheader-guard -o CMakeFiles/cmTC_c6b2f.dir/src.c.o -c /home/dev/uswitch/benchmark/bzip2/build/CMakeFiles/CMakeTmp/src.c
+cc: error: unrecognized command-line option '-Wheader-guard'
+gmake[1]: *** [CMakeFiles/cmTC_c6b2f.dir/build.make:78: CMakeFiles/cmTC_c6b2f.dir/src.c.o] Error 1
+gmake[1]: Leaving directory '/home/dev/uswitch/benchmark/bzip2/build/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_c6b2f/fast] Error 2
+
+
+Source file was:
+int main(void) { return 0; }

@@ -96,7 +96,7 @@ test15-uswitch: 15comps.cc
 
 testtest-uswitch: testuswitch.cc
 	$(CXX) -std=c++17 -O3 -g -o testtest-uswitch -I./ -I../libuswitch -I../rlbox_uswitch/ \
-		testuswitch.cc -L/home/dev/uswitch-standard/benchmark/ ../libuswitch/libuswitch.a ../rlbox_uswitch/librlbox_uswitch.a  -ldl -pthread
+		testuswitch.cc -L/home/dev/uswitch-standard/benchmark/ -L/home/dev/uswitch/benchmark/bzip2/ ../libuswitch/libuswitch.a bzip2/build/libbz2_static.a ../rlbox_uswitch/librlbox_uswitch.a  -ldl -pthread
 clean:
 	rm -f test1-ps test1-native test1-uswitch test1-wasm \
 		test2-native test2-uswitch test2-wasm test2-ps \
