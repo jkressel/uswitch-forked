@@ -63,9 +63,9 @@ static void do_compress(const char* filename) {
     const int BLOCK_MULTIPLIER = 7;
     BZFILE *pBz = BZ2_bzReadOpen(&bzError, compressed_file, 0, 1, 0, 0);
 
-    const int BUF_SIZE = 10000000;
-    //char* buf = new char[BUF_SIZE];
-    char* buf = (char*)sandboxes[1]->malloc_in_sandbox(BUF_SIZE * sizeof(char));
+    const int BUF_SIZE = 100000000;
+    char* buf = new char[BUF_SIZE];
+//    char* buf = (char*)sandboxes[1]->malloc_in_sandbox(BUF_SIZE * sizeof(char));
     //ssize_t bytesRead;
     //while((bytesRead = read(fileFD, buf, BUF_SIZE)) > 0) {
         BZ2_bzRead(&bzError, pBz, buf, BUF_SIZE);
@@ -146,7 +146,7 @@ int main(int argc, char **argv) {
 printf("Setup bz2 sandbox\n");
 	sandboxes.push_back(new USwitchSandbox("/home/dev/uswitch/bzip2/build/libbz2.so.1.0.9", 1024l << 20, 2l << 20));
         sandboxes[1]->init();
-        sandboxes[1]->init_del(8UL<<10, 1);
+        sandboxes[1]->init_del(8UL<<20, 1);
 
   //  }
   //

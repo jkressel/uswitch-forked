@@ -35,6 +35,9 @@ void makeMaps_d ( DState* s )
       }
 }
 
+extern void* malloc_in(size_t size);
+extern void* relinquish(void* ptr);
+
 
 /*---------------------------------------------------*/
 #define RETURN(rrr)                               \
@@ -42,11 +45,8 @@ void makeMaps_d ( DState* s )
 
 #define GET_BITS(lll,vvv,nnn)                     \
    case lll: s->state = lll;                      \
-   fprintf(stderr, "state %d\n", s->state);\
    while (True) {   	   \
-	   fprintf(stderr, "bslive %d, nnn %d\n", s->bsLive, nnn); \
       if (s->bsLive >= nnn) {                     \
-	      fprintf(stderr, "1bslive %d, nnn %d\n", s->bsLive, nnn); \
          UInt32 v;                                \
          v = (s->bsBuff >>                        \
              (s->bsLive-nnn)) & ((1 << nnn)-1);   \
@@ -54,9 +54,7 @@ void makeMaps_d ( DState* s )
          vvv = v;                                 \
          break;                                   \
       }	   \
-fprintf(stderr, "2bslive %d, nnn %d\n", s->bsLive, nnn); \
       if (s->strm->avail_in == 0) RETURN(BZ_OK);  \
-fprintf(stderr, "3bslive %d, nnn %d\n", s->bsLive, nnn); \
       s->bsBuff                                   \
          = (s->bsBuff << 8) |                     \
            ((UInt32)                              \
@@ -168,9 +166,7 @@ Int32 BZ2_decompress ( DState* s )
       s->save_gBase       = NULL;
       s->save_gPerm       = NULL;
    }
-fprintf(stderr, "Got here in sandbox %p\n", s);
 if (s->state == BZ_X_MAGIC_1)
-	fprintf(stderr, "state match\n");
    /*restore from the save area*/
    i           = s->save_i;
    j           = s->save_j;
@@ -212,17 +208,20 @@ if (s->state == BZ_X_MAGIC_1)
           s->blockSize100k > (BZ_HDR_0 + 9)) RETURN(BZ_DATA_ERROR_MAGIC);
       s->blockSize100k -= BZ_HDR_0;
       if (s->smallDecompress) {
+	      fprintf(stderr, "Mallocccccing\n");
          //s->ll16 = BZALLOC( s->blockSize100k * 100000 * sizeof(UInt16) );
-	 s->ll16 = malloc(s->blockSize100k * 100000 * sizeof(UInt16));
+	// s->ll16 = malloc(s->blockSize100k * 100000 * sizeof(UInt16));
+	 s->ll16 = (void*)malloc_in(s->blockSize100k * 100000 * sizeof(UInt16));
         // s->ll4  = BZALLOC(
         //              ((1 + s->blockSize100k * 100000) >> 1) * sizeof(UChar)
         //           );
-	s->ll4 = malloc ( ((1 + s->blockSize100k * 100000) >> 1) * sizeof(UChar) );
-	fprintf(stderr, "ll16 %p, ll4 %p\n", s->ll16, s->ll4);
+	//s->ll4 = malloc ( ((1 + s->blockSize100k * 100000) >> 1) * sizeof(UChar) );
+	s->ll4 = malloc_in( ((1 + s->blockSize100k * 100000) >> 1) * sizeof(UChar) );
          if (s->ll16 == NULL || s->ll4 == NULL) RETURN(BZ_MEM_ERROR);
       } else {
         // s->tt  = BZALLOC( s->blockSize100k * 100000 * sizeof(Int32) );
-	s->tt  = malloc( s->blockSize100k * 100000 * sizeof(Int32) );
+	//s->tt  = malloc( s->blockSize100k * 100000 * sizeof(Int32) );
+	s->tt  = malloc_in( s->blockSize100k * 100000 * sizeof(Int32) );
          if (s->tt == NULL) RETURN(BZ_MEM_ERROR);
       }
       GET_UCHAR(BZ_X_BLKHDR_1, uc);
@@ -485,7 +484,6 @@ if (s->state == BZ_X_MAGIC_1)
                s->ll16[nblock] = (UInt16)(s->seqToUnseq[uc]); else
                s->tt[nblock]   = (UInt32)(s->seqToUnseq[uc]);
             nblock++;
-
             GET_MTF_VAL(BZ_X_MTF_5, BZ_X_MTF_6, nextSym);
             continue;
          }
@@ -640,6 +638,18 @@ if (s->state == BZ_X_MAGIC_1)
    s->save_gLimit      = gLimit;
    s->save_gBase       = gBase;
    s->save_gPerm       = gPerm;
+
+   //relinquish allocations
+   if(s->state == BZ_X_OUTPUT) {
+   	fprintf(stderr, "Relinquish\n");
+   	if (s->ll16)
+	   	s->ll16 = relinquish(s->ll16);
+   	if (s->ll4)
+	   	s->ll4 = relinquish(s->ll4);
+   	if (s->tt)
+	   	s->tt = relinquish(s->tt);
+   	fprintf(stderr, "Done relinquish\n");
+   }
    return retVal;
 }
 

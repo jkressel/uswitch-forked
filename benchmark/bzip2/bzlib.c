@@ -512,6 +512,7 @@ int BZ_API(BZ2_bzDecompressInit)
    if (strm->bzfree == NULL) strm->bzfree = default_bzfree;
 
    s = BZALLOC( sizeof(DState) );
+   //s = malloc ( sizeof(DState) );
    if (s == NULL) return BZ_MEM_ERROR;
    s->strm                  = strm;
    strm->state              = s;
@@ -875,9 +876,12 @@ int BZ_API(BZ2_bzDecompressEnd)  ( bz_stream *strm )
    if (s == NULL) return BZ_PARAM_ERROR;
    if (s->strm != strm) return BZ_PARAM_ERROR;
 
-   if (s->tt   != NULL) BZFREE(s->tt);
-   if (s->ll16 != NULL) BZFREE(s->ll16);
-   if (s->ll4  != NULL) BZFREE(s->ll4);
+   // if (s->tt   != NULL) BZFREE(s->tt);
+   // if (s->ll16 != NULL) BZFREE(s->ll16);
+   // if (s->ll4  != NULL) BZFREE(s->ll4);
+   if (s->tt   != NULL) free(s->tt);
+   if (s->ll16 != NULL) free(s->ll16);
+   if (s->ll4  != NULL) free(s->ll4);
 
    BZFREE(strm->state);
    strm->state = NULL;
