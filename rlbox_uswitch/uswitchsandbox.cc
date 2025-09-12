@@ -709,13 +709,15 @@ void* USwitchSandbox::malloc_in_callback(uswctx_t ctx, void *data, size_t size) 
     }
     // I think it's using PkeyDefault which is 0 for the default world
     ret = malloc_for(size, 0, get_pkey(ctx));
-
+fprintf(stderr, "malloc_in_callback %p\n", ret);
 
     return ret;
 }
 
 NOCANARY void *USwitchSandbox::malloc_in_hook(size_t size) {
-        return uswitch_callback_static(CallbackIDMmallocin, void*(*)(size_t),size);
+	void* ret = uswitch_callback_static(CallbackIDMmallocin, void*(*)(size_t),size);
+	//fprintf(stderr, "malloc in hook %p\n", ret);
+	return ret;
 }
 
 void* USwitchSandbox::relinquish_callback(uswctx_t ctx, void *data, void* ptr) {
