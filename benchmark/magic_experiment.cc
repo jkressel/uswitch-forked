@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
+#include <dirent.h>
 #include <ctime>
 #include <cstdlib>
 #include <cinttypes>
@@ -15,6 +16,8 @@
 #include "file/src/magic.h"
 
 std::vector<USwitchSandbox*> sandboxes;
+
+//extern "C" void sg_alloc_stats();
 
 
 USwitchSandbox* get_sandbox() {
@@ -120,19 +123,19 @@ int main(int argc, char **argv) {
     int n = atoi(argv[2]);
     bool print = !argv[3] || atoi(argv[3]);
     int comps = atoi(argv[4]);
-    std::ifstream ifs(filename, std::ios::binary);
-    if (!ifs) {
-        std::cerr << "Failed to open file: " << filename << std::endl;
-        return 1;
-    }
-    ifs.seekg(0, std::ios_base::end);
-    size_t size = ifs.tellg();
-    ifs.seekg(0, std::ios_base::beg);
-    uint8_t *input = new uint8_t[size];
-    if (!ifs.read((char *)input, size)) {
-        std::cerr << "Failed to read file\n";
-        return 1;
-    }
+    //std::ifstream ifs(filename, std::ios::binary);
+    //if (!ifs) {
+    //    std::cerr << "Failed to open file: " << filename << std::endl;
+    //    return 1;
+    //}
+    //ifs.seekg(0, std::ios_base::end);
+    //size_t size = ifs.tellg();
+    //ifs.seekg(0, std::ios_base::beg);
+    //uint8_t *input = new uint8_t[size];
+    //if (!ifs.read((char *)input, size)) {
+    //    std::cerr << "Failed to read file\n";
+    //    return 1;
+   // }
 
     //do_compress(filename);
 
@@ -154,8 +157,31 @@ printf("Setup bz2 sandbox\n");
   if (myt == NULL)
 	  printf("Could not open magic cookie\n");
   magic_load(myt, "file/magic/magic.mgc");
-  char* file_desc = (char*)magic_file(myt, (const char*)filename);
-  printf("Magic file type %s: %s\n", filename, file_desc);
+
+    DIR *dir;
+    struct dirent *entry;
+
+    dir = opendir(filename);
+    if (dir == NULL) {
+        fprintf(stderr, "Could not open directory %s: %s\n", filename, strerror(errno));
+        return 0;
+    }
+
+    printf("Listing files in: %s\n", filename);
+
+    while ((entry = readdir(dir)) != NULL) {
+        // Skip "." and ".." entries
+	printf("file: %s\n", entry->d_name);
+        if (strcmp(entry->d_name, ".") == 0 || strcmp(entry->d_name, "..") == 0 || (char)entry->d_name[0] == (char)'.')
+            continue;
+	char* file_desc = (char*)magic_file(myt, (const char*)entry->d_name);
+  	printf("Magic file type %s: %s\n", entry->d_name, file_desc);
+    }
+
+    closedir(dir);
+
+ //   sg_alloc_stats();
+
     static const std::vector<unsigned int> AllowedSyscalls {
         __NR_brk, __NR_mmap, __NR_munmap,
         __NR_lseek, __NR_fstat, __NR_read, __NR_write,
@@ -171,7 +197,7 @@ printf("Setup bz2 sandbox\n");
         for (int i= 0; i < n; ++i) {
             uint64_t t1 = time_nanosec();
 	    	for (int i = 0; i < comps; i++) {
-			load_jpeg_file(sandboxes[i], input, size);
+//			load_jpeg_file(sandboxes[i], input, size);
     		}
             uint64_t t2 = time_nanosec();
             times[i] = t2 - t1;
@@ -183,7 +209,7 @@ printf("Setup bz2 sandbox\n");
         uint64_t t1 = time_nanosec();
         for (int i= 0; i < n; ++i) {
 		for (int i = 0; i < comps; i++) {
-                        load_jpeg_file(sandboxes[i], input, size);
+  //                      load_jpeg_file(sandboxes[i], input, size);
                 }
         }
         uint64_t t2 = time_nanosec();

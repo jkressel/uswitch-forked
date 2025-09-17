@@ -8,7 +8,7 @@ all: test1-native test1-uswitch  \
 	test5-native test5-uswitch  \
 	test6-native test6-uswitch  \
 	test8-native test8-uswitch  \
-	test15-uswitch testtest-uswitch magicex
+	test15-uswitch testtest-uswitch magicex memex
 test1-ps: 1ps.cc
 	$(CXX) 1ps.cc -std=c++17 -O3 -g -o test1-ps -I../libraries_uswitch/libjpeg -I./ProcessSandbox \
 		-L./ProcessSandbox -lProcessSandbox_jpeg64 -pthread -lrt
@@ -99,8 +99,13 @@ testtest-uswitch: testuswitch.cc
 		testuswitch.cc -L/home/dev/uswitch-standard/benchmark/ -L/home/dev/uswitch/benchmark/bzip2/ ../libuswitch/libuswitch.a bzip2/build/libbz2_static.a ../rlbox_uswitch/librlbox_uswitch.a  -ldl -pthread
 
 magicex: magic_experiment.cc
+	cc $(CFLAGS) ../../allocator/SlimGuard/slimguard-standalone.c -shared -fPIC -o sg.o
 	$(CXX) -std=c++17 -O3 -g -o magicex -I./ -I./file/src/ -I../sandboxed_libc/ -I../libuswitch -I../rlbox_uswitch/ -I../libraries_uswitch/zlib \
-                magic_experiment.cc -L/home/dev/uswitch-standard/benchmark/ -L../libraries_uswitch/libz/ ../libuswitch/libuswitch.a  ../rlbox_uswitch/librlbox_uswitch.a file/src/.libs/libmagic.a -lz -ldl -pthread
+                magic_experiment.cc -L/home/dev/uswitch-standard/benchmark/ -L../libraries_uswitch/libz/ ../libuswitch/libuswitch.a  ../rlbox_uswitch/librlbox_uswitch.a file/src/.libs/libmagic.a sg.o -lz -ldl -pthread
+
+memex: mem_experiment.cc
+	cc $(CFLAGS) ../../allocator/SlimGuard/slimguard-standalone.c -shared -fPIC -o sg.o
+	$(CXX) -std=c++17 -O3 -g -o memex -I./ -I./file/src/ -I../sandboxed_libc/ -I../libuswitch -I../rlbox_uswitch/ -I../libraries_uswitch/zlib mem_experiment.cc -L/home/dev/uswitch/benchmark/ -L../libraries_uswitch/libz/ ../libuswitch/libuswitch.a  ../rlbox_uswitch/librlbox_uswitch.a file/src/.libs/libmagic.a -lz -ldl -pthread
 clean:
 	rm -f test1-ps test1-native test1-uswitch test1-wasm \
 		test2-native test2-uswitch test2-wasm test2-ps \
