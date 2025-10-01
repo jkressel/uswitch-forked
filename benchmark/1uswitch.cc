@@ -22,21 +22,21 @@ static void load_jpeg_file(USwitchSandbox *sandbox, uint8_t *input, size_t size)
     struct jpeg_decompress_struct *cinfo = (struct jpeg_decompress_struct *)sandbox->malloc_in_sandbox(sizeof(struct jpeg_decompress_struct));
     struct jpeg_error_mgr *jerr = (struct jpeg_error_mgr *)sandbox->malloc_in_sandbox(sizeof(struct jpeg_error_mgr));
     uint8_t *sandbox_buffer = (uint8_t *)sandbox->malloc_in_sandbox(size);
+    sandbox->malloc_in_sandbox(270);
+    sandbox->malloc_in_sandbox(385);
+    sandbox->malloc_in_sandbox(9384);
+    sandbox->malloc_in_sandbox(27);
+    sandbox->malloc_in_sandbox(270);
+    sandbox->malloc_in_sandbox(838);
+    sandbox->malloc_in_sandbox(24);
     sandbox->malloc_in_sandbox(27);
     sandbox->malloc_in_sandbox(27);
     sandbox->malloc_in_sandbox(27);
-    sandbox->malloc_in_sandbox(27);
-    sandbox->malloc_in_sandbox(27);
-    sandbox->malloc_in_sandbox(27);
-    sandbox->malloc_in_sandbox(27);
-    sandbox->malloc_in_sandbox(27);
-    sandbox->malloc_in_sandbox(27);
-    sandbox->malloc_in_sandbox(27);
-    sandbox->malloc_in_sandbox(27);
-    sandbox->malloc_in_sandbox(27);
+    sandbox->malloc_in_sandbox(270);
+    sandbox->malloc_in_sandbox(270);
     sandbox->malloc_in_sandbox(27);
     sandbox->malloc_in_sandbox(278);
-    sandbox->malloc_in_sandbox(27);
+    sandbox->malloc_in_sandbox(2700);
     sandbox->malloc_in_sandbox(27);
     sandbox->malloc_in_sandbox(278);
     sandbox->malloc_in_sandbox(278);
@@ -109,10 +109,10 @@ int main(int argc, char **argv) {
         __NR_close, __NR_exit_group, __NR_newfstatat,
 #endif
         __NR_exit, __NR_futex, __NR_sched_yield, 451};
-    for (int i = 0; i < comps; i++) {
-        sandboxes[i]->init_seccomp(AllowedSyscalls);
+//    for (int i = 0; i < comps; i++) {
+//        sandboxes[i]->init_seccomp(AllowedSyscalls);
 
-    }
+  //  }
     if (print) {
         std::vector<uint64_t> times(n);
         for (int i= 0; i < n; ++i) {
@@ -126,6 +126,7 @@ int main(int argc, char **argv) {
         for (int i = 0; i < n; ++i) {
             std::cout << times[i] << std::endl;
         }
+	return 0;
     } else {
         uint64_t t1 = time_nanosec();
         for (int i= 0; i < n; ++i) {

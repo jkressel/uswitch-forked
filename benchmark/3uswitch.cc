@@ -25,81 +25,25 @@ static void load_gzip_file(USwitchSandbox *sandbox, uint8_t *input, size_t in_si
     z_stream *stream = (z_stream *)sandbox->malloc_in_sandbox(sizeof(z_stream));
     size_t len = strlen(ZLIB_VERSION);
     char *ver_str = (char *)sandbox->malloc_in_sandbox(len + 1);
-    sandbox->malloc_in_sandbox(7827);
-    sandbox->malloc_in_sandbox(78);
-    sandbox->malloc_in_sandbox(1729);
-    sandbox->malloc_in_sandbox(27848);
-    sandbox->malloc_in_sandbox(27848);
-    sandbox->malloc_in_sandbox(27848);
-    sandbox->malloc_in_sandbox(27848);
-    sandbox->malloc_in_sandbox(27848);
-    sandbox->malloc_in_sandbox(27848);
-    sandbox->malloc_in_sandbox(27848);
-    sandbox->malloc_in_sandbox(27848);
-    sandbox->malloc_in_sandbox(27848);
-    sandbox->malloc_in_sandbox(27848);
-    sandbox->malloc_in_sandbox(27848);
-    sandbox->malloc_in_sandbox(27848);
-    sandbox->malloc_in_sandbox(27848);
-    sandbox->malloc_in_sandbox(27848);
-    sandbox->malloc_in_sandbox(27848);
-    sandbox->malloc_in_sandbox(27848);
-    sandbox->malloc_in_sandbox(27848);
-    sandbox->malloc_in_sandbox(27848);
-    sandbox->malloc_in_sandbox(27848);
-    sandbox->malloc_in_sandbox(27848);
-    sandbox->malloc_in_sandbox(27848);
-    sandbox->malloc_in_sandbox(27848);
-    sandbox->malloc_in_sandbox(27848);
-    sandbox->malloc_in_sandbox(27848);
-    sandbox->malloc_in_sandbox(27848);
-    sandbox->malloc_in_sandbox(27848);
-    sandbox->malloc_in_sandbox(27848);
-    sandbox->malloc_in_sandbox(27848);
-    sandbox->malloc_in_sandbox(27848);
-    sandbox->malloc_in_sandbox(27848);
-    sandbox->malloc_in_sandbox(27848);
-    sandbox->malloc_in_sandbox(27848);
-    sandbox->malloc_in_sandbox(27848);
-    sandbox->malloc_in_sandbox(27848);
-    sandbox->malloc_in_sandbox(27848);
-    sandbox->malloc_in_sandbox(27848);
-    sandbox->malloc_in_sandbox(27848);
-    sandbox->malloc_in_sandbox(27848);
-    sandbox->malloc_in_sandbox(27848);
-    sandbox->malloc_in_sandbox(27848);
-    sandbox->malloc_in_sandbox(27848);
-    sandbox->malloc_in_sandbox(27848);
-    sandbox->malloc_in_sandbox(27848);
-    sandbox->malloc_in_sandbox(27848);
-    sandbox->malloc_in_sandbox(27848);
-    sandbox->malloc_in_sandbox(27848);
-    sandbox->malloc_in_sandbox(27848);
-    sandbox->malloc_in_sandbox(27848);
-    sandbox->malloc_in_sandbox(27848);
-    sandbox->malloc_in_sandbox(27848);
-    sandbox->malloc_in_sandbox(2784);
-    sandbox->malloc_in_sandbox(2784);
-    sandbox->malloc_in_sandbox(2784);
-    sandbox->malloc_in_sandbox(2784);
-    sandbox->malloc_in_sandbox(2784);
-    sandbox->malloc_in_sandbox(2784);
-    sandbox->malloc_in_sandbox(2784);
-    sandbox->malloc_in_sandbox(2784);
-    sandbox->malloc_in_sandbox(2784);
-    sandbox->malloc_in_sandbox(2784);
-    sandbox->malloc_in_sandbox(2784);
-    sandbox->malloc_in_sandbox(2784);
-    sandbox->malloc_in_sandbox(2784);
-    sandbox->malloc_in_sandbox(2784);
-    sandbox->malloc_in_sandbox(2784);
-    sandbox->malloc_in_sandbox(2784);
-    sandbox->malloc_in_sandbox(2784);
-    sandbox->malloc_in_sandbox(2784);
-    sandbox->malloc_in_sandbox(2784);
-    sandbox->malloc_in_sandbox(2784);
-    sandbox->malloc_in_sandbox(128);
-    
+    sandbox->malloc_in_sandbox(270);
+    sandbox->malloc_in_sandbox(385);
+    sandbox->malloc_in_sandbox(9384);
+    sandbox->malloc_in_sandbox(27);
+    sandbox->malloc_in_sandbox(270);
+    sandbox->malloc_in_sandbox(838);
+    sandbox->malloc_in_sandbox(24);
+    sandbox->malloc_in_sandbox(27);
+    sandbox->malloc_in_sandbox(27);
+    sandbox->malloc_in_sandbox(27);
+    sandbox->malloc_in_sandbox(270);
+    sandbox->malloc_in_sandbox(270);
+    sandbox->malloc_in_sandbox(27);
+    sandbox->malloc_in_sandbox(278);
+    sandbox->malloc_in_sandbox(2700);
+    sandbox->malloc_in_sandbox(27);
+    sandbox->malloc_in_sandbox(278);
+    sandbox->malloc_in_sandbox(278);
+    sandbox->malloc_in_sandbox(2784); 
     memcpy(ver_str, ZLIB_VERSION, len + 1);
     memset(stream, 0, sizeof(z_stream));
     uswctx_t ctx = sandbox->get_context();
@@ -122,12 +66,14 @@ static void load_gzip_file(USwitchSandbox *sandbox, uint8_t *input, size_t in_si
 }
 
 int main(int argc, char **argv) {
-    if (argc != 3) {
+    if (argc != 5) {
         std::cerr << "Usage: ./test3-uswitch <filename> <times>\n";
         return 1;
     }
     const char *filename = argv[1];
     int n = atoi(argv[2]);
+    int comps = atoi(argv[3]);
+    int print = atoi(argv[4]);
     std::ifstream ifs(filename, std::ios::binary);
     if (!ifs) {
         std::cerr << "Failed to open file: " << filename << std::endl;
@@ -141,28 +87,14 @@ int main(int argc, char **argv) {
         std::cerr << "Failed to read file\n";
         return 1;
     }
-    USwitchSandbox sandbox("../libraries_uswitch/zlib/libz.so", 1024l << 20, 2l << 20);
-    sandbox.init();
-    USwitchSandbox sandbox1("../libraries_uswitch/zlib/libz.so", 1024l << 20, 2l << 20);
-    sandbox1.init();
-    USwitchSandbox sandbox2("../libraries_uswitch/zlib/libz.so", 1024l << 20, 2l << 20);
-    sandbox2.init();
-    USwitchSandbox sandbox3("../libraries_uswitch/zlib/libz.so", 1024l << 20, 2l << 20);
-    sandbox3.init();
-    USwitchSandbox sandbox4("../libraries_uswitch/zlib/libz.so", 1024l << 20, 2l << 20);
-    sandbox4.init();
-    USwitchSandbox sandbox5("../libraries_uswitch/zlib/libz.so", 1024l << 20, 2l << 20);
-    sandbox5.init();
-    USwitchSandbox sandbox6("../libraries_uswitch/zlib/libz.so", 1024l << 20, 2l << 20);
-    sandbox6.init();
-    USwitchSandbox sandbox7("../libraries_uswitch/zlib/libz.so", 1024l << 20, 2l << 20);
-    sandbox7.init();
-    USwitchSandbox sandbox8("../libraries_uswitch/zlib/libz.so", 1024l << 20, 2l << 20);
-    sandbox8.init();
-    USwitchSandbox sandbox9("../libraries_uswitch/zlib/libz.so", 1024l << 20, 2l << 20);
-    sandbox9.init();
-    USwitchSandbox sandbox10("../libraries_uswitch/zlib/libz.so", 1024l << 20, 2l << 20);
-    sandbox10.init();
+
+    std::vector<USwitchSandbox*> sandboxes;
+
+    for (int i = 0; i < comps; i++) {
+        sandboxes.push_back(new USwitchSandbox("../libraries_uswitch/zlib/libz.so", 1024l << 20, 2l << 20));
+        sandboxes[i]->init();
+
+    }
    // USwitchSandbox sandbox11("../libraries_uswitch/zlib/libz.so", 1024l << 20, 2l << 20);
    // sandbox11.init();
     static const std::vector<unsigned int> AllowedSyscalls {
@@ -172,77 +104,32 @@ int main(int argc, char **argv) {
         __NR_close, __NR_exit_group, __NR_newfstatat,
 #endif
         __NR_exit, __NR_futex, __NR_sched_yield, 451};
-    sandbox.init_seccomp(AllowedSyscalls);
-    sandbox1.init_seccomp(AllowedSyscalls);
-    sandbox2.init_seccomp(AllowedSyscalls);
-    sandbox3.init_seccomp(AllowedSyscalls);
-    sandbox4.init_seccomp(AllowedSyscalls);
-    sandbox5.init_seccomp(AllowedSyscalls);
-    sandbox6.init_seccomp(AllowedSyscalls);
-    sandbox7.init_seccomp(AllowedSyscalls);
-    sandbox8.init_seccomp(AllowedSyscalls);
-    sandbox9.init_seccomp(AllowedSyscalls);
-    sandbox10.init_seccomp(AllowedSyscalls);
-    //sandbox11.init_seccomp(AllowedSyscalls);
 
     std::vector<uint64_t> times(n);
-    uint8_t *input_s = (uint8_t *)sandbox.malloc_in_sandbox(size);
-    uint8_t *output = (uint8_t *)sandbox.malloc_in_sandbox(size * 2);
-    memcpy(input_s, input, size);
-    uint8_t *input_s1 = (uint8_t *)sandbox1.malloc_in_sandbox(size);
-    uint8_t *output1 = (uint8_t *)sandbox1.malloc_in_sandbox(size * 2);
-    memcpy(input_s1, input, size);
-    uint8_t *input_s2 = (uint8_t *)sandbox2.malloc_in_sandbox(size);
-    uint8_t *output2 = (uint8_t *)sandbox2.malloc_in_sandbox(size * 2);
-    memcpy(input_s2, input, size);
-    uint8_t *input_s3 = (uint8_t *)sandbox3.malloc_in_sandbox(size);
-    uint8_t *output3 = (uint8_t *)sandbox3.malloc_in_sandbox(size * 2);
-    memcpy(input_s3, input, size);
-    uint8_t *input_s4 = (uint8_t *)sandbox4.malloc_in_sandbox(size);
-    uint8_t *output4 = (uint8_t *)sandbox4.malloc_in_sandbox(size * 2);
-    memcpy(input_s4, input, size);
-    uint8_t *input_s5 = (uint8_t *)sandbox5.malloc_in_sandbox(size);
-    uint8_t *output5 = (uint8_t *)sandbox5.malloc_in_sandbox(size * 2);
-    memcpy(input_s5, input, size);
-    uint8_t *input_s6 = (uint8_t *)sandbox6.malloc_in_sandbox(size);
-    uint8_t *output6 = (uint8_t *)sandbox6.malloc_in_sandbox(size * 2);
-    memcpy(input_s6, input, size);
-    uint8_t *input_s7 = (uint8_t *)sandbox7.malloc_in_sandbox(size);
-    uint8_t *output7 = (uint8_t *)sandbox7.malloc_in_sandbox(size * 2);
-    memcpy(input_s7, input, size);
-    uint8_t *input_s8 = (uint8_t *)sandbox8.malloc_in_sandbox(size);
-    uint8_t *output8 = (uint8_t *)sandbox8.malloc_in_sandbox(size * 2);
-    memcpy(input_s8, input, size);
-    uint8_t *input_s9 = (uint8_t *)sandbox9.malloc_in_sandbox(size);
-    uint8_t *output9 = (uint8_t *)sandbox9.malloc_in_sandbox(size * 2);
-    memcpy(input_s9, input, size);
-    uint8_t *input_s10 = (uint8_t *)sandbox10.malloc_in_sandbox(size);
-    uint8_t *output10 = (uint8_t *)sandbox10.malloc_in_sandbox(size * 2);
-    memcpy(input_s10, input, size);
-  //  uint8_t *input_s11 = (uint8_t *)sandbox11.malloc_in_sandbox(size);
-  //  uint8_t *output11 = (uint8_t *)sandbox11.malloc_in_sandbox(size * 2);
-  //  memcpy(input_s11, input, size);
+    std::vector<uint8_t*> input_ss;
+    std::vector<uint8_t*> outputs;
+    uint64_t t1 = time_nanosec();
+    for (int i = 0; i < comps; i++) {
+        //simulate some more allocations happening in application
+        input_ss.push_back((uint8_t *)sandboxes[i]->malloc_in_sandbox(size));
+        outputs.push_back((uint8_t *)sandboxes[i]->malloc_in_sandbox(size * 2));
+        memcpy(input_ss[i], input, size);
+    }
     for (int i= 0; i < n; ++i) {
-        uint64_t t1 = time_nanosec();
-        load_gzip_file(&sandbox, input_s, size, output, size * 2);
-	load_gzip_file(&sandbox1, input_s1, size, output1, size * 2);
-	load_gzip_file(&sandbox2, input_s2, size, output2, size * 2);
-	load_gzip_file(&sandbox3, input_s3, size, output3, size * 2);
-	load_gzip_file(&sandbox4, input_s4, size, output4, size * 2);
-	load_gzip_file(&sandbox5, input_s5, size, output5, size * 2);
-	load_gzip_file(&sandbox6, input_s6, size, output6, size * 2);
-	load_gzip_file(&sandbox7, input_s7, size, output7, size * 2);
-	load_gzip_file(&sandbox8, input_s8, size, output8, size * 2);
-	load_gzip_file(&sandbox9, input_s9, size, output9, size * 2);
-	load_gzip_file(&sandbox10, input_s10, size, output10, size * 2);
-//	load_gzip_file(&sandbox11, input_s11, size, output11, size * 2);
-        uint64_t t2 = time_nanosec();
-        times[i] = t2 - t1;
+	for (int i = 0; i < comps; i++) {
+		sandboxes[i]->malloc_in_sandbox(839);
+      sandboxes[i]->malloc_in_sandbox(839);
+      sandboxes[i]->malloc_in_sandbox(33984);
+
+		load_gzip_file(sandboxes[i], input_ss[i], size, outputs[i], size * 2);
+	}
     }
-    for (int i = 0; i < n; ++i) {
-        std::cout << times[i] << std::endl;
+    uint64_t t2 = time_nanosec();
+    //printf("done\n");
+    if (print) {
+	printf("%ld\n", t2-t1);
+	return 0;
     }
-    //printf("%lu\n", (t2 - t1) / n);
     sleep(2000);
     return 0;
 }

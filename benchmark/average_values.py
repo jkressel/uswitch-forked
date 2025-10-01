@@ -16,4 +16,4 @@ for line in file1:
     else:
         pss += float(line)
         linecnt = 0
-print(str(round(rss/10, 2)))
+print(str(round(rss/5, 2)))
