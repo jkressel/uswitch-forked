@@ -40,7 +40,7 @@ extern "C" void sg_free(void*, uint8_t);
 extern "C" int init_delegation(int in_pkey, int allocator_pkey, size_t quota, int alloc_only);
 extern "C" void* relinquish(void* ptr, int in_domain_pkey, int by_pkey);
 extern "C" void* malloc_for(size_t size, int on_behalf_of_pkey, int by_pkey);
-extern "C" int init_delegation(int in_pkey, int allocator_pkey, size_t quota, int alloc_only);
+//extern "C" int init_delegation(int in_pkey, int allocator_pkey, size_t quota, int alloc_only);
 
 
 static void print_map() {
@@ -684,6 +684,20 @@ void *USwitchSandbox::malloc_in_sandbox(size_t size) {
     return ret;
 }
 
+void *USwitchSandbox::relinquish_in_sandbox(void* ptr) {
+    void *ret = nullptr;
+    uswctx_t ctx = get_context();
+    if (!ctx) {
+        return nullptr;
+    }
+    //printf("Sandbox pkey = %d\n", get_pkey(ctx));
+//    uswitch_call_dynamic(ctx, malloc_addr, ret, size);
+    ret = relinquish(ptr, 0, get_pkey(ctx));
+
+
+    return ret;
+}
+
 void* USwitchSandbox::malloc_in_sandbox_callback(uswctx_t ctx, void *data, size_t size) {
 	void *ret = nullptr;
     if (!ctx) {
@@ -709,7 +723,6 @@ void* USwitchSandbox::malloc_in_callback(uswctx_t ctx, void *data, size_t size) 
     }
     // I think it's using PkeyDefault which is 0 for the default world
     ret = malloc_for(size, 0, get_pkey(ctx));
-fprintf(stderr, "malloc_in_callback %p\n", ret);
 
     return ret;
 }
@@ -725,7 +738,7 @@ void* USwitchSandbox::relinquish_callback(uswctx_t ctx, void *data, void* ptr) {
     if (!ctx) {
         return nullptr;
     }
-    //printf("Sandbox pkey1 = %d\n", get_pkey(ctx));
+   // printf("Sandbox pkey1 = %d\n", get_pkey(ctx));
 //    uswitch_call_dynamic(ctx, malloc_addr, ret, size);
     //ret = sg_malloc(size, get_pkey(ctx));
     // I think it's using PkeyDefault which is 0 for the default world
@@ -772,9 +785,6 @@ void USwitchSandbox::init_del(int quota, int alloc_only) {
 NOCANARY void *USwitchSandbox::get_symbol_addr_in_sandbox(const char *symbol) {
     size_t len;
     for (len = 0; symbol[len]; ++len);
-    fprintf(stderr, "symbol %s\n", symbol);
-    if (!strcmp(symbol, "mspace malloc"))
-	    fprintf(stderr, "Caught malloc\n");
     return uswitch_callback_static(CallbackIDGetSymbol, void *(*)(const char *, size_t), symbol, len);
 }
 

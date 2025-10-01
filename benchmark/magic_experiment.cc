@@ -17,7 +17,8 @@
 
 std::vector<USwitchSandbox*> sandboxes;
 
-//extern "C" void sg_alloc_stats();
+extern "C" void sg_alloc_stats();
+extern "C" void* relinquish(void* ptr, int in_domain_pkey, int by_pkey);
 
 
 USwitchSandbox* get_sandbox() {
@@ -25,7 +26,6 @@ USwitchSandbox* get_sandbox() {
 }
 
 void* sbmalloc(size_t size) {
-	printf("SBMALLOC %d\n", size);
 	return sandboxes[1]->malloc_in_sandbox(size);
 
 }
@@ -44,6 +44,7 @@ int call_asprintf_two_string(char** ptr, const char* fmt, const char* arg1, cons
     int ret;
 
     uswitch_call_dynamic(ctx, asprintf_two_string_s, ret, ptr, fmt, arg1, arg2);
+    *ptr = (char*)sandboxes[1]->relinquish_in_sandbox(*ptr);
     return ret;
 
 }
@@ -56,6 +57,7 @@ int call_asprintf_one_string(char** ptr, const char* fmt, const char* arg1) {
     int ret;
 
     uswitch_call_dynamic(ctx, asprintf_one_string_s, ret, ptr, fmt, arg1);
+    *ptr = (char*)sandboxes[1]->relinquish_in_sandbox(*ptr);
     return ret;
 
 }
@@ -68,6 +70,7 @@ int call_asprintf_two_string_one_char(char** ptr, const char* fmt, const char* a
     int ret;
 
     uswitch_call_dynamic(ctx, asprintf_two_string_one_char_s, ret, ptr, fmt, arg1, arg2, arg3);
+    *ptr = (char*)sandboxes[1]->relinquish_in_sandbox(*ptr);
     return ret;
 
 }
@@ -123,26 +126,6 @@ int main(int argc, char **argv) {
     int n = atoi(argv[2]);
     bool print = !argv[3] || atoi(argv[3]);
     int comps = atoi(argv[4]);
-    //std::ifstream ifs(filename, std::ios::binary);
-    //if (!ifs) {
-    //    std::cerr << "Failed to open file: " << filename << std::endl;
-    //    return 1;
-    //}
-    //ifs.seekg(0, std::ios_base::end);
-    //size_t size = ifs.tellg();
-    //ifs.seekg(0, std::ios_base::beg);
-    //uint8_t *input = new uint8_t[size];
-    //if (!ifs.read((char *)input, size)) {
-    //    std::cerr << "Failed to read file\n";
-    //    return 1;
-   // }
-
-    //do_compress(filename);
-
-//printf("Number %d\n", testtest());
-    //std::vector<USwitchSandbox*> sandboxes;
-
-//    for (int i = 0; i < comps; i++) {
 	sandboxes.push_back(new USwitchSandbox("/home/dev/uswitch/benchmark/libhello.so", 1024l << 20, 2l << 20));
     	sandboxes[0]->init();
 	sandboxes[0]->init_del(8UL<<10, 1);
@@ -151,8 +134,6 @@ printf("Setup bz2 sandbox\n");
         sandboxes[1]->init();
         sandboxes[1]->init_del(8UL<<15, 1);
 
-  //  }
-  //
   magic_t myt = magic_open(MAGIC_CONTINUE|MAGIC_ERROR/*|MAGIC_DEBUG*/|MAGIC_MIME);
   if (myt == NULL)
 	  printf("Could not open magic cookie\n");
@@ -180,7 +161,7 @@ printf("Setup bz2 sandbox\n");
 
     closedir(dir);
 
- //   sg_alloc_stats();
+    sg_alloc_stats();
 
     static const std::vector<unsigned int> AllowedSyscalls {
         __NR_brk, __NR_mmap, __NR_munmap,
@@ -215,7 +196,5 @@ printf("Setup bz2 sandbox\n");
         uint64_t t2 = time_nanosec();
         std::cout << t2 - t1 << std::endl;
     }
-    //printf("%lu\n", (t2 - t1) / n);
-    sleep(2000);
     return 0;
 }

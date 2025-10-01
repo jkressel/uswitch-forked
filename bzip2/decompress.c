@@ -208,7 +208,6 @@ if (s->state == BZ_X_MAGIC_1)
           s->blockSize100k > (BZ_HDR_0 + 9)) RETURN(BZ_DATA_ERROR_MAGIC);
       s->blockSize100k -= BZ_HDR_0;
       if (s->smallDecompress) {
-	      fprintf(stderr, "Mallocccccing\n");
          //s->ll16 = BZALLOC( s->blockSize100k * 100000 * sizeof(UInt16) );
 	// s->ll16 = malloc(s->blockSize100k * 100000 * sizeof(UInt16));
 	 s->ll16 = (void*)malloc_in(s->blockSize100k * 100000 * sizeof(UInt16));
@@ -640,16 +639,14 @@ if (s->state == BZ_X_MAGIC_1)
    s->save_gPerm       = gPerm;
 
    //relinquish allocations
-   if(s->state == BZ_X_OUTPUT) {
-   	fprintf(stderr, "Relinquish\n");
-   	if (s->ll16)
-	   	s->ll16 = relinquish(s->ll16);
-   	if (s->ll4)
-	   	s->ll4 = relinquish(s->ll4);
-   	if (s->tt)
-	   	s->tt = relinquish(s->tt);
-   	fprintf(stderr, "Done relinquish\n");
-   }
+   //if(s->state == BZ_X_OUTPUT) {
+   //	if (s->ll16)
+//	   	s->ll16 = relinquish(s->ll16);
+  // 	if (s->ll4)
+//	   	s->ll4 = relinquish(s->ll4);
+  // 	if (s->tt)
+//	   	s->tt = relinquish(s->tt);
+  // }
    return retVal;
 }
 

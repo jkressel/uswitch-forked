@@ -15,7 +15,7 @@
 #include <fcntl.h>
 
 std::vector<USwitchSandbox*> sandboxes;
-
+extern "C" void sg_alloc_stats();
 
 USwitchSandbox* get_sandbox() {
 	return sandboxes[1];
@@ -34,7 +34,6 @@ void sbfree(void* ptr) {
 
 
 int call_decompress(DState* s) {
-	printf("Here we gooooooooooooooooooooooooo\n");
 	USwitchSandbox* sandbox = sandboxes[1];
 #define GET_FUNC_PTR(name) decltype(name) *name##_s = (decltype(name) *)sandbox->get_symbol_addr(#name)
     	GET_FUNC_PTR(BZ2_decompress);
@@ -42,7 +41,14 @@ int call_decompress(DState* s) {
 	uswctx_t ctx = sandbox->get_context();
     	int ret;
     	uswitch_call_dynamic(ctx, BZ2_decompress_s, ret, s);
-	printf("Return %d\n", ret);
+	 if(s->state == BZ_X_OUTPUT) {
+        if (s->ll16)
+                s->ll16 = (UInt16 *)sandbox->relinquish_in_sandbox(s->ll16);
+        if (s->ll4)
+                s->ll4 = (UChar*)sandbox->relinquish_in_sandbox(s->ll4);
+        if (s->tt)
+                s->tt = (UInt32*)sandbox->relinquish_in_sandbox(s->tt);
+   }
 	return ret;
 }
 
@@ -54,62 +60,19 @@ static uint64_t time_nanosec() {
 }
 
 static void do_compress(const char* filename) {
-   //int fileFD = open(filename, O_RDONLY);
     FILE* compressed_file = fopen(filename, "r");
-
-    char tbz2Filename[] =  "file.jpeg";
-    FILE *tbz2File = fopen(tbz2Filename, "wb");
     int bzError;
-    const int BLOCK_MULTIPLIER = 7;
     BZFILE *pBz = BZ2_bzReadOpen(&bzError, compressed_file, 0, 1, 0, 0);
 
-    const int BUF_SIZE = 100000000;
+    const int BUF_SIZE = 10000000;
     char* buf = new char[BUF_SIZE];
-//    char* buf = (char*)sandboxes[1]->malloc_in_sandbox(BUF_SIZE * sizeof(char));
-    //ssize_t bytesRead;
-    //while((bytesRead = read(fileFD, buf, BUF_SIZE)) > 0) {
-        BZ2_bzRead(&bzError, pBz, buf, BUF_SIZE);
-    //}
+    BZ2_bzRead(&bzError, pBz, buf, BUF_SIZE);
+//    printf("%s\n", buf);
     BZ2_bzReadClose(&bzError, pBz);
 
-    //delete[] buf;
 
 }
 
-static void load_jpeg_file(USwitchSandbox *sandbox, uint8_t *input, size_t size) {
-    sandbox->malloc_in_sandbox(27);
-    sandbox->malloc_in_sandbox(27);
-    sandbox->malloc_in_sandbox(27);
-    sandbox->malloc_in_sandbox(27);
-    sandbox->malloc_in_sandbox(27);
-    sandbox->malloc_in_sandbox(27);
-    sandbox->malloc_in_sandbox(27);
-    sandbox->malloc_in_sandbox(27);
-    sandbox->malloc_in_sandbox(27);
-    sandbox->malloc_in_sandbox(27);
-    sandbox->malloc_in_sandbox(27);
-    sandbox->malloc_in_sandbox(27);
-    sandbox->malloc_in_sandbox(27);
-    sandbox->malloc_in_sandbox(278);
-    sandbox->malloc_in_sandbox(27);
-    sandbox->malloc_in_sandbox(27);
-    sandbox->malloc_in_sandbox(278);
-    sandbox->malloc_in_sandbox(278);
-    sandbox->malloc_in_sandbox(2784);
-#define GET_FUNC_PTR(name) decltype(name) *name##_s = (decltype(name) *)sandbox->get_symbol_addr(#name)
-    GET_FUNC_PTR(testtest);
-    GET_FUNC_PTR(testalloc);
-    GET_FUNC_PTR(testallocandrel);
-#undef GET_FUNC_PTR
-    uswctx_t ctx = sandbox->get_context();
-    int ret;
-    uswitch_call_dynamic(ctx, testtest_s, ret);
-    void* retptr;
-    uswitch_call_dynamic(ctx, testalloc_s, retptr, 80);
-    uswitch_call_dynamic(ctx, testallocandrel_s, retptr, 80);
-    printf("Ret char %c\n", *(char*)retptr);
-    printf("Return value %d\n", ret);
-}
 
 int main(int argc, char **argv) {
     if (argc < 4) {
@@ -120,30 +83,14 @@ int main(int argc, char **argv) {
     int n = atoi(argv[2]);
     bool print = !argv[3] || atoi(argv[3]);
     int comps = atoi(argv[4]);
-    std::ifstream ifs(filename, std::ios::binary);
-    if (!ifs) {
-        std::cerr << "Failed to open file: " << filename << std::endl;
-        return 1;
-    }
-    ifs.seekg(0, std::ios_base::end);
-    size_t size = ifs.tellg();
-    ifs.seekg(0, std::ios_base::beg);
-    uint8_t *input = new uint8_t[size];
-    if (!ifs.read((char *)input, size)) {
-        std::cerr << "Failed to read file\n";
-        return 1;
-    }
 
     //do_compress(filename);
 
-//printf("Number %d\n", testtest());
-    //std::vector<USwitchSandbox*> sandboxes;
 
 //    for (int i = 0; i < comps; i++) {
 	sandboxes.push_back(new USwitchSandbox("/home/dev/uswitch/benchmark/libhello.so", 1024l << 20, 2l << 20));
     	sandboxes[0]->init();
 	sandboxes[0]->init_del(8UL<<10, 1);
-printf("Setup bz2 sandbox\n");
 	sandboxes.push_back(new USwitchSandbox("/home/dev/uswitch/bzip2/build/libbz2.so.1.0.9", 1024l << 20, 2l << 20));
         sandboxes[1]->init();
         sandboxes[1]->init_del(8UL<<20, 1);
@@ -151,7 +98,7 @@ printf("Setup bz2 sandbox\n");
   //  }
   //
     do_compress(filename);
-
+    sg_alloc_stats();
     static const std::vector<unsigned int> AllowedSyscalls {
         __NR_brk, __NR_mmap, __NR_munmap,
         __NR_lseek, __NR_fstat, __NR_read, __NR_write,
@@ -161,30 +108,5 @@ printf("Setup bz2 sandbox\n");
    //     sandboxes[i]->init_seccomp(AllowedSyscalls);
 
    // }
-    if (print) {
-        std::vector<uint64_t> times(n);
-        for (int i= 0; i < n; ++i) {
-            uint64_t t1 = time_nanosec();
-	    	for (int i = 0; i < comps; i++) {
-			load_jpeg_file(sandboxes[i], input, size);
-    		}
-            uint64_t t2 = time_nanosec();
-            times[i] = t2 - t1;
-        }
-        for (int i = 0; i < n; ++i) {
-            std::cout << times[i] << std::endl;
-        }
-    } else {
-        uint64_t t1 = time_nanosec();
-        for (int i= 0; i < n; ++i) {
-		for (int i = 0; i < comps; i++) {
-                        load_jpeg_file(sandboxes[i], input, size);
-                }
-        }
-        uint64_t t2 = time_nanosec();
-        std::cout << t2 - t1 << std::endl;
-    }
-    //printf("%lu\n", (t2 - t1) / n);
-    sleep(2000);
     return 0;
 }

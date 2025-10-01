@@ -5,6 +5,7 @@
 #include "sblibc.h"
 
 extern void* malloc_in(size_t size);
+extern void* relinquish(void* ptr);
 
 char *strdup(const char *s)
 {
@@ -23,7 +24,6 @@ int vasprintf(char **s, const char *fmt, va_list ap)
 	va_end(ap2);
 
 	if (l<0 || !(*s=malloc_in(l+1U))) return -1;
-	fprintf(stderr,"Did malloc\n");
 	return vsnprintf(*s, l+1U, fmt, ap);
 }
 
@@ -34,20 +34,18 @@ int asprintf(char **s, const char *fmt, ...)
 	va_start(ap, fmt);
 	ret = vasprintf(s, fmt, ap);
 	va_end(ap);
+	//*s = relinquish(*s);
 	return ret;
 }
 
 int asprintf_two_string(char** s, const char* fmt, const char* arg1, const char* arg2) {
-	fprintf(stderr, "In sandbox two string\n");
 	return asprintf(s, fmt, arg1, arg2);
 }
 
 int asprintf_one_string(char** s, const char* fmt, const char* arg1) {
-        fprintf(stderr, "In sandbox one string\n");
         return asprintf(s, fmt, arg1);
 }
 
 int asprintf_two_string_one_char(char** s, const char* fmt, const char* arg1, char arg2, const char* arg3) {
-        fprintf(stderr, "In sandbox two string one char\n");
         return asprintf(s, fmt, arg1, arg2, arg3);
 }
