@@ -97,7 +97,8 @@ int main(int argc, char **argv) {
 
     for (int i = 0; i < comps; i++) {
 	for (int j = 0; j < n; j++) {
-		sandboxes[i]->malloc_in_sandbox(0x1000);
+		for (int k = 0; k < 0x10; k++)
+			sandboxes[i]->malloc_in_sandbox(0x100);
 	}
 
     }

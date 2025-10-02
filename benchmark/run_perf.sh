@@ -189,6 +189,95 @@ python3 average_values_perf.py t2-4-8.perf >> t2-4.avg.std.perf
 python3 average_values_perf.py t2-4-9.perf >> t2-4.avg.std.perf
 python3 average_values_perf.py t2-4-10.perf >> t2-4.avg.std.perf
 
+
+for run in {1..5}; do ./test2-uswitch p1.png 1 1 1 >> t3-1-1.perf; done
+for run in {1..5}; do ./test2-uswitch p1.png 1 2 1 >> t3-1-2.perf; done
+for run in {1..5}; do ./test2-uswitch p1.png 1 3 1 >> t3-1-3.perf; done
+for run in {1..5}; do ./test2-uswitch p1.png 1 4 1 >> t3-1-4.perf; done
+for run in {1..5}; do ./test2-uswitch p1.png 1 5 1 >> t3-1-5.perf; done
+for run in {1..5}; do ./test2-uswitch p1.png 1 6 1 >> t3-1-6.perf; done
+for run in {1..5}; do ./test2-uswitch p1.png 1 7 1 >> t3-1-7.perf; done
+for run in {1..5}; do ./test2-uswitch p1.png 1 8 1 >> t3-1-8.perf; done
+for run in {1..5}; do ./test2-uswitch p1.png 1 9 1 >> t3-1-9.perf; done
+for run in {1..5}; do ./test2-uswitch p1.png 1 10 1 >> t3-1-10.perf; done
+
+for run in {1..5}; do ./test2-uswitch 2.4-MB.png 1 1 1 >> t3-2-1.perf; done
+for run in {1..5}; do ./test2-uswitch 2.4-MB.png 1 2 1 >> t3-2-2.perf; done
+for run in {1..5}; do ./test2-uswitch 2.4-MB.png 1 3 1 >> t3-2-3.perf; done
+for run in {1..5}; do ./test2-uswitch 2.4-MB.png 1 4 1 >> t3-2-4.perf; done
+for run in {1..5}; do ./test2-uswitch 2.4-MB.png 1 5 1 >> t3-2-5.perf; done
+for run in {1..5}; do ./test2-uswitch 2.4-MB.png 1 6 1 >> t3-2-6.perf; done
+for run in {1..5}; do ./test2-uswitch 2.4-MB.png 1 7 1 >> t3-2-7.perf; done
+for run in {1..5}; do ./test2-uswitch 2.4-MB.png 1 8 1 >> t3-2-8.perf; done
+for run in {1..5}; do ./test2-uswitch 2.4-MB.png 1 9 1 >> t3-2-9.perf; done
+for run in {1..5}; do ./test2-uswitch 2.4-MB.png 1 10 1 >> t3-2-10.perf; done
+
+for run in {1..5}; do ./test2-uswitch 6.3-MB.png 1 1 1 >> t3-3-1.perf; done
+for run in {1..5}; do ./test2-uswitch 6.3-MB.png 1 2 1 >> t3-3-2.perf; done
+for run in {1..5}; do ./test2-uswitch 6.3-MB.png 1 3 1 >> t3-3-3.perf; done
+for run in {1..5}; do ./test2-uswitch 6.3-MB.png 1 4 1 >> t3-3-4.perf; done
+for run in {1..5}; do ./test2-uswitch 6.3-MB.png 1 5 1 >> t3-3-5.perf; done
+for run in {1..5}; do ./test2-uswitch 6.3-MB.png 1 6 1 >> t3-3-6.perf; done
+for run in {1..5}; do ./test2-uswitch 6.3-MB.png 1 7 1 >> t3-3-7.perf; done
+for run in {1..5}; do ./test2-uswitch 6.3-MB.png 1 8 1 >> t3-3-8.perf; done
+for run in {1..5}; do ./test2-uswitch 6.3-MB.png 1 9 1 >> t3-3-9.perf; done
+for run in {1..5}; do ./test2-uswitch 6.3-MB.png 1 10 1 >> t3-3-10.perf; done
+
+for run in {1..5}; do ./test2-uswitch 11.5-MB.png 1 1 1 >> t3-4-1.perf; done
+for run in {1..5}; do ./test2-uswitch 11.5-MB.png 1 2 1 >> t3-4-2.perf; done
+for run in {1..5}; do ./test2-uswitch 11.5-MB.png 1 3 1 >> t3-4-3.perf; done
+for run in {1..5}; do ./test2-uswitch 11.5-MB.png 1 4 1 >> t3-4-4.perf; done
+for run in {1..5}; do ./test2-uswitch 11.5-MB.png 1 5 1 >> t3-4-5.perf; done
+for run in {1..5}; do ./test2-uswitch 11.5-MB.png 1 6 1 >> t3-4-6.perf; done
+for run in {1..5}; do ./test2-uswitch 11.5-MB.png 1 7 1 >> t3-4-7.perf; done
+for run in {1..5}; do ./test2-uswitch 11.5-MB.png 1 8 1 >> t3-4-8.perf; done
+for run in {1..5}; do ./test2-uswitch 11.5-MB.png 1 9 1 >> t3-4-9.perf; done
+for run in {1..5}; do ./test2-uswitch 11.5-MB.png 1 10 1 >> t3-4-10.perf; done
+
+python3 average_values_perf.py t3-1-1.perf >> t3-1.avg.std.perf
+python3 average_values_perf.py t3-1-2.perf >> t3-1.avg.std.perf
+python3 average_values_perf.py t3-1-3.perf >> t3-1.avg.std.perf
+python3 average_values_perf.py t3-1-4.perf >> t3-1.avg.std.perf
+python3 average_values_perf.py t3-1-5.perf >> t3-1.avg.std.perf
+python3 average_values_perf.py t3-1-6.perf >> t3-1.avg.std.perf
+python3 average_values_perf.py t3-1-7.perf >> t3-1.avg.std.perf
+python3 average_values_perf.py t3-1-8.perf >> t3-1.avg.std.perf
+python3 average_values_perf.py t3-1-9.perf >> t3-1.avg.std.perf
+python3 average_values_perf.py t3-1-10.perf >> t3-1.avg.std.perf
+
+python3 average_values_perf.py t3-2-1.perf >> t3-2.avg.std.perf
+python3 average_values_perf.py t3-2-2.perf >> t3-2.avg.std.perf
+python3 average_values_perf.py t3-2-3.perf >> t3-2.avg.std.perf
+python3 average_values_perf.py t3-2-4.perf >> t3-2.avg.std.perf
+python3 average_values_perf.py t3-2-5.perf >> t3-2.avg.std.perf
+python3 average_values_perf.py t3-2-6.perf >> t3-2.avg.std.perf
+python3 average_values_perf.py t3-2-7.perf >> t3-2.avg.std.perf
+python3 average_values_perf.py t3-2-8.perf >> t3-2.avg.std.perf
+python3 average_values_perf.py t3-2-9.perf >> t3-2.avg.std.perf
+python3 average_values_perf.py t3-2-10.perf >> t3-2.avg.std.perf
+
+python3 average_values_perf.py t3-3-1.perf >> t3-3.avg.std.perf
+python3 average_values_perf.py t3-3-2.perf >> t3-3.avg.std.perf
+python3 average_values_perf.py t3-3-3.perf >> t3-3.avg.std.perf
+python3 average_values_perf.py t3-3-4.perf >> t3-3.avg.std.perf
+python3 average_values_perf.py t3-3-5.perf >> t3-3.avg.std.perf
+python3 average_values_perf.py t3-3-6.perf >> t3-3.avg.std.perf
+python3 average_values_perf.py t3-3-7.perf >> t3-3.avg.std.perf
+python3 average_values_perf.py t3-3-8.perf >> t3-3.avg.std.perf
+python3 average_values_perf.py t3-3-9.perf >> t3-3.avg.std.perf
+python3 average_values_perf.py t3-3-10.perf >> t3-3.avg.std.perf
+
+python3 average_values_perf.py t3-4-1.perf >> t3-4.avg.std.perf
+python3 average_values_perf.py t3-4-2.perf >> t3-4.avg.std.perf
+python3 average_values_perf.py t3-4-3.perf >> t3-4.avg.std.perf
+python3 average_values_perf.py t3-4-4.perf >> t3-4.avg.std.perf
+python3 average_values_perf.py t3-4-5.perf >> t3-4.avg.std.perf
+python3 average_values_perf.py t3-4-6.perf >> t3-4.avg.std.perf
+python3 average_values_perf.py t3-4-7.perf >> t3-4.avg.std.perf
+python3 average_values_perf.py t3-4-8.perf >> t3-4.avg.std.perf
+python3 average_values_perf.py t3-4-9.perf >> t3-4.avg.std.perf
+python3 average_values_perf.py t3-4-10.perf >> t3-4.avg.std.perf
+
 #for run in {1..10}; do ./test2-uswitch p1.png 20 >> t2-1.perf & ../../wss/wss.pl $! 2 >> t2-1.mem && pkill test2-uswitch; done
 #for run in {1..10}; do ./test2-uswitch p2.png 20 >> t2-2.perf & ../../wss/wss.pl $! 2 >> t2-2.mem && pkill test2-uswitch; done
 #for run in {1..10}; do ./test2-uswitch p3.png 20 >> t2-3.perf & ../../wss/wss.pl $! 2 >> t2-3.mem && pkill test2-uswitch; done
