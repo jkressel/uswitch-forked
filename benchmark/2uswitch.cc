@@ -16,6 +16,8 @@ static uint64_t time_nanosec() {
 	return t.tv_sec * 1000000000ull + t.tv_nsec;
 }
 
+extern "C" void sg_alloc_stats();
+
 void info_callback(uswctx_t ctx, void *data, png_structp png, png_infop info) {
     uswitch_call_dynamic(ctx, (decltype(png_read_update_info) *)data, png, info);
 }
@@ -61,12 +63,14 @@ static void load_png_file(USwitchSandbox *sandbox, uint8_t *input, size_t size) 
 }
 
 int main(int argc, char **argv) {
-    if (argc != 3) {
-        std::cerr << "Usage: ./test2-uswitch <filename> <times>\n";
+    if (argc != 5) {
+        std::cerr << "Usage: ./test2-uswitch <filename> <times> comps\n";
         return 1;
     }
     const char *filename = argv[1];
     int n = atoi(argv[2]);
+    int comps = atoi(argv[3]);
+    int print = atoi(argv[4]);
     std::ifstream ifs(filename, std::ios::binary);
     if (!ifs) {
         std::cerr << "Failed to open file: " << filename << std::endl;
@@ -80,8 +84,14 @@ int main(int argc, char **argv) {
         std::cerr << "Failed to read file\n";
         return 1;
     }
-    USwitchSandbox sandbox("../libraries_uswitch/libpng/libpng.so", 1024l << 20, 2l << 20);
-    sandbox.init();
+
+    std::vector<USwitchSandbox*> sandboxes;
+
+    for (int i = 0; i < comps; i++) {
+        sandboxes.push_back(new USwitchSandbox("../libraries_uswitch/libpng/libpng.so", 1024l << 20, 2l << 20));
+        sandboxes[i]->init();
+
+    }
     static const std::vector<unsigned int> AllowedSyscalls {
 #ifdef ONLYMEMPROT
         __NR_brk, __NR_mmap, __NR_munmap,
@@ -89,22 +99,27 @@ int main(int argc, char **argv) {
         __NR_close, __NR_exit_group, __NR_newfstatat,
 #endif
         __NR_exit, __NR_futex, __NR_sched_yield, 451};
-    sandbox.init_seccomp(AllowedSyscalls);
-    uswctx_t ctx = sandbox.get_context();
-    info_callback_uswitch = uswitch_register_callback_get_fp(16, ctx, sandbox.get_symbol_addr("png_read_update_info"), info_callback);
-    row_callback_uswitch = uswitch_register_callback_get_fp(16, ctx, row_callback);
-    end_callback_uswitch = uswitch_register_callback_get_fp(16, ctx, end_callback);
-    std::vector<uint64_t> times(n);
-    for (int i= 0; i < n; ++i) {
-        uint64_t t1 = time_nanosec();
-        load_png_file(&sandbox, input, size);
-        uint64_t t2 = time_nanosec();
-        times[i] = t2 - t1;
+
+uint64_t t1 = time_nanosec();
+    for (int j = 0; j < comps; j++) {
+    	uswctx_t ctx = sandboxes[j]->get_context();
+    	info_callback_uswitch = uswitch_register_callback_get_fp(16, ctx, sandboxes[j]->get_symbol_addr("png_read_update_info"), info_callback);
+    	row_callback_uswitch = uswitch_register_callback_get_fp(16, ctx, row_callback);
+    	end_callback_uswitch = uswitch_register_callback_get_fp(16, ctx, end_callback);
+    	std::vector<uint64_t> times(n);
+    	for (int i= 0; i < n; ++i) {
+        	load_png_file(sandboxes[j], input, size);
+    	}
+    	for (int i = 0; i < n; ++i) {
+        	std::cout << times[i] << std::endl;
+    	}
     }
-    for (int i = 0; i < n; ++i) {
-        std::cout << times[i] << std::endl;
+    uint64_t t2 = time_nanosec();
+    if (print) {
+    	printf("%lu\n", (t2 - t1));
+	return 0;
     }
-    //printf("%lu\n", (t2 - t1) / n);
+    //sg_alloc_stats();
     sleep(2000);
     return 0;
 }

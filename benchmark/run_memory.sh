@@ -190,6 +190,97 @@ python3 average_values.py t2-4-8.mem >> t2-4.avg.std.mem
 python3 average_values.py t2-4-9.mem >> t2-4.avg.std.mem
 python3 average_values.py t2-4-10.mem >> t2-4.avg.std.mem
 
+
+for run in {1..5}; do ./test2-uswitch p3.png 1 1 0 >> t3-1-1.perf & ../../wss/wss.pl $! 2 >> t3-1-1.mem && pkill test2-uswitch; done
+for run in {1..5}; do ./test2-uswitch p3.png 1 2 0 >> t3-1-2.perf & ../../wss/wss.pl $! 2 >> t3-1-2.mem && pkill test2-uswitch; done
+for run in {1..5}; do ./test2-uswitch p3.png 1 3 0 >> t3-1-3.perf & ../../wss/wss.pl $! 2 >> t3-1-3.mem && pkill test2-uswitch; done
+for run in {1..5}; do ./test2-uswitch p3.png 1 4 0 >> t3-1-4.perf & ../../wss/wss.pl $! 2 >> t3-1-4.mem && pkill test2-uswitch; done
+for run in {1..5}; do ./test2-uswitch p3.png 1 5 0 >> t3-1-5.perf & ../../wss/wss.pl $! 2 >> t3-1-5.mem && pkill test2-uswitch; done
+for run in {1..5}; do ./test2-uswitch p3.png 1 6 0 >> t3-1-6.perf & ../../wss/wss.pl $! 4 >> t3-1-6.mem && pkill test2-uswitch; done
+for run in {1..5}; do ./test2-uswitch p3.png 1 7 0 >> t3-1-7.perf & ../../wss/wss.pl $! 4 >> t3-1-7.mem && pkill test2-uswitch; done
+for run in {1..5}; do ./test2-uswitch p3.png 1 8 0 >> t3-1-8.perf & ../../wss/wss.pl $! 4 >> t3-1-8.mem && pkill test2-uswitch; done
+for run in {1..5}; do ./test2-uswitch p3.png 1 9 0 >> t3-1-9.perf & ../../wss/wss.pl $! 4 >> t3-1-9.mem && pkill test2-uswitch; done
+for run in {1..5}; do ./test2-uswitch p3.png 1 10 0 >> t3-1-10.perf & ../../wss/wss.pl $! 4 >> t3-1-10.mem && pkill test2-uswitch; done
+
+for run in {1..5}; do ./test2-uswitch 2.4-MB.png 1 1 0 >> t3-2-1.perf & ../../wss/wss.pl $! 2 >> t3-2-1.mem && pkill test2-uswitch; done
+for run in {1..5}; do ./test2-uswitch 2.4-MB.png 1 2 0 >> t3-2-2.perf & ../../wss/wss.pl $! 2 >> t3-2-2.mem && pkill test2-uswitch; done
+for run in {1..5}; do ./test2-uswitch 2.4-MB.png 1 3 0 >> t3-2-3.perf & ../../wss/wss.pl $! 2 >> t3-2-3.mem && pkill test2-uswitch; done
+for run in {1..5}; do ./test2-uswitch 2.4-MB.png 1 4 0 >> t3-2-4.perf & ../../wss/wss.pl $! 2 >> t3-2-4.mem && pkill test2-uswitch; done
+for run in {1..5}; do ./test2-uswitch 2.4-MB.png 1 5 0 >> t3-2-5.perf & ../../wss/wss.pl $! 2 >> t3-2-5.mem && pkill test2-uswitch; done
+for run in {1..5}; do ./test2-uswitch 2.4-MB.png 1 6 0 >> t3-2-6.perf & ../../wss/wss.pl $! 4 >> t3-2-6.mem && pkill test2-uswitch; done
+for run in {1..5}; do ./test2-uswitch 2.4-MB.png 1 7 0 >> t3-2-7.perf & ../../wss/wss.pl $! 4 >> t3-2-7.mem && pkill test2-uswitch; done
+for run in {1..5}; do ./test2-uswitch 2.4-MB.png 1 8 0 >> t3-2-8.perf & ../../wss/wss.pl $! 4 >> t3-2-8.mem && pkill test2-uswitch; done
+for run in {1..5}; do ./test2-uswitch 2.4-MB.png 1 9 0 >> t3-2-9.perf & ../../wss/wss.pl $! 4 >> t3-2-9.mem && pkill test2-uswitch; done
+for run in {1..5}; do ./test2-uswitch 2.4-MB.png 1 10 0 >> t3-2-10.perf & ../../wss/wss.pl $! 4 >> t3-2-10.mem && pkill test2-uswitch; done
+
+for run in {1..5}; do ./test2-uswitch 6.3-MB.png 1 1 0 >> t3-3-1.perf & ../../wss/wss.pl $! 2 >> t3-3-1.mem && pkill test2-uswitch; done
+for run in {1..5}; do ./test2-uswitch 6.3-MB.png 1 2 0 >> t3-3-2.perf & ../../wss/wss.pl $! 2 >> t3-3-2.mem && pkill test2-uswitch; done
+for run in {1..5}; do ./test2-uswitch 6.3-MB.png 1 3 0 >> t3-3-3.perf & ../../wss/wss.pl $! 2 >> t3-3-3.mem && pkill test2-uswitch; done
+for run in {1..5}; do ./test2-uswitch 6.3-MB.png 1 4 0 >> t3-3-4.perf & ../../wss/wss.pl $! 2 >> t3-3-4.mem && pkill test2-uswitch; done
+for run in {1..5}; do ./test2-uswitch 6.3-MB.png 1 5 0 >> t3-3-5.perf & ../../wss/wss.pl $! 2 >> t3-3-5.mem && pkill test2-uswitch; done
+for run in {1..5}; do ./test2-uswitch 6.3-MB.png 1 6 0 >> t3-3-6.perf & ../../wss/wss.pl $! 4 >> t3-3-6.mem && pkill test2-uswitch; done
+for run in {1..5}; do ./test2-uswitch 6.3-MB.png 1 7 0 >> t3-3-7.perf & ../../wss/wss.pl $! 4 >> t3-3-7.mem && pkill test2-uswitch; done
+for run in {1..5}; do ./test2-uswitch 6.3-MB.png 1 8 0 >> t3-3-8.perf & ../../wss/wss.pl $! 4 >> t3-3-8.mem && pkill test2-uswitch; done
+for run in {1..5}; do ./test2-uswitch 6.3-MB.png 1 9 0 >> t3-3-9.perf & ../../wss/wss.pl $! 4 >> t3-3-9.mem && pkill test2-uswitch; done
+for run in {1..5}; do ./test2-uswitch 6.3-MB.png 1 10 0 >> t3-3-10.perf & ../../wss/wss.pl $! 4 >> t3-3-10.mem && pkill test2-uswitch; done
+
+for run in {1..5}; do ./test2-uswitch 11.5-MB.png 1 1 0 >> t3-4-1.perf & ../../wss/wss.pl $! 2 >> t3-4-1.mem && pkill test2-uswitch; done
+for run in {1..5}; do ./test2-uswitch 11.5-MB.png 1 2 0 >> t3-4-2.perf & ../../wss/wss.pl $! 2 >> t3-4-2.mem && pkill test2-uswitch; done
+for run in {1..5}; do ./test2-uswitch 11.5-MB.png 1 3 0 >> t3-4-3.perf & ../../wss/wss.pl $! 2 >> t3-4-3.mem && pkill test2-uswitch; done
+for run in {1..5}; do ./test2-uswitch 11.5-MB.png 1 4 0 >> t3-4-4.perf & ../../wss/wss.pl $! 2 >> t3-4-4.mem && pkill test2-uswitch; done
+for run in {1..5}; do ./test2-uswitch 11.5-MB.png 1 5 0 >> t3-4-5.perf & ../../wss/wss.pl $! 2 >> t3-4-5.mem && pkill test2-uswitch; done
+for run in {1..5}; do ./test2-uswitch 11.5-MB.png 1 6 0 >> t3-4-6.perf & ../../wss/wss.pl $! 4 >> t3-4-6.mem && pkill test2-uswitch; done
+for run in {1..5}; do ./test2-uswitch 11.5-MB.png 1 7 0 >> t3-4-7.perf & ../../wss/wss.pl $! 4 >> t3-4-7.mem && pkill test2-uswitch; done
+for run in {1..5}; do ./test2-uswitch 11.5-MB.png 1 8 0 >> t3-4-8.perf & ../../wss/wss.pl $! 4 >> t3-4-8.mem && pkill test2-uswitch; done
+for run in {1..5}; do ./test2-uswitch 11.5-MB.png 1 9 0 >> t3-4-9.perf & ../../wss/wss.pl $! 4 >> t3-4-9.mem && pkill test2-uswitch; done
+for run in {1..5}; do ./test2-uswitch 11.5-MB.png 1 10 0 >> t3-4-10.perf & ../../wss/wss.pl $! 4 >> t3-4-10.mem && pkill test2-uswitch; done
+
+
+python3 average_values.py t3-1-1.mem >> t3-1.avg.std.mem
+python3 average_values.py t3-1-2.mem >> t3-1.avg.std.mem
+python3 average_values.py t3-1-3.mem >> t3-1.avg.std.mem
+python3 average_values.py t3-1-4.mem >> t3-1.avg.std.mem
+python3 average_values.py t3-1-5.mem >> t3-1.avg.std.mem
+python3 average_values.py t3-1-6.mem >> t3-1.avg.std.mem
+python3 average_values.py t3-1-7.mem >> t3-1.avg.std.mem
+python3 average_values.py t3-1-8.mem >> t3-1.avg.std.mem
+python3 average_values.py t3-1-9.mem >> t3-1.avg.std.mem
+python3 average_values.py t3-1-10.mem >> t3-1.avg.std.mem
+
+python3 average_values.py t3-2-1.mem >> t3-2.avg.std.mem
+python3 average_values.py t3-2-2.mem >> t3-2.avg.std.mem
+python3 average_values.py t3-2-3.mem >> t3-2.avg.std.mem
+python3 average_values.py t3-2-4.mem >> t3-2.avg.std.mem
+python3 average_values.py t3-2-5.mem >> t3-2.avg.std.mem
+python3 average_values.py t3-2-6.mem >> t3-2.avg.std.mem
+python3 average_values.py t3-2-7.mem >> t3-2.avg.std.mem
+python3 average_values.py t3-2-8.mem >> t3-2.avg.std.mem
+python3 average_values.py t3-2-9.mem >> t3-2.avg.std.mem
+python3 average_values.py t3-2-10.mem >> t3-2.avg.std.mem
+
+python3 average_values.py t3-3-1.mem >> t3-3.avg.std.mem
+python3 average_values.py t3-3-2.mem >> t3-3.avg.std.mem
+python3 average_values.py t3-3-3.mem >> t3-3.avg.std.mem
+python3 average_values.py t3-3-4.mem >> t3-3.avg.std.mem
+python3 average_values.py t3-3-5.mem >> t3-3.avg.std.mem
+python3 average_values.py t3-3-6.mem >> t3-3.avg.std.mem
+python3 average_values.py t3-3-7.mem >> t3-3.avg.std.mem
+python3 average_values.py t3-3-8.mem >> t3-3.avg.std.mem
+python3 average_values.py t3-3-9.mem >> t3-3.avg.std.mem
+python3 average_values.py t3-3-10.mem >> t3-3.avg.std.mem
+
+python3 average_values.py t3-4-1.mem >> t3-4.avg.std.mem
+python3 average_values.py t3-4-2.mem >> t3-4.avg.std.mem
+python3 average_values.py t3-4-3.mem >> t3-4.avg.std.mem
+python3 average_values.py t3-4-4.mem >> t3-4.avg.std.mem
+python3 average_values.py t3-4-5.mem >> t3-4.avg.std.mem
+python3 average_values.py t3-4-6.mem >> t3-4.avg.std.mem
+python3 average_values.py t3-4-7.mem >> t3-4.avg.std.mem
+python3 average_values.py t3-4-8.mem >> t3-4.avg.std.mem
+python3 average_values.py t3-4-9.mem >> t3-4.avg.std.mem
+python3 average_values.py t3-4-10.mem >> t3-4.avg.std.mem
+
+
 #for run in {1..10}; do ./test2-uswitch p1.png 20 >> t2-1.perf & ../../wss/wss.pl $! 2 >> t2-1.mem && pkill test2-uswitch; done
 #for run in {1..10}; do ./test2-uswitch p2.png 20 >> t2-2.perf & ../../wss/wss.pl $! 2 >> t2-2.mem && pkill test2-uswitch; done
 #for run in {1..10}; do ./test2-uswitch p3.png 20 >> t2-3.perf & ../../wss/wss.pl $! 2 >> t2-3.mem && pkill test2-uswitch; done
