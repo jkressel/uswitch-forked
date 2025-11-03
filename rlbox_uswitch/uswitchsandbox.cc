@@ -35,8 +35,8 @@ USwitchSandboxSemaphore uswitch_sandbox_semaphore(13);
 USwitchSandboxManager uswitch_sandbox_manager(13);
 const std::vector<unsigned int> USwitchSandbox::DefaultTrappedSyscalls;
 
-extern "C" void* sg_malloc(size_t, uint8_t);
-extern "C" void sg_free(void*, uint8_t);
+extern "C" void* sg_malloc_vpkey(size_t, uint8_t, uint16_t);
+extern "C" void sg_free_vpkey(void*, uint8_t, uint16_t);
 extern "C" int init_delegation(int in_pkey, int allocator_pkey, size_t quota, int alloc_only);
 extern "C" void* relinquish(void* ptr, int in_domain_pkey, int by_pkey);
 extern "C" void* malloc_for(size_t size, int on_behalf_of_pkey, int by_pkey);
@@ -303,9 +303,9 @@ bool USwitchSandbox::init() {
     if (has_init) {
         return false;
     }
-    //handle = dlopen(get_shared_object_copy(library).c_str(), RTLD_NOW | RTLD_DEEPBIND);
+    handle = dlopen(get_shared_object_copy(library).c_str(), RTLD_NOW | RTLD_DEEPBIND);
     //handle = dlopen(library.c_str(), RTLD_NOW | RTLD_DEEPBIND);
-    handle = dlmopen(LM_ID_NEWLM, library.c_str(), RTLD_NOW | RTLD_DEEPBIND);
+    //handle = dlmopen(LM_ID_NEWLM, library.c_str(), RTLD_NOW | RTLD_DEEPBIND);
     if (!handle) {
         printf("dlmopen, error: %s\n", dlerror());
         return false;
@@ -676,10 +676,10 @@ void *USwitchSandbox::malloc_in_sandbox(size_t size) {
     if (!ctx) {
         return nullptr;
     }
-    //printf("Sandbox pkey = %d\n", get_pkey(ctx));
+    //printf("Sandbox pkey = %d, vpkey %d\n", get_pkey(ctx), get_vpkey(ctx));
 //    uswitch_call_dynamic(ctx, malloc_addr, ret, size);
-    ret = sg_malloc(size, get_pkey(ctx));
-
+    ret = sg_malloc_vpkey(size, get_pkey(ctx), get_vpkey(ctx));
+//printf("Sandbox pkey1 = %d, ret %p, size %d\n", get_pkey(ctx), ret, size);
     
     return ret;
 }
@@ -705,8 +705,8 @@ void* USwitchSandbox::malloc_in_sandbox_callback(uswctx_t ctx, void *data, size_
     }
     //printf("Sandbox pkey1 = %d\n", get_pkey(ctx));
 //    uswitch_call_dynamic(ctx, malloc_addr, ret, size);
-    ret = sg_malloc(size, get_pkey(ctx));
-
+    ret = sg_malloc_vpkey(size, get_pkey(ctx), get_vpkey(ctx));
+//    printf("Sandbox pkey1 = %d, ret %p, size %d\n", get_pkey(ctx), ret, size);
 
     return ret;	
 }
@@ -759,7 +759,7 @@ void USwitchSandbox::free_in_sandbox(void *ptr) {
     }
     //printf("Sandbox free pkey = %d\n", get_pkey(ctx));
   // uswitch_call_dynamic(ctx, free_addr, ptr);
-    sg_free(ptr, get_pkey(ctx));
+    sg_free_vpkey(ptr, get_pkey(ctx), get_vpkey(ctx));
 }
 
 void USwitchSandbox::free_in_sandbox_callback(uswctx_t ctx, void *data, void* ptr) {
@@ -768,7 +768,7 @@ void USwitchSandbox::free_in_sandbox_callback(uswctx_t ctx, void *data, void* pt
     }
     //printf("Sandbox pkey1 = %d\n", get_pkey(ctx));
 //    uswitch_call_dynamic(ctx, malloc_addr, ret, size);
-    sg_free(ptr, get_pkey(ctx));
+    sg_free_vpkey(ptr, get_pkey(ctx), get_vpkey(ctx));
 
 }
 

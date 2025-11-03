@@ -1438,6 +1438,9 @@ int uswitch_process_init() {
     for (int i = 0; i < 16; ++i) {
         uswitch_prstate.pkeys[i].vpkey = -1;
         uswitch_prstate.pkeys[i].ref = 0;
+	if (i == 1)
+		uswitch_prstate.pkeys[i].ref = 1;
+
     }
     if (pkey_mprotect(&uswitch_function_table, 4096, PROT_WRITE | PROT_READ, PkeyReadonly) == -1) {
         return -1;
@@ -1482,6 +1485,10 @@ extern "C" int get_pkey(USwitchContext *ctx) {
   return ctx->process_context->pkey;
 }
 
+extern "C" int get_vpkey(USwitchContext *ctx) {
+  return ctx->process_context->vpkey;
+}
+
 int get_real_pkey(int vpkey, int old_pkey) {
     USWITCH_MT(std::lock_guard<std::mutex> lock(uswitch_prstate.mutex));
     if (old_pkey != -1 && uswitch_prstate.pkeys[old_pkey].vpkey == vpkey) {
@@ -1510,6 +1517,7 @@ int get_real_pkey(int vpkey, int old_pkey) {
     }
     int evicted_pkey = inactive_pkeys[rand() % num_inactive_pkeys];
     int evicted_vpkey = uswitch_prstate.pkeys[evicted_pkey].vpkey;
+    //printf("evicted pkey %d\n", evicted_pkey);
     reset_pkey(evicted_vpkey, PkeyDefault);
     if (reset_pkey(vpkey, evicted_pkey) == -1) {
         return -1;

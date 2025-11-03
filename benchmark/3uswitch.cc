@@ -16,6 +16,8 @@ static uint64_t time_nanosec() {
 	return t.tv_sec * 1000000000ull + t.tv_nsec;
 }
 
+extern "C" void sg_alloc_stats();
+
 static void load_gzip_file(USwitchSandbox *sandbox, uint8_t *input, size_t in_size, uint8_t *output, size_t out_size) {
 #define GET_FUNC_PTR(name) decltype(name) *name##_s = (decltype(name) *)sandbox->get_symbol_addr(#name)
     GET_FUNC_PTR(inflateInit2_);
@@ -25,6 +27,7 @@ static void load_gzip_file(USwitchSandbox *sandbox, uint8_t *input, size_t in_si
     z_stream *stream = (z_stream *)sandbox->malloc_in_sandbox(sizeof(z_stream));
     size_t len = strlen(ZLIB_VERSION);
     char *ver_str = (char *)sandbox->malloc_in_sandbox(len + 1);
+    //by default there's just no allocation happening, so let's actually make things a bit interesting
     sandbox->malloc_in_sandbox(270);
     sandbox->malloc_in_sandbox(385);
     sandbox->malloc_in_sandbox(9384);
@@ -89,12 +92,35 @@ int main(int argc, char **argv) {
     }
 
     std::vector<USwitchSandbox*> sandboxes;
-
+std::vector<uint64_t> times(n);
+uint64_t total_time = 0;
+    std::vector<uint8_t*> input_ss;
+    std::vector<uint8_t*> outputs;
     for (int i = 0; i < comps; i++) {
         sandboxes.push_back(new USwitchSandbox("../libraries_uswitch/zlib/libz.so", 1024l << 20, 2l << 20));
         sandboxes[i]->init();
+	input_ss.push_back((uint8_t *)sandboxes[i]->malloc_in_sandbox(size));
+        outputs.push_back((uint8_t *)sandboxes[i]->malloc_in_sandbox(size * 2));
+        memcpy(input_ss[i], input, size);
+	uint64_t t1 = time_nanosec();
+	for (int j = 0; j < n; j++) {
+	sandboxes[i]->malloc_in_sandbox(839);
+      sandboxes[i]->malloc_in_sandbox(839);
+      sandboxes[i]->malloc_in_sandbox(33984);
+
+                load_gzip_file(sandboxes[i], input_ss[i], size, outputs[i], size * 2);
+	}
+	uint64_t t2 = time_nanosec();
+	total_time += t2-t1;
 
     }
+     if (print) {
+        printf("%ld\n", total_time);
+        //sg_alloc_stats();
+        return 0;
+    }
+    sleep(2000);
+    return 0;
    // USwitchSandbox sandbox11("../libraries_uswitch/zlib/libz.so", 1024l << 20, 2l << 20);
    // sandbox11.init();
     static const std::vector<unsigned int> AllowedSyscalls {
@@ -105,31 +131,28 @@ int main(int argc, char **argv) {
 #endif
         __NR_exit, __NR_futex, __NR_sched_yield, 451};
 
-    std::vector<uint64_t> times(n);
-    std::vector<uint8_t*> input_ss;
-    std::vector<uint8_t*> outputs;
-    uint64_t t1 = time_nanosec();
-    for (int i = 0; i < comps; i++) {
-        //simulate some more allocations happening in application
-        input_ss.push_back((uint8_t *)sandboxes[i]->malloc_in_sandbox(size));
-        outputs.push_back((uint8_t *)sandboxes[i]->malloc_in_sandbox(size * 2));
-        memcpy(input_ss[i], input, size);
-    }
-    for (int i= 0; i < n; ++i) {
-	for (int i = 0; i < comps; i++) {
-		sandboxes[i]->malloc_in_sandbox(839);
-      sandboxes[i]->malloc_in_sandbox(839);
-      sandboxes[i]->malloc_in_sandbox(33984);
-
-		load_gzip_file(sandboxes[i], input_ss[i], size, outputs[i], size * 2);
-	}
-    }
-    uint64_t t2 = time_nanosec();
+//    for (int i = 0; i < comps; i++) {
+//        //simulate some more allocations happening in application
+//        input_ss.push_back((uint8_t *)sandboxes[i]->malloc_in_sandbox(size));
+//        outputs.push_back((uint8_t *)sandboxes[i]->malloc_in_sandbox(size * 2));
+//        memcpy(input_ss[i], input, size);
+//    }
+//    for (int i= 0; i < n; ++i) {
+//	for (int i = 0; i < comps; i++) {
+//		sandboxes[i]->malloc_in_sandbox(839);
+//      sandboxes[i]->malloc_in_sandbox(839);
+//      sandboxes[i]->malloc_in_sandbox(33984);
+//
+//		load_gzip_file(sandboxes[i], input_ss[i], size, outputs[i], size * 2);
+//	}
+ //   }
+//    uint64_t t2 = time_nanosec();
     //printf("done\n");
-    if (print) {
-	printf("%ld\n", t2-t1);
-	return 0;
-    }
+//    if (print) {
+//	printf("%ld\n", t2-t1);
+//	sg_alloc_stats();
+//	return 0;
+ //   }
     sleep(2000);
     return 0;
 }
