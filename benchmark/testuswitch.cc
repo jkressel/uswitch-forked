@@ -91,6 +91,16 @@ int main(int argc, char **argv) {
 	sandboxes.push_back(new USwitchSandbox("/home/dev/uswitch/benchmark/libhello.so", 1024l << 20, 2l << 20));
     	sandboxes[0]->init();
 	sandboxes[0]->init_del(8UL<<10, 1);
+#define GET_FUNC_PTR(name) decltype(name) *name##_s = (decltype(name) *)sandboxes[0]->get_symbol_addr(#name)
+        GET_FUNC_PTR(testtest);
+#undef GET_FUNC_PTR
+        uswctx_t ctx = sandboxes[0]->get_context();
+        int ret;
+        uswitch_call_dynamic(ctx, testtest_s, ret);
+	uint64_t t1 = time_nanosec();
+        sandboxes[0]->malloc_in_sandbox(sizeof(int));
+        uint64_t t2 = time_nanosec();
+        printf("outside a sandbox %ld\n", t2-t1);
 	sandboxes.push_back(new USwitchSandbox("/home/dev/uswitch/bzip2/build/libbz2.so.1.0.9", 1024l << 20, 2l << 20));
         sandboxes[1]->init();
         sandboxes[1]->init_del(8UL<<20, 1);

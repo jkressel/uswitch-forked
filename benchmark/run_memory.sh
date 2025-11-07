@@ -103,49 +103,49 @@ python3 average_values.py t1-4-9.mem >> t1-4.avg.std.mem
 python3 average_values.py t1-4-10.mem >> t1-4.avg.std.mem
 
 
-for run in {1..5}; do ./test3-uswitch 1.gz 100 10 0 >> t2-1-1.perf & ../../wss/wss.pl $! 4 >> t2-1-1.mem && pkill test3-uswitch; done
-for run in {1..5}; do ./test3-uswitch 1.gz 100 20 0 >> t2-1-2.perf & ../../wss/wss.pl $! 8 >> t2-1-2.mem && pkill test3-uswitch; done
-for run in {1..5}; do ./test3-uswitch 1.gz 100 30 0 >> t2-1-3.perf & ../../wss/wss.pl $! 9 >> t2-1-3.mem && pkill test3-uswitch; done
-for run in {1..5}; do ./test3-uswitch 1.gz 100 40 0 >> t2-1-4.perf & ../../wss/wss.pl $! 10 >> t2-1-4.mem && pkill test3-uswitch; done
-for run in {1..5}; do ./test3-uswitch 1.gz 100 50 0 >> t2-1-5.perf & ../../wss/wss.pl $! 11 >> t2-1-5.mem && pkill test3-uswitch; done
-for run in {1..5}; do ./test3-uswitch 1.gz 100 60 0 >> t2-1-6.perf & ../../wss/wss.pl $! 12 >> t2-1-6.mem && pkill test3-uswitch; done
-for run in {1..5}; do ./test3-uswitch 1.gz 100 70 0 >> t2-1-7.perf & ../../wss/wss.pl $! 13 >> t2-1-7.mem && pkill test3-uswitch; done
-for run in {1..5}; do ./test3-uswitch 1.gz 100 80 0 >> t2-1-8.perf & ../../wss/wss.pl $! 14 >> t2-1-8.mem && pkill test3-uswitch; done
-for run in {1..5}; do ./test3-uswitch 1.gz 100 90 0 >> t2-1-9.perf & ../../wss/wss.pl $! 15 >> t2-1-9.mem && pkill test3-uswitch; done
-for run in {1..5}; do ./test3-uswitch 1.gz 100 100 0 >> t2-1-10.perf & ../../wss/wss.pl $! 17 >> t2-1-10.mem && pkill test3-uswitch; done
+for run in {1..5}; do ./test3-uswitch 1.gz 100 10 0 >> t2-1-1.perf & ../../wss/wss.pl $! 5 >> t2-1-1.mem && pkill test3-uswitch; done
+for run in {1..5}; do ./test3-uswitch 1.gz 100 20 0 >> t2-1-2.perf & ../../wss/wss.pl $! 10 >> t2-1-2.mem && pkill test3-uswitch; done
+for run in {1..5}; do ./test3-uswitch 1.gz 100 30 0 >> t2-1-3.perf & ../../wss/wss.pl $! 10 >> t2-1-3.mem && pkill test3-uswitch; done
+for run in {1..5}; do ./test3-uswitch 1.gz 100 40 0 >> t2-1-4.perf & ../../wss/wss.pl $! 15 >> t2-1-4.mem && pkill test3-uswitch; done
+for run in {1..5}; do ./test3-uswitch 1.gz 100 50 0 >> t2-1-5.perf & ../../wss/wss.pl $! 20 >> t2-1-5.mem && pkill test3-uswitch; done
+for run in {1..5}; do ./test3-uswitch 1.gz 100 60 0 >> t2-1-6.perf & ../../wss/wss.pl $! 25 >> t2-1-6.mem && pkill test3-uswitch; done
+for run in {1..5}; do ./test3-uswitch 1.gz 100 70 0 >> t2-1-7.perf & ../../wss/wss.pl $! 30 >> t2-1-7.mem && pkill test3-uswitch; done
+for run in {1..5}; do ./test3-uswitch 1.gz 100 80 0 >> t2-1-8.perf & ../../wss/wss.pl $! 35 >> t2-1-8.mem && pkill test3-uswitch; done
+for run in {1..5}; do ./test3-uswitch 1.gz 100 90 0 >> t2-1-9.perf & ../../wss/wss.pl $! 40 >> t2-1-9.mem && pkill test3-uswitch; done
+for run in {1..5}; do ./test3-uswitch 1.gz 100 100 0 >> t2-1-10.perf & ../../wss/wss.pl $! 50 >> t2-1-10.mem && pkill test3-uswitch; done
 
-for run in {1..5}; do ./test3-uswitch 2.gz 100 10 0 >> t2-2-1.perf & ../../wss/wss.pl $! 4 >> t2-2-1.mem && pkill test3-uswitch; done
-for run in {1..5}; do ./test3-uswitch 2.gz 100 20 0 >> t2-2-2.perf & ../../wss/wss.pl $! 8 >> t2-2-2.mem && pkill test3-uswitch; done
-for run in {1..5}; do ./test3-uswitch 2.gz 100 30 0 >> t2-2-3.perf & ../../wss/wss.pl $! 9 >> t2-2-3.mem && pkill test3-uswitch; done
-for run in {1..5}; do ./test3-uswitch 2.gz 100 40 0 >> t2-2-4.perf & ../../wss/wss.pl $! 10 >> t2-2-4.mem && pkill test3-uswitch; done
-for run in {1..5}; do ./test3-uswitch 2.gz 100 50 0 >> t2-2-5.perf & ../../wss/wss.pl $! 11 >> t2-2-5.mem && pkill test3-uswitch; done
-for run in {1..5}; do ./test3-uswitch 2.gz 100 60 0 >> t2-2-6.perf & ../../wss/wss.pl $! 12 >> t2-2-6.mem && pkill test3-uswitch; done
-for run in {1..5}; do ./test3-uswitch 2.gz 100 70 0 >> t2-2-7.perf & ../../wss/wss.pl $! 13 >> t2-2-7.mem && pkill test3-uswitch; done
-for run in {1..5}; do ./test3-uswitch 2.gz 100 80 0 >> t2-2-8.perf & ../../wss/wss.pl $! 14 >> t2-2-8.mem && pkill test3-uswitch; done
-for run in {1..5}; do ./test3-uswitch 2.gz 100 90 0 >> t2-2-9.perf & ../../wss/wss.pl $! 15 >> t2-2-9.mem && pkill test3-uswitch; done
-for run in {1..5}; do ./test3-uswitch 2.gz 100 100 0 >> t2-2-10.perf & ../../wss/wss.pl $! 17 >> t2-2-10.mem && pkill test3-uswitch; done
+for run in {1..5}; do ./test3-uswitch 2.gz 100 10 0 >> t2-2-1.perf & ../../wss/wss.pl $! 5 >> t2-2-1.mem && pkill test3-uswitch; done
+for run in {1..5}; do ./test3-uswitch 2.gz 100 20 0 >> t2-2-2.perf & ../../wss/wss.pl $! 10 >> t2-2-2.mem && pkill test3-uswitch; done
+for run in {1..5}; do ./test3-uswitch 2.gz 100 30 0 >> t2-2-3.perf & ../../wss/wss.pl $! 15 >> t2-2-3.mem && pkill test3-uswitch; done
+for run in {1..5}; do ./test3-uswitch 2.gz 100 40 0 >> t2-2-4.perf & ../../wss/wss.pl $! 20 >> t2-2-4.mem && pkill test3-uswitch; done
+for run in {1..5}; do ./test3-uswitch 2.gz 100 50 0 >> t2-2-5.perf & ../../wss/wss.pl $! 25 >> t2-2-5.mem && pkill test3-uswitch; done
+for run in {1..5}; do ./test3-uswitch 2.gz 100 60 0 >> t2-2-6.perf & ../../wss/wss.pl $! 30 >> t2-2-6.mem && pkill test3-uswitch; done
+for run in {1..5}; do ./test3-uswitch 2.gz 100 70 0 >> t2-2-7.perf & ../../wss/wss.pl $! 35 >> t2-2-7.mem && pkill test3-uswitch; done
+for run in {1..5}; do ./test3-uswitch 2.gz 100 80 0 >> t2-2-8.perf & ../../wss/wss.pl $! 40 >> t2-2-8.mem && pkill test3-uswitch; done
+for run in {1..5}; do ./test3-uswitch 2.gz 100 90 0 >> t2-2-9.perf & ../../wss/wss.pl $! 45 >> t2-2-9.mem && pkill test3-uswitch; done
+for run in {1..5}; do ./test3-uswitch 2.gz 100 100 0 >> t2-2-10.perf & ../../wss/wss.pl $! 50 >> t2-2-10.mem && pkill test3-uswitch; done
 
-for run in {1..5}; do ./test3-uswitch 3.gz 100 10 0 >> t2-3-1.perf & ../../wss/wss.pl $! 4 >> t2-3-1.mem && pkill test3-uswitch; done
-for run in {1..5}; do ./test3-uswitch 3.gz 100 20 0 >> t2-3-2.perf & ../../wss/wss.pl $! 8 >> t2-3-2.mem && pkill test3-uswitch; done
-for run in {1..5}; do ./test3-uswitch 3.gz 100 30 0 >> t2-3-3.perf & ../../wss/wss.pl $! 9 >> t2-3-3.mem && pkill test3-uswitch; done
-for run in {1..5}; do ./test3-uswitch 3.gz 100 40 0 >> t2-3-4.perf & ../../wss/wss.pl $! 10 >> t2-3-4.mem && pkill test3-uswitch; done
-for run in {1..5}; do ./test3-uswitch 3.gz 100 50 0 >> t2-3-5.perf & ../../wss/wss.pl $! 11 >> t2-3-5.mem && pkill test3-uswitch; done
-for run in {1..5}; do ./test3-uswitch 3.gz 100 60 0 >> t2-3-6.perf & ../../wss/wss.pl $! 12 >> t2-3-6.mem && pkill test3-uswitch; done
-for run in {1..5}; do ./test3-uswitch 3.gz 100 70 0 >> t2-3-7.perf & ../../wss/wss.pl $! 13 >> t2-3-7.mem && pkill test3-uswitch; done
-for run in {1..5}; do ./test3-uswitch 3.gz 100 80 0 >> t2-3-8.perf & ../../wss/wss.pl $! 14 >> t2-3-8.mem && pkill test3-uswitch; done
-for run in {1..5}; do ./test3-uswitch 3.gz 100 90 0 >> t2-3-9.perf & ../../wss/wss.pl $! 15 >> t2-3-9.mem && pkill test3-uswitch; done
-for run in {1..5}; do ./test3-uswitch 3.gz 100 100 0 >> t2-3-10.perf & ../../wss/wss.pl $! 17 >> t2-3-10.mem && pkill test3-uswitch; done
+for run in {1..5}; do ./test3-uswitch 3.gz 100 10 0 >> t2-3-1.perf & ../../wss/wss.pl $! 5 >> t2-3-1.mem && pkill test3-uswitch; done
+for run in {1..5}; do ./test3-uswitch 3.gz 100 20 0 >> t2-3-2.perf & ../../wss/wss.pl $! 10 >> t2-3-2.mem && pkill test3-uswitch; done
+for run in {1..5}; do ./test3-uswitch 3.gz 100 30 0 >> t2-3-3.perf & ../../wss/wss.pl $! 15 >> t2-3-3.mem && pkill test3-uswitch; done
+for run in {1..5}; do ./test3-uswitch 3.gz 100 40 0 >> t2-3-4.perf & ../../wss/wss.pl $! 20 >> t2-3-4.mem && pkill test3-uswitch; done
+for run in {1..5}; do ./test3-uswitch 3.gz 100 50 0 >> t2-3-5.perf & ../../wss/wss.pl $! 25 >> t2-3-5.mem && pkill test3-uswitch; done
+for run in {1..5}; do ./test3-uswitch 3.gz 100 60 0 >> t2-3-6.perf & ../../wss/wss.pl $! 30 >> t2-3-6.mem && pkill test3-uswitch; done
+for run in {1..5}; do ./test3-uswitch 3.gz 100 70 0 >> t2-3-7.perf & ../../wss/wss.pl $! 35 >> t2-3-7.mem && pkill test3-uswitch; done
+for run in {1..5}; do ./test3-uswitch 3.gz 100 80 0 >> t2-3-8.perf & ../../wss/wss.pl $! 40 >> t2-3-8.mem && pkill test3-uswitch; done
+for run in {1..5}; do ./test3-uswitch 3.gz 100 90 0 >> t2-3-9.perf & ../../wss/wss.pl $! 45 >> t2-3-9.mem && pkill test3-uswitch; done
+for run in {1..5}; do ./test3-uswitch 3.gz 100 100 0 >> t2-3-10.perf & ../../wss/wss.pl $! 50 >> t2-3-10.mem && pkill test3-uswitch; done
 
-for run in {1..5}; do ./test3-uswitch j1.jpeg.gz 100 10 0 >> t2-4-1.perf & ../../wss/wss.pl $! 4 >> t2-4-1.mem && pkill test3-uswitch; done
-for run in {1..5}; do ./test3-uswitch j1.jpeg.gz 100 20 0 >> t2-4-2.perf & ../../wss/wss.pl $! 8 >> t2-4-2.mem && pkill test3-uswitch; done
-for run in {1..5}; do ./test3-uswitch j1.jpeg.gz 100 30 0 >> t2-4-3.perf & ../../wss/wss.pl $! 9 >> t2-4-3.mem && pkill test3-uswitch; done
-for run in {1..5}; do ./test3-uswitch j1.jpeg.gz 100 40 0 >> t2-4-4.perf & ../../wss/wss.pl $! 10 >> t2-4-4.mem && pkill test3-uswitch; done
-for run in {1..5}; do ./test3-uswitch j1.jpeg.gz 100 50 0 >> t2-4-5.perf & ../../wss/wss.pl $! 11 >> t2-4-5.mem && pkill test3-uswitch; done
-for run in {1..5}; do ./test3-uswitch j1.jpeg.gz 100 60 0 >> t2-4-6.perf & ../../wss/wss.pl $! 12 >> t2-4-6.mem && pkill test3-uswitch; done
-for run in {1..5}; do ./test3-uswitch j1.jpeg.gz 100 70 0 >> t2-4-7.perf & ../../wss/wss.pl $! 13 >> t2-4-7.mem && pkill test3-uswitch; done
-for run in {1..5}; do ./test3-uswitch j1.jpeg.gz 100 80 0 >> t2-4-8.perf & ../../wss/wss.pl $! 14 >> t2-4-8.mem && pkill test3-uswitch; done
-for run in {1..5}; do ./test3-uswitch j1.jpeg.gz 100 90 0 >> t2-4-9.perf & ../../wss/wss.pl $! 15 >> t2-4-9.mem && pkill test3-uswitch; done
-for run in {1..5}; do ./test3-uswitch j1.jpeg.gz 100 100 0 >> t2-4-10.perf & ../../wss/wss.pl $! 17 >> t2-4-10.mem && pkill test3-uswitch; done
+for run in {1..5}; do ./test3-uswitch j1.jpeg.gz 100 10 0 >> t2-4-1.perf & ../../wss/wss.pl $! 5 >> t2-4-1.mem && pkill test3-uswitch; done
+for run in {1..5}; do ./test3-uswitch j1.jpeg.gz 100 20 0 >> t2-4-2.perf & ../../wss/wss.pl $! 10 >> t2-4-2.mem && pkill test3-uswitch; done
+for run in {1..5}; do ./test3-uswitch j1.jpeg.gz 100 30 0 >> t2-4-3.perf & ../../wss/wss.pl $! 15 >> t2-4-3.mem && pkill test3-uswitch; done
+for run in {1..5}; do ./test3-uswitch j1.jpeg.gz 100 40 0 >> t2-4-4.perf & ../../wss/wss.pl $! 20 >> t2-4-4.mem && pkill test3-uswitch; done
+for run in {1..5}; do ./test3-uswitch j1.jpeg.gz 100 50 0 >> t2-4-5.perf & ../../wss/wss.pl $! 25 >> t2-4-5.mem && pkill test3-uswitch; done
+for run in {1..5}; do ./test3-uswitch j1.jpeg.gz 100 60 0 >> t2-4-6.perf & ../../wss/wss.pl $! 30 >> t2-4-6.mem && pkill test3-uswitch; done
+for run in {1..5}; do ./test3-uswitch j1.jpeg.gz 100 70 0 >> t2-4-7.perf & ../../wss/wss.pl $! 35 >> t2-4-7.mem && pkill test3-uswitch; done
+for run in {1..5}; do ./test3-uswitch j1.jpeg.gz 100 80 0 >> t2-4-8.perf & ../../wss/wss.pl $! 40 >> t2-4-8.mem && pkill test3-uswitch; done
+for run in {1..5}; do ./test3-uswitch j1.jpeg.gz 100 90 0 >> t2-4-9.perf & ../../wss/wss.pl $! 45 >> t2-4-9.mem && pkill test3-uswitch; done
+for run in {1..5}; do ./test3-uswitch j1.jpeg.gz 100 100 0 >> t2-4-10.perf & ../../wss/wss.pl $! 50 >> t2-4-10.mem && pkill test3-uswitch; done
 python3 average_values.py t2-1-1.mem >> t2-1.avg.std.mem
 python3 average_values.py t2-1-2.mem >> t2-1.avg.std.mem
 python3 average_values.py t2-1-3.mem >> t2-1.avg.std.mem
