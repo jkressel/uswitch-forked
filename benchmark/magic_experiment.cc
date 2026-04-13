@@ -44,7 +44,7 @@ int call_asprintf_two_string(char** ptr, const char* fmt, const char* arg1, cons
     int ret;
 
     uswitch_call_dynamic(ctx, asprintf_two_string_s, ret, ptr, fmt, arg1, arg2);
-    *ptr = (char*)sandboxes[1]->relinquish_in_sandbox(*ptr);
+    *ptr = (char*)sandboxes[1]->revoke_from_sandbox(*ptr);
     return ret;
 
 }
@@ -57,7 +57,7 @@ int call_asprintf_one_string(char** ptr, const char* fmt, const char* arg1) {
     int ret;
 
     uswitch_call_dynamic(ctx, asprintf_one_string_s, ret, ptr, fmt, arg1);
-    *ptr = (char*)sandboxes[1]->relinquish_in_sandbox(*ptr);
+    *ptr = (char*)sandboxes[1]->revoke_from_sandbox(*ptr);
     return ret;
 
 }
@@ -70,7 +70,19 @@ int call_asprintf_two_string_one_char(char** ptr, const char* fmt, const char* a
     int ret;
 
     uswitch_call_dynamic(ctx, asprintf_two_string_one_char_s, ret, ptr, fmt, arg1, arg2, arg3);
-    *ptr = (char*)sandboxes[1]->relinquish_in_sandbox(*ptr);
+    *ptr = (char*)sandboxes[1]->revoke_from_sandbox(*ptr);
+    return ret;
+
+}
+
+char* call_strdup(char* ptr) {
+#define GET_FUNC_PTR(name) decltype(name) *name##_s = (decltype(name) *)sandboxes[1]->get_symbol_addr(#name)
+    GET_FUNC_PTR(strdup_mod);
+#undef GET_FUNC_PTR
+    uswctx_t ctx = sandboxes[1]->get_context();
+    char* ret;
+    uswitch_call_dynamic(ctx, strdup_mod_s, ret, (const char*)ptr);
+    //ret = (char*)sandboxes[1]->revoke_from_sandbox(ret);
     return ret;
 
 }
@@ -129,11 +141,29 @@ int main(int argc, char **argv) {
 	sandboxes.push_back(new USwitchSandbox("/home/dev/uswitch/benchmark/libhello.so", 1024l << 20, 2l << 20));
     	sandboxes[0]->init();
 	sandboxes[0]->init_del(8UL<<10, 1);
-printf("Setup bz2 sandbox\n");
 	sandboxes.push_back(new USwitchSandbox("/home/dev/uswitch/sandboxed_libc/libsblibc.so", 1024l << 20, 2l << 20));
         sandboxes[1]->init();
         sandboxes[1]->init_del(8UL<<15, 1);
-
+	char* alloced = (char*)sandboxes[1]->malloc_in_sandbox(200*sizeof(char));
+        memcpy(alloced, filename, strlen(filename));
+	char* testing;
+uint64_t t1 = time_nanosec();
+        for(int i = 0; i < 5; i++) {
+                testing = call_strdup(alloced);
+        }
+        uint64_t t2 = time_nanosec();
+        printf("strdup %ld\n", (t2-t1)/5);
+        char** resultstr = (char**)sbmalloc(sizeof(char*));
+                        char* fmt = (char*) sbmalloc(100 * sizeof(char));
+                        char* arg1 = (char*) sbmalloc(100 * sizeof(char));
+                        char* arg2 = (char*) sbmalloc(100 * sizeof(char));
+                        sprintf(fmt, "%s", "\%s/\%s");
+                        sprintf(arg1, "%s", "veryverygooddirectory" );
+                        sprintf(arg2, "%s", "veryverygoodandalsoimportantfile\n");
+                        uint64_t t3 = time_nanosec();
+                        for (int i = 0; i < 5; i++)
+                                call_asprintf_two_string(resultstr, fmt, arg1, arg2);
+                        uint64_t t4 = time_nanosec();
   magic_t myt = magic_open(MAGIC_CONTINUE|MAGIC_ERROR/*|MAGIC_DEBUG*/|MAGIC_MIME);
   if (myt == NULL)
 	  printf("Could not open magic cookie\n");
@@ -156,7 +186,27 @@ printf("Setup bz2 sandbox\n");
         if (strcmp(entry->d_name, ".") == 0 || strcmp(entry->d_name, "..") == 0 || (char)entry->d_name[0] == (char)'.')
             continue;
 	char* file_desc = (char*)magic_file(myt, (const char*)entry->d_name);
-  	printf("Magic file type %s: %s\n", entry->d_name, file_desc);
+	memcpy(alloced, file_desc, strlen(file_desc));
+	uint64_t t1 = time_nanosec();
+	for(int i = 0; i < 50; i++) {
+        	testing = call_strdup(alloced);
+	}
+	uint64_t t2 = time_nanosec();
+	printf("strdup %ld\n", (t2-t1)/50);
+	char** resultstr = (char**)sbmalloc(sizeof(char*));
+                        char* fmt = (char*) sbmalloc(100 * sizeof(char));
+                        char* arg1 = (char*) sbmalloc(100 * sizeof(char));
+                        char* arg2 = (char*) sbmalloc(100 * sizeof(char));
+                        sprintf(fmt, "%s", "\%s/\%s");
+                        sprintf(arg1, "%s", "veryverygooddirectory" );
+                        sprintf(arg2, "%s", "veryverygoodandalsoimportantfile\n");
+			uint64_t t3 = time_nanosec();
+			for (int i = 0; i < 50; i++)
+                        	call_asprintf_two_string(resultstr, fmt, arg1, arg2);
+			uint64_t t4 = time_nanosec();
+printf("asprintf %ld\n", (t4-t3)/50);
+		//char* testing = strdup(file_desc);
+	printf("Magic file type %s: %s\n", entry->d_name, file_desc);
     }
 
     closedir(dir);

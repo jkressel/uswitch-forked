@@ -8,7 +8,7 @@ all: test1-native test1-uswitch  \
 	test5-native test5-uswitch  \
 	test6-native test6-uswitch  \
 	test8-native test8-uswitch  \
-	test15-uswitch testtest-uswitch magicex memex
+	test15-uswitch testtest-uswitch magicex memex plutusalloclatency
 test1-ps: 1ps.cc
 	$(CXX) 1ps.cc -std=c++17 -O3 -g -o test1-ps -I../libraries_uswitch/libjpeg -I./ProcessSandbox \
 		-L./ProcessSandbox -lProcessSandbox_jpeg64 -pthread -lrt
@@ -83,6 +83,7 @@ test8-native: 8native.cc
 	cc $(CFLAGS) ../../allocator/SlimGuard/slimguard-standalone.c -shared -fPIC -o sg.o
 	$(CXX) 8native.cc -std=c++17 -O3 -g -o test8-native -I../libraries_native/libevent/include -L../libraries_native/libevent -levent -DENABLE_SECCOMP
 test8-uswitch: 8uswitch.cc
+	cc $(CFLAGS) ../../allocator/SlimGuard/slimguard-standalone.c -shared -fPIC -o sg.o
 	$(CXX) -std=c++17 -O3 -g -o test8-uswitch -I../libraries_uswitch/libevent/include -I../libuswitch -I../rlbox_uswitch/ \
 		8uswitch.cc ../libuswitch/libuswitch.a ../rlbox_uswitch/librlbox_uswitch.a sg.o -ldl -pthread
 test8-ps: 8ps.cc
@@ -97,6 +98,10 @@ test15-uswitch: 15comps.cc
 testtest-uswitch: testuswitch.cc
 	$(CXX) -std=c++17 -O3 -g -o testtest-uswitch -I./ -I../libuswitch -I../rlbox_uswitch/ \
 		testuswitch.cc -L/home/dev/uswitch-standard/benchmark/ -L/home/dev/uswitch/benchmark/bzip2/ ../libuswitch/libuswitch.a bzip2/build/libbz2_static.a ../rlbox_uswitch/librlbox_uswitch.a  -ldl -pthread
+
+plutusalloclatency: plutusalloclatency.cc
+	$(CXX) -std=c++17 -O3 -g -o plutusalloclatency -I./ -I../libuswitch -I../rlbox_uswitch/ \
+                plutusalloclatency.cc -L/home/dev/uswitch-standard/benchmark/  ../libuswitch/libuswitch.a ../rlbox_uswitch/librlbox_uswitch.a  sg.o -ldl -pthread
 
 magicex: magic_experiment.cc
 	cc $(CFLAGS) ../../allocator/SlimGuard/slimguard-standalone.c -shared -fPIC -o sg.o

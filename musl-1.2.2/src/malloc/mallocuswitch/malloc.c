@@ -20,20 +20,22 @@ void* (*sg_malloc)(size_t size);
 //extern void* sg_malloc(size_t size, uint8_t pkey);
 
 void *__libc_malloc_impl(size_t size) {
-	fprintf(stderr, "Malloc\n");
  //   return mspace_malloc(msp, size);
 //    return malloc(size);
 //	return     mfunc(size, 69);
+fprintf(stderr, "malloc_impl\n");
         return mspace_malloc(msp, size);
 //    return sg_malloc(size);
 
 }
 
 void *__libc_realloc(void *ptr, size_t size) {
+	fprintf(stderr, "malloc_impl\n");
     return mspace_realloc(msp, ptr, size);
 }
 
 void __libc_free(void *ptr) {
+fprintf(stderr, "libc_free\n");
     mspace_free(msp, ptr);
 }
 
@@ -42,7 +44,7 @@ void __libc_free(void *ptr) {
 //}
 
 void malloc_init(void *base, size_t size, void* mal) {
-    msp = create_mspace_with_base(base, size, 1);
+    //msp = create_mspace_with_base(base, size, 1);
     sg_malloc = mal;
 }
 

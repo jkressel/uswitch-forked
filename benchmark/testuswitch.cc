@@ -43,11 +43,11 @@ int call_decompress(DState* s) {
     	uswitch_call_dynamic(ctx, BZ2_decompress_s, ret, s);
 	 if(s->state == BZ_X_OUTPUT) {
         if (s->ll16)
-                s->ll16 = (UInt16 *)sandbox->relinquish_in_sandbox(s->ll16);
+                s->ll16 = (UInt16 *)sandbox->revoke_from_sandbox(s->ll16);
         if (s->ll4)
-                s->ll4 = (UChar*)sandbox->relinquish_in_sandbox(s->ll4);
+                s->ll4 = (UChar*)sandbox->revoke_from_sandbox(s->ll4);
         if (s->tt)
-                s->tt = (UInt32*)sandbox->relinquish_in_sandbox(s->tt);
+                s->tt = (UInt32*)sandbox->revoke_from_sandbox(s->tt);
    }
 	return ret;
 }
@@ -95,11 +95,15 @@ int main(int argc, char **argv) {
         GET_FUNC_PTR(testtest);
 #undef GET_FUNC_PTR
         uswctx_t ctx = sandboxes[0]->get_context();
+	sandboxes[0]->malloc_in_sandbox(sizeof(int));
+	sandboxes[0]->malloc_in_sandbox(sizeof(int));
         int ret;
-        uswitch_call_dynamic(ctx, testtest_s, ret);
 	uint64_t t1 = time_nanosec();
-        sandboxes[0]->malloc_in_sandbox(sizeof(int));
-        uint64_t t2 = time_nanosec();
+        uswitch_call_dynamic(ctx, testtest_s, ret);
+	uint64_t t2 = time_nanosec();
+//	uint64_t t1 = time_nanosec();
+//        sandboxes[0]->malloc_in_sandbox(sizeof(int));
+//        uint64_t t2 = time_nanosec();
         printf("outside a sandbox %ld\n", t2-t1);
 	sandboxes.push_back(new USwitchSandbox("/home/dev/uswitch/bzip2/build/libbz2.so.1.0.9", 1024l << 20, 2l << 20));
         sandboxes[1]->init();
@@ -109,14 +113,5 @@ int main(int argc, char **argv) {
   //
     do_compress(filename);
     sg_alloc_stats();
-    static const std::vector<unsigned int> AllowedSyscalls {
-        __NR_brk, __NR_mmap, __NR_munmap,
-        __NR_lseek, __NR_fstat, __NR_read, __NR_write,
-        __NR_close, __NR_exit_group, __NR_newfstatat,
-        __NR_exit, __NR_futex, __NR_sched_yield, 451};
-   // for (int i = 0; i < comps; i++) {
-   //     sandboxes[i]->init_seccomp(AllowedSyscalls);
-
-   // }
     return 0;
 }

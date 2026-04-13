@@ -27,26 +27,13 @@ static void load_gzip_file(USwitchSandbox *sandbox, uint8_t *input, size_t in_si
     z_stream *stream = (z_stream *)sandbox->malloc_in_sandbox(sizeof(z_stream));
     size_t len = strlen(ZLIB_VERSION);
     char *ver_str = (char *)sandbox->malloc_in_sandbox(len + 1);
-    //by default there's just no allocation happening, so let's actually make things a bit interesting
+   // by default there's not much  allocation happening, so let's actually make things a bit interesting, these essentially simulate active memory allocations at the time we take the memory reading
     sandbox->malloc_in_sandbox(270);
     sandbox->malloc_in_sandbox(385);
     sandbox->malloc_in_sandbox(9384);
     sandbox->malloc_in_sandbox(27);
     sandbox->malloc_in_sandbox(270);
     sandbox->malloc_in_sandbox(838);
-    sandbox->malloc_in_sandbox(24);
-    sandbox->malloc_in_sandbox(27);
-    sandbox->malloc_in_sandbox(27);
-    sandbox->malloc_in_sandbox(27);
-    sandbox->malloc_in_sandbox(270);
-    sandbox->malloc_in_sandbox(270);
-    sandbox->malloc_in_sandbox(27);
-    sandbox->malloc_in_sandbox(278);
-    sandbox->malloc_in_sandbox(2700);
-    sandbox->malloc_in_sandbox(27);
-    sandbox->malloc_in_sandbox(278);
-    sandbox->malloc_in_sandbox(278);
-    sandbox->malloc_in_sandbox(2784); 
     memcpy(ver_str, ZLIB_VERSION, len + 1);
     memset(stream, 0, sizeof(z_stream));
     uswctx_t ctx = sandbox->get_context();
@@ -64,6 +51,7 @@ static void load_gzip_file(USwitchSandbox *sandbox, uint8_t *input, size_t in_si
         return;
     }
     uswitch_call_dynamic(ctx, inflateEnd_s, nullptr, stream);
+    sandbox->free_in_sandbox(stream->state);
     sandbox->free_in_sandbox(stream);
     sandbox->free_in_sandbox(ver_str);
 }
@@ -99,17 +87,23 @@ uint64_t total_time = 0;
     for (int i = 0; i < comps; i++) {
         sandboxes.push_back(new USwitchSandbox("../libraries_uswitch/zlib/libz.so", 1024l << 20, 2l << 20));
         sandboxes[i]->init();
-	input_ss.push_back((uint8_t *)sandboxes[i]->malloc_in_sandbox(size));
-        outputs.push_back((uint8_t *)sandboxes[i]->malloc_in_sandbox(size * 2));
-        memcpy(input_ss[i], input, size);
+	uint8_t* input_s = (uint8_t *)sandboxes[i]->malloc_in_sandbox(size);
+        uint8_t* output_s = (uint8_t *)sandboxes[i]->malloc_in_sandbox(size*2);
+        memcpy(input_s, input, size);
 	uint64_t t1 = time_nanosec();
 	for (int j = 0; j < n; j++) {
-	sandboxes[i]->malloc_in_sandbox(839);
-      sandboxes[i]->malloc_in_sandbox(839);
-      sandboxes[i]->malloc_in_sandbox(33984);
+		//for (int k = 0; k < 10000; k++)
+		//sandboxes[i]->malloc_in_sandbox(3);
+//	sandboxes[i]->malloc_in_sandbox(839);
+//      sandboxes[i]->malloc_in_sandbox(839);
+//      sandboxes[i]->malloc_in_sandbox(33984);
 
-                load_gzip_file(sandboxes[i], input_ss[i], size, outputs[i], size * 2);
+                load_gzip_file(sandboxes[i], input_s, size, output_s, size * 2);
 	}
+	sandboxes[i]->free_in_sandbox( input_s);
+        sandboxes[i]->free_in_sandbox( output_s);
+	//sandboxes[i]->free_in_sandbox( input_ss[i]);
+	//sandboxes[i]->free_in_sandbox( outputs[i]);
 	uint64_t t2 = time_nanosec();
 	total_time += t2-t1;
 

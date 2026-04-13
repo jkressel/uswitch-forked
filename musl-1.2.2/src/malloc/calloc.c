@@ -30,16 +30,16 @@ static int allzerop(void *p)
 }
 weak_alias(allzerop, __malloc_allzerop);
 
-void *calloc(size_t m, size_t n)
-{
-	if (n && m > (size_t)-1/n) {
-		errno = ENOMEM;
-		return 0;
-	}
-	n *= m;
-	void *p = malloc(n);
-	if (!p || (!__malloc_replaced && __malloc_allzerop(p)))
-		return p;
-	n = mal0_clear(p, n);
-	return memset(p, 0, n);
-}
+//void *calloc(size_t m, size_t n)
+//{
+//	if (n && m > (size_t)-1/n) {
+//		errno = ENOMEM;
+//		return 0;
+//	}
+//	n *= m;
+//	void *p = malloc(n);
+//	if (!p || (!__malloc_replaced && __malloc_allzerop(p)))
+//		return p;
+//	n = mal0_clear(p, n);
+//	return memset(p, 0, n);
+//}

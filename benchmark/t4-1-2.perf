@@ -1,0 +1,1015 @@
+Starting wrk tests from port 6969 to 6988 (20 total)...
+=======================================================================
+Running wrk on port 6969...
+Running 10s test @ http://0.0.0.0:6969/testpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    16.55ms   16.47ms  46.29ms   82.01%
+    Req/Sec   803.61     65.90     0.94k    71.00%
+  7997 requests in 10.00s, 4.42GB read
+Requests/sec:    799.46
+Transfer/sec:    452.80MB
+-----------------------------------------------------------------------
+Running wrk on port 6970...
+Running 10s test @ http://0.0.0.0:6970/testpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    16.38ms   16.57ms  46.56ms   82.52%
+    Req/Sec   839.33     58.13     1.02k    72.00%
+  8354 requests in 10.00s, 4.62GB read
+Requests/sec:    835.24
+Transfer/sec:    473.04MB
+-----------------------------------------------------------------------
+Running wrk on port 6971...
+Running 10s test @ http://0.0.0.0:6971/testpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    16.25ms   16.63ms  45.47ms   82.83%
+    Req/Sec     0.86k    66.02     1.03k    74.26%
+  8678 requests in 10.10s, 4.80GB read
+Requests/sec:    859.15
+Transfer/sec:    486.63MB
+-----------------------------------------------------------------------
+Running wrk on port 6972...
+Running 10s test @ http://0.0.0.0:6972/testpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    16.18ms   16.63ms  46.69ms   82.64%
+    Req/Sec     0.87k    77.43     1.05k    69.00%
+  8684 requests in 10.01s, 4.80GB read
+Requests/sec:    867.74
+Transfer/sec:    491.49MB
+-----------------------------------------------------------------------
+Running wrk on port 6973...
+Running 10s test @ http://0.0.0.0:6973/testpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    16.40ms   16.51ms  45.43ms   82.42%
+    Req/Sec   829.78     84.02     1.11k    80.00%
+  8268 requests in 10.01s, 4.57GB read
+Requests/sec:    826.19
+Transfer/sec:    467.98MB
+-----------------------------------------------------------------------
+Running wrk on port 6974...
+Running 10s test @ http://0.0.0.0:6974/testpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    16.47ms   16.51ms  47.64ms   82.21%
+    Req/Sec   818.05     66.48     0.98k    71.00%
+  8148 requests in 10.00s, 4.51GB read
+Requests/sec:    814.63
+Transfer/sec:    461.44MB
+-----------------------------------------------------------------------
+Running wrk on port 6975...
+Running 10s test @ http://0.0.0.0:6975/testpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    16.86ms   16.42ms  44.77ms   81.14%
+    Req/Sec   743.75     69.25     0.94k    71.00%
+  7404 requests in 10.00s, 4.10GB read
+Requests/sec:    740.28
+Transfer/sec:    419.38MB
+-----------------------------------------------------------------------
+Running wrk on port 6976...
+Running 10s test @ http://0.0.0.0:6976/testpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    16.49ms   16.51ms  45.42ms   82.23%
+    Req/Sec   815.30     77.71     0.96k    71.00%
+  8118 requests in 10.00s, 4.49GB read
+Requests/sec:    811.44
+Transfer/sec:    459.58MB
+-----------------------------------------------------------------------
+Running wrk on port 6977...
+Running 10s test @ http://0.0.0.0:6977/testpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    15.95ms   16.62ms  47.41ms   80.27%
+    Req/Sec     0.91k    54.12     1.07k    70.00%
+  9022 requests in 10.00s, 4.99GB read
+Requests/sec:    902.00
+Transfer/sec:    510.88MB
+-----------------------------------------------------------------------
+Running wrk on port 6978...
+Running 10s test @ http://0.0.0.0:6978/testpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    16.15ms   16.59ms  46.91ms   82.53%
+    Req/Sec     0.87k    66.06     1.03k    62.00%
+  8688 requests in 10.00s, 4.81GB read
+Requests/sec:    868.59
+Transfer/sec:    491.98MB
+-----------------------------------------------------------------------
+Running wrk on port 6979...
+Running 10s test @ http://0.0.0.0:6979/testpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    16.34ms   16.57ms  45.90ms   82.59%
+    Req/Sec   843.78     66.37     0.98k    64.00%
+  8404 requests in 10.00s, 4.65GB read
+Requests/sec:    840.19
+Transfer/sec:    475.86MB
+-----------------------------------------------------------------------
+Running wrk on port 6980...
+Running 10s test @ http://0.0.0.0:6980/testpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    16.26ms   16.62ms  45.04ms   82.81%
+    Req/Sec     0.86k    64.45     1.07k    70.00%
+  8568 requests in 10.00s, 4.74GB read
+Requests/sec:    856.44
+Transfer/sec:    485.05MB
+-----------------------------------------------------------------------
+Running wrk on port 6981...
+Running 10s test @ http://0.0.0.0:6981/testpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    16.23ms   16.69ms  45.81ms   82.90%
+    Req/Sec     0.87k    66.21     1.04k    74.00%
+  8669 requests in 10.00s, 4.80GB read
+Requests/sec:    866.73
+Transfer/sec:    490.92MB
+-----------------------------------------------------------------------
+Running wrk on port 6982...
+Running 10s test @ http://0.0.0.0:6982/testpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    16.28ms   16.68ms  45.49ms   82.89%
+    Req/Sec     0.86k    56.36     1.02k    73.00%
+  8601 requests in 10.00s, 4.76GB read
+Requests/sec:    859.81
+Transfer/sec:    487.00MB
+-----------------------------------------------------------------------
+Running wrk on port 6983...
+Running 10s test @ http://0.0.0.0:6983/testpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    16.28ms   16.72ms  44.69ms   82.97%
+    Req/Sec     0.87k    61.10     1.07k    74.00%
+  8617 requests in 10.00s, 4.77GB read
+Requests/sec:    861.68
+Transfer/sec:    488.07MB
+-----------------------------------------------------------------------
+Running wrk on port 6984...
+Running 10s test @ http://0.0.0.0:6984/testpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    16.36ms   16.71ms  47.36ms   82.83%
+    Req/Sec     0.85k    64.79     0.99k    72.00%
+  8499 requests in 10.00s, 4.70GB read
+Requests/sec:    849.81
+Transfer/sec:    481.35MB
+-----------------------------------------------------------------------
+Running wrk on port 6985...
+Running 10s test @ http://0.0.0.0:6985/testpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    16.72ms   16.61ms  47.41ms   81.93%
+    Req/Sec   792.01     86.56     1.02k    71.00%
+  7889 requests in 10.01s, 4.36GB read
+Requests/sec:    788.44
+Transfer/sec:    446.63MB
+-----------------------------------------------------------------------
+Running wrk on port 6986...
+Running 10s test @ http://0.0.0.0:6986/testpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    16.83ms   16.59ms  47.06ms   81.65%
+    Req/Sec   771.62     86.73     1.10k    74.00%
+  7683 requests in 10.01s, 4.25GB read
+Requests/sec:    767.89
+Transfer/sec:    435.00MB
+-----------------------------------------------------------------------
+Running wrk on port 6987...
+Running 10s test @ http://0.0.0.0:6987/testpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    17.00ms   16.56ms  44.80ms   81.04%
+    Req/Sec   738.53     68.10     0.95k    70.00%
+  7357 requests in 10.01s, 4.07GB read
+Requests/sec:    735.00
+Transfer/sec:    416.39MB
+-----------------------------------------------------------------------
+Running wrk on port 6988...
+Running 10s test @ http://0.0.0.0:6988/testpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    17.21ms   16.81ms  44.81ms   79.96%
+    Req/Sec   717.24     77.10     0.87k    59.00%
+  7147 requests in 10.01s, 3.95GB read
+Requests/sec:    714.15
+Transfer/sec:    404.54MB
+-----------------------------------------------------------------------
+All tests completed!
+Starting wrk tests from port 6969 to 6988 (20 total)...
+=======================================================================
+Running wrk on port 6969...
+Running 10s test @ http://0.0.0.0:6969/testpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    17.25ms   16.89ms  46.88ms   79.72%
+    Req/Sec   715.61     83.50     0.91k    66.00%
+  7132 requests in 10.01s, 3.95GB read
+Requests/sec:    712.23
+Transfer/sec:    403.51MB
+-----------------------------------------------------------------------
+Running wrk on port 6970...
+Running 10s test @ http://0.0.0.0:6970/testpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    17.03ms   16.57ms  46.72ms   80.81%
+    Req/Sec   730.53     89.69     0.97k    64.00%
+  7279 requests in 10.01s, 4.03GB read
+Requests/sec:    727.11
+Transfer/sec:    411.92MB
+-----------------------------------------------------------------------
+Running wrk on port 6971...
+Running 10s test @ http://0.0.0.0:6971/testpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    17.18ms   16.76ms  45.12ms   80.11%
+    Req/Sec   719.56     84.04     0.95k    67.00%
+  7170 requests in 10.02s, 3.97GB read
+Requests/sec:    715.88
+Transfer/sec:    405.53MB
+-----------------------------------------------------------------------
+Running wrk on port 6972...
+Running 10s test @ http://0.0.0.0:6972/testpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    17.52ms   17.24ms  46.98ms   78.45%
+    Req/Sec   698.81     89.82     0.92k    65.00%
+  6960 requests in 10.01s, 3.85GB read
+Requests/sec:    695.22
+Transfer/sec:    393.89MB
+-----------------------------------------------------------------------
+Running wrk on port 6973...
+Running 10s test @ http://0.0.0.0:6973/testpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    17.30ms   16.97ms  47.05ms   79.48%
+    Req/Sec   713.69     95.35     0.98k    69.00%
+  7111 requests in 10.01s, 3.93GB read
+Requests/sec:    710.47
+Transfer/sec:    402.46MB
+-----------------------------------------------------------------------
+Running wrk on port 6974...
+Running 10s test @ http://0.0.0.0:6974/testpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    17.53ms   17.23ms  45.59ms   78.48%
+    Req/Sec   698.29     91.16     1.01k    72.00%
+  6962 requests in 10.02s, 3.85GB read
+Requests/sec:    695.07
+Transfer/sec:    393.75MB
+-----------------------------------------------------------------------
+Running wrk on port 6975...
+Running 10s test @ http://0.0.0.0:6975/testpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    17.23ms   16.86ms  47.13ms   79.82%
+    Req/Sec   716.39     73.14     0.94k    69.00%
+  7135 requests in 10.01s, 3.95GB read
+Requests/sec:    713.00
+Transfer/sec:    403.93MB
+-----------------------------------------------------------------------
+Running wrk on port 6976...
+Running 10s test @ http://0.0.0.0:6976/testpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    17.35ms   17.05ms  47.02ms   79.24%
+    Req/Sec   711.05     76.10     0.93k    62.00%
+  7085 requests in 10.01s, 3.92GB read
+Requests/sec:    707.88
+Transfer/sec:    401.05MB
+-----------------------------------------------------------------------
+Running wrk on port 6977...
+Running 10s test @ http://0.0.0.0:6977/testpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    17.04ms   16.57ms  46.07ms   80.87%
+    Req/Sec   732.36     90.45     1.00k    73.00%
+  7290 requests in 10.01s, 4.03GB read
+Requests/sec:    728.60
+Transfer/sec:    412.76MB
+-----------------------------------------------------------------------
+Running wrk on port 6978...
+Running 10s test @ http://0.0.0.0:6978/testpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    17.11ms   16.66ms  47.57ms   80.56%
+    Req/Sec   725.31     88.29     0.90k    64.00%
+  7231 requests in 10.01s, 4.00GB read
+Requests/sec:    722.21
+Transfer/sec:    409.09MB
+-----------------------------------------------------------------------
+Running wrk on port 6979...
+Running 10s test @ http://0.0.0.0:6979/testpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    17.31ms   16.96ms  46.64ms   79.54%
+    Req/Sec   713.97     88.00     0.97k    70.00%
+  7113 requests in 10.01s, 3.93GB read
+Requests/sec:    710.63
+Transfer/sec:    402.55MB
+-----------------------------------------------------------------------
+Running wrk on port 6980...
+Running 10s test @ http://0.0.0.0:6980/testpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    17.22ms   16.83ms  46.66ms   79.94%
+    Req/Sec   717.02     94.55     0.91k    67.00%
+  7147 requests in 10.02s, 3.95GB read
+Requests/sec:    713.55
+Transfer/sec:    404.25MB
+-----------------------------------------------------------------------
+Running wrk on port 6981...
+Running 10s test @ http://0.0.0.0:6981/testpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    17.28ms   16.93ms  45.65ms   79.69%
+    Req/Sec   715.23     91.21     0.96k    71.00%
+  7127 requests in 10.01s, 3.94GB read
+Requests/sec:    711.76
+Transfer/sec:    403.25MB
+-----------------------------------------------------------------------
+Running wrk on port 6982...
+Running 10s test @ http://0.0.0.0:6982/testpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    17.16ms   16.75ms  45.41ms   80.16%
+    Req/Sec   720.78     90.07     0.90k    69.00%
+  7179 requests in 10.01s, 3.97GB read
+Requests/sec:    717.01
+Transfer/sec:    406.21MB
+-----------------------------------------------------------------------
+Running wrk on port 6983...
+Running 10s test @ http://0.0.0.0:6983/testpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    17.04ms   16.58ms  47.09ms   80.77%
+    Req/Sec   730.98     91.04     0.97k    67.00%
+  7285 requests in 10.02s, 4.03GB read
+Requests/sec:    727.34
+Transfer/sec:    411.99MB
+-----------------------------------------------------------------------
+Running wrk on port 6984...
+Running 10s test @ http://0.0.0.0:6984/testpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    17.00ms   16.55ms  46.49ms   80.99%
+    Req/Sec   737.02     85.46     1.05k    70.00%
+  7343 requests in 10.01s, 4.06GB read
+Requests/sec:    733.61
+Transfer/sec:    415.56MB
+-----------------------------------------------------------------------
+Running wrk on port 6985...
+Running 10s test @ http://0.0.0.0:6985/testpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    17.28ms   16.95ms  46.87ms   79.54%
+    Req/Sec   715.22     85.39     0.95k    67.00%
+  7125 requests in 10.01s, 3.94GB read
+Requests/sec:    711.70
+Transfer/sec:    403.22MB
+-----------------------------------------------------------------------
+Running wrk on port 6986...
+Running 10s test @ http://0.0.0.0:6986/testpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    17.01ms   16.56ms  46.79ms   80.92%
+    Req/Sec   733.57     93.64     0.99k    66.00%
+  7310 requests in 10.01s, 4.04GB read
+Requests/sec:    730.47
+Transfer/sec:    413.83MB
+-----------------------------------------------------------------------
+Running wrk on port 6987...
+Running 10s test @ http://0.0.0.0:6987/testpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    17.15ms   16.71ms  46.75ms   80.32%
+    Req/Sec   722.17     84.98     0.91k    68.00%
+  7191 requests in 10.01s, 3.98GB read
+Requests/sec:    718.63
+Transfer/sec:    407.13MB
+-----------------------------------------------------------------------
+Running wrk on port 6988...
+Running 10s test @ http://0.0.0.0:6988/testpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    17.15ms   16.72ms  45.56ms   80.29%
+    Req/Sec   721.84     87.10     1.00k    71.00%
+  7188 requests in 10.01s, 3.98GB read
+Requests/sec:    718.14
+Transfer/sec:    406.86MB
+-----------------------------------------------------------------------
+All tests completed!
+Starting wrk tests from port 6969 to 6988 (20 total)...
+=======================================================================
+Running wrk on port 6969...
+Running 10s test @ http://0.0.0.0:6969/testpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    17.00ms   16.55ms  46.32ms   81.06%
+    Req/Sec   739.47     87.19     0.96k    68.00%
+  7366 requests in 10.01s, 4.07GB read
+Requests/sec:    735.91
+Transfer/sec:    416.85MB
+-----------------------------------------------------------------------
+Running wrk on port 6970...
+Running 10s test @ http://0.0.0.0:6970/testpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    16.95ms   16.54ms  46.43ms   81.25%
+    Req/Sec   747.55     86.97     1.01k    69.00%
+  7444 requests in 10.00s, 4.12GB read
+Requests/sec:    744.03
+Transfer/sec:    421.44MB
+-----------------------------------------------------------------------
+Running wrk on port 6971...
+Running 10s test @ http://0.0.0.0:6971/testpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    16.81ms   16.60ms  46.85ms   81.73%
+    Req/Sec   777.65     81.29     1.01k    69.00%
+  7743 requests in 10.00s, 4.28GB read
+Requests/sec:    774.20
+Transfer/sec:    438.52MB
+-----------------------------------------------------------------------
+Running wrk on port 6972...
+Running 10s test @ http://0.0.0.0:6972/testpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    16.72ms   16.58ms  46.57ms   81.87%
+    Req/Sec   789.50     62.45     0.92k    76.00%
+  7861 requests in 10.00s, 4.35GB read
+Requests/sec:    785.91
+Transfer/sec:    445.19MB
+-----------------------------------------------------------------------
+Running wrk on port 6973...
+Running 10s test @ http://0.0.0.0:6973/testpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    16.44ms   16.71ms  45.89ms   82.65%
+    Req/Sec   843.13     74.22     1.00k    63.00%
+  8394 requests in 10.00s, 4.64GB read
+Requests/sec:    839.38
+Transfer/sec:    475.39MB
+-----------------------------------------------------------------------
+Running wrk on port 6974...
+Running 10s test @ http://0.0.0.0:6974/testpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    16.36ms   16.72ms  46.90ms   82.85%
+    Req/Sec     0.86k    68.24     1.08k    70.00%
+  8532 requests in 10.01s, 4.72GB read
+Requests/sec:    852.67
+Transfer/sec:    482.91MB
+-----------------------------------------------------------------------
+Running wrk on port 6975...
+Running 10s test @ http://0.0.0.0:6975/testpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    16.18ms   16.76ms  46.66ms   82.88%
+    Req/Sec     0.89k    65.44     1.06k    67.00%
+  8815 requests in 10.01s, 4.88GB read
+Requests/sec:    880.99
+Transfer/sec:    499.00MB
+-----------------------------------------------------------------------
+Running wrk on port 6976...
+Running 10s test @ http://0.0.0.0:6976/testpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    16.21ms   16.73ms  47.54ms   82.98%
+    Req/Sec     0.88k    72.55     1.06k    77.00%
+  8726 requests in 10.00s, 4.83GB read
+Requests/sec:    872.57
+Transfer/sec:    494.13MB
+-----------------------------------------------------------------------
+Running wrk on port 6977...
+Running 10s test @ http://0.0.0.0:6977/testpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    16.18ms   16.72ms  46.13ms   82.81%
+    Req/Sec     0.88k    60.52     1.03k    74.00%
+  8770 requests in 10.00s, 4.85GB read
+Requests/sec:    876.91
+Transfer/sec:    496.63MB
+-----------------------------------------------------------------------
+Running wrk on port 6978...
+Running 10s test @ http://0.0.0.0:6978/testpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    16.14ms   16.71ms  46.59ms   82.55%
+    Req/Sec     0.89k    65.44     1.03k    70.00%
+  8814 requests in 10.00s, 4.88GB read
+Requests/sec:    881.29
+Transfer/sec:    499.17MB
+-----------------------------------------------------------------------
+Running wrk on port 6979...
+Running 10s test @ http://0.0.0.0:6979/testpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    16.24ms   16.64ms  44.78ms   82.88%
+    Req/Sec     0.87k    67.85     1.03k    71.00%
+  8615 requests in 10.00s, 4.76GB read
+Requests/sec:    861.21
+Transfer/sec:    487.74MB
+-----------------------------------------------------------------------
+Running wrk on port 6980...
+Running 10s test @ http://0.0.0.0:6980/testpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    16.35ms   16.55ms  45.11ms   82.54%
+    Req/Sec   841.79     78.83     1.02k    75.00%
+  8382 requests in 10.00s, 4.64GB read
+Requests/sec:    837.90
+Transfer/sec:    474.55MB
+-----------------------------------------------------------------------
+Running wrk on port 6981...
+Running 10s test @ http://0.0.0.0:6981/testpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    16.38ms   16.52ms  46.55ms   82.44%
+    Req/Sec   834.63     85.61     1.04k    70.00%
+  8308 requests in 10.00s, 4.60GB read
+Requests/sec:    830.58
+Transfer/sec:    470.46MB
+-----------------------------------------------------------------------
+Running wrk on port 6982...
+Running 10s test @ http://0.0.0.0:6982/testpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    16.35ms   16.54ms  47.17ms   82.52%
+    Req/Sec   840.20     68.44     0.98k    69.00%
+  8366 requests in 10.00s, 4.63GB read
+Requests/sec:    836.27
+Transfer/sec:    473.68MB
+-----------------------------------------------------------------------
+Running wrk on port 6983...
+Running 10s test @ http://0.0.0.0:6983/testpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    16.17ms   16.62ms  46.36ms   82.62%
+    Req/Sec     0.87k    87.74     1.08k    70.00%
+  8686 requests in 10.00s, 4.80GB read
+Requests/sec:    868.25
+Transfer/sec:    491.78MB
+-----------------------------------------------------------------------
+Running wrk on port 6984...
+Running 10s test @ http://0.0.0.0:6984/testpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    15.93ms   16.61ms  47.56ms   80.43%
+    Req/Sec     0.91k    65.53     1.05k    79.00%
+  9025 requests in 10.01s, 4.99GB read
+Requests/sec:    901.96
+Transfer/sec:    510.85MB
+-----------------------------------------------------------------------
+Running wrk on port 6985...
+Running 10s test @ http://0.0.0.0:6985/testpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    16.03ms   16.60ms  46.97ms   80.77%
+    Req/Sec     0.89k    71.11     1.09k    75.00%
+  8875 requests in 10.00s, 4.91GB read
+Requests/sec:    887.35
+Transfer/sec:    502.55MB
+-----------------------------------------------------------------------
+Running wrk on port 6986...
+Running 10s test @ http://0.0.0.0:6986/testpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    16.25ms   16.56ms  46.50ms   82.73%
+    Req/Sec     0.86k    75.77     1.01k    75.00%
+  8535 requests in 10.00s, 4.72GB read
+Requests/sec:    853.29
+Transfer/sec:    483.26MB
+-----------------------------------------------------------------------
+Running wrk on port 6987...
+Running 10s test @ http://0.0.0.0:6987/testpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    16.69ms   16.46ms  45.81ms   81.74%
+    Req/Sec   781.71     72.30     0.99k    70.00%
+  7781 requests in 10.00s, 4.30GB read
+Requests/sec:    778.03
+Transfer/sec:    440.74MB
+-----------------------------------------------------------------------
+Running wrk on port 6988...
+Running 10s test @ http://0.0.0.0:6988/testpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    16.92ms   16.48ms  45.51ms   80.89%
+    Req/Sec   738.72     81.63     0.94k    70.00%
+  7356 requests in 10.01s, 4.07GB read
+Requests/sec:    735.12
+Transfer/sec:    416.46MB
+-----------------------------------------------------------------------
+All tests completed!
+Starting wrk tests from port 6969 to 6988 (20 total)...
+=======================================================================
+Running wrk on port 6969...
+Running 10s test @ http://0.0.0.0:6969/testpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    16.51ms   16.55ms  45.94ms   82.24%
+    Req/Sec   817.03     70.97     0.99k    68.00%
+  8148 requests in 10.01s, 4.51GB read
+Requests/sec:    813.76
+Transfer/sec:    460.89MB
+-----------------------------------------------------------------------
+Running wrk on port 6970...
+Running 10s test @ http://0.0.0.0:6970/testpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    16.38ms   16.53ms  46.41ms   82.48%
+    Req/Sec   834.38     68.91     1.00k    74.00%
+  8309 requests in 10.00s, 4.60GB read
+Requests/sec:    830.49
+Transfer/sec:    470.41MB
+-----------------------------------------------------------------------
+Running wrk on port 6971...
+Running 10s test @ http://0.0.0.0:6971/testpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    16.35ms   16.55ms  46.58ms   82.57%
+    Req/Sec   843.02     76.09     1.04k    75.00%
+  8394 requests in 10.01s, 4.64GB read
+Requests/sec:    838.61
+Transfer/sec:    474.95MB
+-----------------------------------------------------------------------
+Running wrk on port 6972...
+Running 10s test @ http://0.0.0.0:6972/testpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    16.19ms   16.59ms  46.97ms   82.74%
+    Req/Sec     0.87k    65.70     1.03k    66.00%
+  8646 requests in 10.00s, 4.78GB read
+Requests/sec:    864.51
+Transfer/sec:    489.66MB
+-----------------------------------------------------------------------
+Running wrk on port 6973...
+Running 10s test @ http://0.0.0.0:6973/testpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    16.24ms   16.60ms  46.81ms   82.79%
+    Req/Sec     0.86k    61.81     0.99k    66.00%
+  8597 requests in 10.00s, 4.76GB read
+Requests/sec:    859.28
+Transfer/sec:    486.71MB
+-----------------------------------------------------------------------
+Running wrk on port 6974...
+Running 10s test @ http://0.0.0.0:6974/testpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    16.14ms   16.66ms  47.21ms   82.58%
+    Req/Sec     0.88k    69.87     1.08k    72.00%
+  8780 requests in 10.01s, 4.86GB read
+Requests/sec:    877.33
+Transfer/sec:    496.92MB
+-----------------------------------------------------------------------
+Running wrk on port 6975...
+Running 10s test @ http://0.0.0.0:6975/testpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    16.14ms   16.68ms  46.91ms   82.68%
+    Req/Sec     0.88k    67.96     1.07k    75.00%
+  8804 requests in 10.00s, 4.87GB read
+Requests/sec:    879.99
+Transfer/sec:    498.37MB
+-----------------------------------------------------------------------
+Running wrk on port 6976...
+Running 10s test @ http://0.0.0.0:6976/testpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    16.24ms   16.66ms  45.96ms   82.80%
+    Req/Sec     0.87k    72.15     1.03k    75.00%
+  8641 requests in 10.00s, 4.78GB read
+Requests/sec:    863.68
+Transfer/sec:    489.20MB
+-----------------------------------------------------------------------
+Running wrk on port 6977...
+Running 10s test @ http://0.0.0.0:6977/testpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    16.22ms   16.65ms  46.08ms   82.82%
+    Req/Sec     0.87k    80.36     1.06k    75.00%
+  8655 requests in 10.01s, 4.79GB read
+Requests/sec:    865.04
+Transfer/sec:    489.97MB
+-----------------------------------------------------------------------
+Running wrk on port 6978...
+Running 10s test @ http://0.0.0.0:6978/testpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    16.28ms   16.62ms  46.41ms   82.78%
+    Req/Sec     0.86k    64.38     1.06k    70.00%
+  8546 requests in 10.00s, 4.73GB read
+Requests/sec:    854.54
+Transfer/sec:    483.97MB
+-----------------------------------------------------------------------
+Running wrk on port 6979...
+Running 10s test @ http://0.0.0.0:6979/testpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    16.40ms   16.54ms  46.57ms   82.42%
+    Req/Sec   832.39     61.81     1.02k    75.00%
+  8287 requests in 10.00s, 4.58GB read
+Requests/sec:    828.44
+Transfer/sec:    469.26MB
+-----------------------------------------------------------------------
+Running wrk on port 6980...
+Running 10s test @ http://0.0.0.0:6980/testpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    16.56ms   16.48ms  47.04ms   82.02%
+    Req/Sec   803.69     73.33     0.99k    71.00%
+  8004 requests in 10.00s, 4.43GB read
+Requests/sec:    800.02
+Transfer/sec:    453.12MB
+-----------------------------------------------------------------------
+Running wrk on port 6981...
+Running 10s test @ http://0.0.0.0:6981/testpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    16.64ms   16.45ms  47.57ms   81.76%
+    Req/Sec   788.88     66.06     0.93k    73.00%
+  7854 requests in 10.00s, 4.34GB read
+Requests/sec:    785.07
+Transfer/sec:    444.66MB
+-----------------------------------------------------------------------
+Running wrk on port 6982...
+Running 10s test @ http://0.0.0.0:6982/testpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    16.61ms   16.44ms  46.82ms   81.78%
+    Req/Sec   789.47     59.76     0.97k    74.00%
+  7857 requests in 10.00s, 4.35GB read
+Requests/sec:    785.59
+Transfer/sec:    444.92MB
+-----------------------------------------------------------------------
+Running wrk on port 6983...
+Running 10s test @ http://0.0.0.0:6983/testpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    16.72ms   16.43ms  46.58ms   81.54%
+    Req/Sec   773.62     56.21     0.99k    72.00%
+  7700 requests in 10.00s, 4.26GB read
+Requests/sec:    769.74
+Transfer/sec:    436.05MB
+-----------------------------------------------------------------------
+Running wrk on port 6984...
+Running 10s test @ http://0.0.0.0:6984/testpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    16.60ms   16.47ms  46.20ms   81.92%
+    Req/Sec   794.55     60.56     0.92k    73.00%
+  7909 requests in 10.00s, 4.37GB read
+Requests/sec:    790.66
+Transfer/sec:    447.83MB
+-----------------------------------------------------------------------
+Running wrk on port 6985...
+Running 10s test @ http://0.0.0.0:6985/testpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    16.69ms   16.46ms  46.46ms   81.69%
+    Req/Sec   781.44     65.23     0.94k    65.00%
+  7775 requests in 10.00s, 4.30GB read
+Requests/sec:    777.41
+Transfer/sec:    440.33MB
+-----------------------------------------------------------------------
+Running wrk on port 6986...
+Running 10s test @ http://0.0.0.0:6986/testpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    16.64ms   16.55ms  44.85ms   82.02%
+    Req/Sec   799.50     71.88     0.97k    72.00%
+  7960 requests in 10.01s, 4.40GB read
+Requests/sec:    795.51
+Transfer/sec:    450.64MB
+-----------------------------------------------------------------------
+Running wrk on port 6987...
+Running 10s test @ http://0.0.0.0:6987/testpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    16.47ms   16.59ms  46.41ms   82.40%
+    Req/Sec   828.49     82.60     1.04k    69.00%
+  8242 requests in 10.00s, 4.56GB read
+Requests/sec:    824.15
+Transfer/sec:    466.82MB
+-----------------------------------------------------------------------
+Running wrk on port 6988...
+Running 10s test @ http://0.0.0.0:6988/testpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    16.04ms   16.66ms  47.30ms   80.01%
+    Req/Sec     0.90k   105.63     1.15k    72.00%
+  8912 requests in 10.00s, 4.93GB read
+Requests/sec:    891.07
+Transfer/sec:    504.63MB
+-----------------------------------------------------------------------
+All tests completed!
+Starting wrk tests from port 6969 to 6988 (20 total)...
+=======================================================================
+Running wrk on port 6969...
+Running 10s test @ http://0.0.0.0:6969/testpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    15.73ms   16.42ms  46.04ms   78.91%
+    Req/Sec     0.92k    85.95     1.10k    68.00%
+  9161 requests in 10.01s, 5.07GB read
+Requests/sec:    915.44
+Transfer/sec:    518.48MB
+-----------------------------------------------------------------------
+Running wrk on port 6970...
+Running 10s test @ http://0.0.0.0:6970/testpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    15.61ms   16.34ms  45.94ms   78.07%
+    Req/Sec     0.93k    87.98     1.16k    73.00%
+  9283 requests in 10.00s, 5.13GB read
+Requests/sec:    927.90
+Transfer/sec:    525.48MB
+-----------------------------------------------------------------------
+Running wrk on port 6971...
+Running 10s test @ http://0.0.0.0:6971/testpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    16.02ms   16.73ms  46.63ms   79.39%
+    Req/Sec     0.90k    72.26     1.07k    62.00%
+  8997 requests in 10.01s, 4.98GB read
+Requests/sec:    899.22
+Transfer/sec:    509.24MB
+-----------------------------------------------------------------------
+Running wrk on port 6972...
+Running 10s test @ http://0.0.0.0:6972/testpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    16.14ms   16.64ms  46.51ms   82.56%
+    Req/Sec     0.88k    71.15     1.04k    78.00%
+  8754 requests in 10.00s, 4.84GB read
+Requests/sec:    875.14
+Transfer/sec:    495.68MB
+-----------------------------------------------------------------------
+Running wrk on port 6973...
+Running 10s test @ http://0.0.0.0:6973/testpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    16.31ms   16.60ms  47.05ms   82.69%
+    Req/Sec     0.85k    78.26     1.12k    70.00%
+  8486 requests in 10.01s, 4.69GB read
+Requests/sec:    847.82
+Transfer/sec:    480.22MB
+-----------------------------------------------------------------------
+Running wrk on port 6974...
+Running 10s test @ http://0.0.0.0:6974/testpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    16.32ms   16.55ms  45.09ms   82.60%
+    Req/Sec   844.40     78.63     1.03k    68.00%
+  8413 requests in 10.01s, 4.65GB read
+Requests/sec:    840.52
+Transfer/sec:    476.10MB
+-----------------------------------------------------------------------
+Running wrk on port 6975...
+Running 10s test @ http://0.0.0.0:6975/testpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    16.27ms   16.59ms  47.08ms   82.73%
+    Req/Sec     0.86k    68.12     1.03k    70.00%
+  8523 requests in 10.01s, 4.71GB read
+Requests/sec:    851.84
+Transfer/sec:    482.50MB
+-----------------------------------------------------------------------
+Running wrk on port 6976...
+Running 10s test @ http://0.0.0.0:6976/testpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    16.36ms   16.54ms  44.91ms   82.55%
+    Req/Sec   838.53     76.16     1.00k    65.00%
+  8355 requests in 10.01s, 4.62GB read
+Requests/sec:    834.83
+Transfer/sec:    472.86MB
+-----------------------------------------------------------------------
+Running wrk on port 6977...
+Running 10s test @ http://0.0.0.0:6977/testpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    16.38ms   16.56ms  46.01ms   82.54%
+    Req/Sec   838.14     75.34     1.02k    68.00%
+  8348 requests in 10.01s, 4.62GB read
+Requests/sec:    834.09
+Transfer/sec:    472.46MB
+-----------------------------------------------------------------------
+Running wrk on port 6978...
+Running 10s test @ http://0.0.0.0:6978/testpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    16.40ms   16.56ms  45.14ms   82.49%
+    Req/Sec   834.64     73.86     1.07k    64.00%
+  8311 requests in 10.01s, 4.60GB read
+Requests/sec:    830.47
+Transfer/sec:    470.40MB
+-----------------------------------------------------------------------
+Running wrk on port 6979...
+Running 10s test @ http://0.0.0.0:6979/testpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    16.30ms   16.59ms  46.95ms   82.66%
+    Req/Sec     0.85k    76.57     1.01k    62.00%
+  8484 requests in 10.00s, 4.69GB read
+Requests/sec:    848.00
+Transfer/sec:    480.28MB
+-----------------------------------------------------------------------
+Running wrk on port 6980...
+Running 10s test @ http://0.0.0.0:6980/testpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    16.27ms   16.62ms  45.54ms   82.82%
+    Req/Sec     0.86k    79.33     1.04k    67.00%
+  8566 requests in 10.00s, 4.74GB read
+Requests/sec:    856.24
+Transfer/sec:    484.94MB
+-----------------------------------------------------------------------
+Running wrk on port 6981...
+Running 10s test @ http://0.0.0.0:6981/testpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    16.26ms   16.61ms  46.70ms   82.76%
+    Req/Sec     0.86k    93.13     1.12k    74.00%
+  8562 requests in 10.00s, 4.74GB read
+Requests/sec:    856.09
+Transfer/sec:    484.86MB
+-----------------------------------------------------------------------
+Running wrk on port 6982...
+Running 10s test @ http://0.0.0.0:6982/testpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    16.30ms   16.60ms  46.70ms   82.72%
+    Req/Sec     0.85k    76.13     1.09k    75.00%
+  8510 requests in 10.01s, 4.71GB read
+Requests/sec:    850.55
+Transfer/sec:    481.66MB
+-----------------------------------------------------------------------
+Running wrk on port 6983...
+Running 10s test @ http://0.0.0.0:6983/testpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    16.34ms   16.54ms  47.21ms   82.56%
+    Req/Sec   841.08     73.77     1.00k    66.00%
+  8375 requests in 10.00s, 4.63GB read
+Requests/sec:    837.12
+Transfer/sec:    474.17MB
+-----------------------------------------------------------------------
+Running wrk on port 6984...
+Running 10s test @ http://0.0.0.0:6984/testpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    16.28ms   16.57ms  45.66ms   82.72%
+    Req/Sec     0.85k    71.02     1.05k    70.00%
+  8494 requests in 10.01s, 4.70GB read
+Requests/sec:    848.89
+Transfer/sec:    480.82MB
+-----------------------------------------------------------------------
+Running wrk on port 6985...
+Running 10s test @ http://0.0.0.0:6985/testpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    16.07ms   16.66ms  45.61ms   82.29%
+    Req/Sec     0.89k    79.79     1.08k    71.00%
+  8859 requests in 10.01s, 4.90GB read
+Requests/sec:    885.25
+Transfer/sec:    501.41MB
+-----------------------------------------------------------------------
+Running wrk on port 6986...
+Running 10s test @ http://0.0.0.0:6986/testpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    15.75ms   16.44ms  44.78ms   78.75%
+    Req/Sec     0.92k    71.73     1.09k    71.00%
+  9127 requests in 10.00s, 5.05GB read
+Requests/sec:    912.33
+Transfer/sec:    516.71MB
+-----------------------------------------------------------------------
+Running wrk on port 6987...
+Running 10s test @ http://0.0.0.0:6987/testpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    15.69ms   16.41ms  46.74ms   79.42%
+    Req/Sec     0.93k    84.48     1.11k    72.00%
+  9212 requests in 10.00s, 5.09GB read
+Requests/sec:    921.02
+Transfer/sec:    521.59MB
+-----------------------------------------------------------------------
+Running wrk on port 6988...
+Running 10s test @ http://0.0.0.0:6988/testpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    16.48ms   16.59ms  47.40ms   82.39%
+    Req/Sec   826.71     76.06     0.99k    66.34%
+  8309 requests in 10.10s, 4.60GB read
+Requests/sec:    822.61
+Transfer/sec:    465.95MB
+-----------------------------------------------------------------------
+All tests completed!

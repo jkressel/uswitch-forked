@@ -36,10 +36,14 @@ USwitchSandboxManager uswitch_sandbox_manager(13);
 const std::vector<unsigned int> USwitchSandbox::DefaultTrappedSyscalls;
 
 extern "C" void* sg_malloc_vpkey(size_t, uint8_t, uint16_t);
-extern "C" void sg_free_vpkey(void*, uint8_t, uint16_t);
+extern "C" void* sg_realloc_vpkey(void*,size_t, uint8_t, uint16_t);
+extern "C" void sg_free_vpkey(void* ptr, uint8_t pkey, uint16_t vpkey);
 extern "C" int init_delegation(int in_pkey, int allocator_pkey, size_t quota, int alloc_only);
 extern "C" void* relinquish(void* ptr, int in_domain_pkey, int by_pkey);
 extern "C" void* malloc_for(size_t size, int on_behalf_of_pkey, int by_pkey);
+extern "C" void* xxmalloc_vpkey(size_t size, int vpkey);
+extern "C" void xxfree_vpkey(void* ptr, int vpkey);
+extern "C" void* sg_revoke(void* ptr, int this_pkey, int revoke_from_pkey);
 //extern "C" int init_delegation(int in_pkey, int allocator_pkey, size_t quota, int alloc_only);
 
 
@@ -476,7 +480,7 @@ bool USwitchSandbox::init_hook() {
         void (*free)(void *);
     };
     typedef FuncAddr (*set_uswitch_functions_t)(int, void *, size_t,
-        void *, void*, void *, void *, void *, void *, void *, void *, void *, void *, void *, void*, void*, void*);
+        void *, void*, void *, void *, void *, void *, void *, void *, void *, void *, void *, void*, void*, void*, void*, void*, void*, int);
     set_uswitch_functions_t set_uswitch_functions = (set_uswitch_functions_t)dlsym(handle, "set_uswitch_functions");
     if (!set_uswitch_functions) {
         return false;
@@ -492,12 +496,13 @@ bool USwitchSandbox::init_hook() {
     main_tls_state->has_retval = false;
     int tid = syscall(SYS_gettid);
     FuncAddr addr;
+    //printf("vpkey %d\n", get_vpkey(main_ctx));
     if (uswitch_call_dynamic(main_ctx, set_uswitch_functions, addr,
         tid, memory, heap_size,
         (void *)pthread_create_hook, (void *)pthread_join_hook, (void *)pthread_detach_hook, (void *)pthread_exit_hook,
         (void *)mmap_hook, (void *)munmap_hook, (void *)mremap_hook, (void *)mprotect_hook,
         (void *)uswitch_callback, (void *)get_thread_pointer, (void*)malloc_in_sandbox_hook, (void*)free_in_sandbox_hook,
-	(void*)malloc_in_hook, (void*) relinquish_hook) == -1) {
+	(void*)malloc_in_hook, (void*) relinquish_hook, (void*)realloc_in_sandbox_hook, (void*) xxmalloc_vpkey, (void*)xxfree_vpkey, (int)get_vpkey(main_ctx)) == -1) {
         return false;
     }
     malloc_addr = malloc;
@@ -534,7 +539,8 @@ bool USwitchSandbox::init_callback() {
 	uswitch_register_callback_dynamic(main_ctx, malloc_in_sandbox_callback, this) != CallbackIDMmallocsb ||
 	uswitch_register_callback_dynamic(main_ctx, free_in_sandbox_callback, this) != CallbackIDMfreesb ||
 	uswitch_register_callback_dynamic(main_ctx, malloc_in_callback, this) != CallbackIDMmallocin ||
-	uswitch_register_callback_dynamic(main_ctx, relinquish_callback, this) != CallbackIDMrelinquish) {
+	uswitch_register_callback_dynamic(main_ctx, relinquish_callback, this) != CallbackIDMrelinquish ||
+	uswitch_register_callback_dynamic(main_ctx, realloc_in_sandbox_callback, this) != CallbackIDMreallocsb) {
         return false;
     }
     register_syscall_handler(__NR_rt_sigaction,
@@ -698,6 +704,20 @@ void *USwitchSandbox::relinquish_in_sandbox(void* ptr) {
     return ret;
 }
 
+void *USwitchSandbox::revoke_from_sandbox(void* ptr) {
+    void *ret = nullptr;
+    uswctx_t ctx = get_context();
+    if (!ctx) {
+        return nullptr;
+    }
+    //printf("Sandbox pkey = %d\n", get_pkey(ctx));
+//    uswitch_call_dynamic(ctx, malloc_addr, ret, size);
+    ret = sg_revoke(ptr, 0, get_pkey(ctx));
+
+
+    return ret;
+}
+
 void* USwitchSandbox::malloc_in_sandbox_callback(uswctx_t ctx, void *data, size_t size) {
 	void *ret = nullptr;
     if (!ctx) {
@@ -713,6 +733,23 @@ void* USwitchSandbox::malloc_in_sandbox_callback(uswctx_t ctx, void *data, size_
 
 NOCANARY void *USwitchSandbox::malloc_in_sandbox_hook(size_t size) {
 	return uswitch_callback_static(CallbackIDMmallocsb, void*(*)(size_t),size);
+}
+
+void* USwitchSandbox::realloc_in_sandbox_callback(uswctx_t ctx, void *data, void* ptr, size_t size) {
+        void *ret = nullptr;
+    if (!ctx) {
+        return nullptr;
+    }
+ //   printf("realloc Sandbox pkey1 = %d\n", get_pkey(ctx));
+//    uswitch_call_dynamic(ctx, malloc_addr, ret, size);
+    ret = sg_realloc_vpkey(ptr, size, get_pkey(ctx), get_vpkey(ctx));
+//    printf("Sandbox pkey1 = %d, ret %p, size %d\n", get_pkey(ctx), ret, size);
+
+    return ret;
+}
+
+NOCANARY void *USwitchSandbox::realloc_in_sandbox_hook(void* ptr, size_t size) {
+        return uswitch_callback_static(CallbackIDMreallocsb, void*(*)(void*, size_t),ptr,size);
 }
 
 
@@ -757,7 +794,7 @@ void USwitchSandbox::free_in_sandbox(void *ptr) {
     if (!ctx) {
         return;
     }
-    //printf("Sandbox free pkey = %d\n", get_pkey(ctx));
+//    printf("Sandbox free pkey = %d %p\n", get_pkey(ctx), ptr);
   // uswitch_call_dynamic(ctx, free_addr, ptr);
     sg_free_vpkey(ptr, get_pkey(ctx), get_vpkey(ctx));
 }
@@ -766,14 +803,14 @@ void USwitchSandbox::free_in_sandbox_callback(uswctx_t ctx, void *data, void* pt
     if (!ctx) {
         return;
     }
-    //printf("Sandbox pkey1 = %d\n", get_pkey(ctx));
+//    printf("Sandbox free cb pkey1 = %d, %p\n", get_pkey(ctx), ptr);
 //    uswitch_call_dynamic(ctx, malloc_addr, ret, size);
     sg_free_vpkey(ptr, get_pkey(ctx), get_vpkey(ctx));
 
 }
 
 NOCANARY void USwitchSandbox::free_in_sandbox_hook(void* ptr) {
-        uswitch_callback_static(CallbackIDMmallocsb, void(*)(void*),ptr);
+        uswitch_callback_static(CallbackIDMfreesb, void(*)(void*),ptr);
 }
 
 void USwitchSandbox::init_del(int quota, int alloc_only) {

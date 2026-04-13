@@ -50,6 +50,8 @@
 #define USWITCH_SW(...)
 #endif
 
+extern "C" void sg_notify_vpkey(uint8_t, uint16_t);
+
 struct RegisterContext {
     void *rip, *rsp, *rbp, *rbx, *r12, *r13, *r14, *r15;
 };
@@ -1515,15 +1517,17 @@ int get_real_pkey(int vpkey, int old_pkey) {
     if (num_inactive_pkeys == 0) {
         return -1;
     }
-    int evicted_pkey = inactive_pkeys[rand() % num_inactive_pkeys];
+    //int evicted_pkey = inactive_pkeys[rand() % num_inactive_pkeys];
+    int evicted_pkey = inactive_pkeys[0];
     int evicted_vpkey = uswitch_prstate.pkeys[evicted_pkey].vpkey;
-    //printf("evicted pkey %d\n", evicted_pkey);
+   // printf("evicted pkey %d for vpkey %d\n", evicted_pkey, vpkey);
     reset_pkey(evicted_vpkey, PkeyDefault);
     if (reset_pkey(vpkey, evicted_pkey) == -1) {
         return -1;
     }
     uswitch_prstate.pkeys[evicted_pkey].vpkey = vpkey;
     uswitch_prstate.pkeys[evicted_pkey].ref = 1;
+    sg_notify_vpkey(evicted_pkey, vpkey);
     return evicted_pkey;
 }
 

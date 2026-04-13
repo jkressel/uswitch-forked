@@ -5608,6 +5608,7 @@ void* mspace_malloc(mspace msp, size_t bytes) {
 }
 
 void mspace_free(mspace msp, void* mem) {
+	fprintf(stderr, "WTF mspace free\n");
   if (mem != 0) {
     mchunkptr p  = mem2chunk(mem);
 #if FOOTERS
@@ -5707,7 +5708,6 @@ void mspace_free(mspace msp, void* mem) {
     }
   }
 }
-
 void* mspace_calloc(mspace msp, size_t n_elements, size_t elem_size) {
   void* mem;
   size_t req = 0;

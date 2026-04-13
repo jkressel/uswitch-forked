@@ -23,6 +23,8 @@ void info_callback(uswctx_t ctx, void *data, png_structp png, png_infop info) {
 }
 
 void row_callback(png_structp png, png_bytep new_row, png_uint_32 row_num, int pass) {
+
+	printf("New row ptr %p\n");
 }
 
 void end_callback(png_structp png, png_infop info) {
@@ -34,6 +36,36 @@ void (*row_callback_uswitch)(png_structp png, png_bytep new_row, png_uint_32 row
 
 void (*end_callback_uswitch)(png_structp png, png_infop info);
 
+
+
+
+
+static void load_png_file_2(USwitchSandbox *sandbox, uint8_t *input, size_t size) {
+#define GET_FUNC_PTR(name) decltype(name) *name##_s = (decltype(name) *)sandbox->get_symbol_addr(#name)
+    GET_FUNC_PTR(png_create_read_struct);
+    GET_FUNC_PTR(png_create_info_struct);
+    GET_FUNC_PTR(png_set_progressive_read_fn);
+    GET_FUNC_PTR(png_process_data);
+    GET_FUNC_PTR(png_destroy_read_struct);
+#undef GET_FUNC_PTR
+    uint8_t *sandbox_buffer = (uint8_t *)sandbox->malloc_in_sandbox(size);
+    uswctx_t ctx = sandbox->get_context();
+    memcpy(sandbox_buffer, input, size);
+    png_structp *png = (png_structp *)sandbox->malloc_in_sandbox(sizeof(png_structp));
+    size_t len = strlen(PNG_LIBPNG_VER_STRING);
+    char *ver_str = (char *)sandbox->malloc_in_sandbox(len + 1);
+    memcpy(ver_str, PNG_LIBPNG_VER_STRING, len + 1);
+    uswitch_call_dynamic(ctx, png_create_read_struct_s, png, ver_str, nullptr, nullptr, nullptr);
+    png_infop *info = (png_infop *)sandbox->malloc_in_sandbox(sizeof(png_infop));
+    uswitch_call_dynamic(ctx, png_create_info_struct_s, info, *png);
+    uswitch_call_dynamic(ctx, png_set_progressive_read_fn_s, *png, nullptr, info_callback_uswitch, row_callback_uswitch, end_callback_uswitch);
+    uswitch_call_dynamic(ctx, png_process_data_s, *png, *info, sandbox_buffer, size);
+    uswitch_call_dynamic(ctx, png_destroy_read_struct_s, png, info, nullptr);
+    sandbox->free_in_sandbox(png);
+    sandbox->free_in_sandbox(info);
+    sandbox->free_in_sandbox(sandbox_buffer);
+    sandbox->free_in_sandbox(ver_str);
+}
 
 static void load_png_file(USwitchSandbox *sandbox, uint8_t *input, size_t size) {
 #define GET_FUNC_PTR(name) decltype(name) *name##_s = (decltype(name) *)sandbox->get_symbol_addr(#name)
@@ -121,7 +153,8 @@ uint64_t t1 = time_nanosec();
     	end_callback_uswitch = uswitch_register_callback_get_fp(16, ctx, end_callback);
     	std::vector<uint64_t> times(n);
     	for (int i= 0; i < n; ++i) {
-        	load_png_file(sandboxes[j], input, size);
+        	//load_png_file(sandboxes[j], input, size);
+		load_png_file_2(sandboxes[j], input, size);
     	}
     }
     uint64_t t2 = time_nanosec();

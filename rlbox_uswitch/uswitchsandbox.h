@@ -47,6 +47,7 @@ public:
 	CallbackIDMfreesb = 11,
 	CallbackIDMmallocin = 12,
         CallbackIDMrelinquish = 13,
+	CallbackIDMreallocsb = 14,
         CallbackIDStart
     };
     enum class SeccompAction {
@@ -71,6 +72,7 @@ public:
     USWITCH_PUBLIC void *get_symbol_addr(const char *symbol);
     USWITCH_PUBLIC void *malloc_in_sandbox(size_t size);
     USWITCH_PUBLIC void *relinquish_in_sandbox(void* ptr);
+    USWITCH_PUBLIC void *revoke_from_sandbox(void* ptr);
     USWITCH_PUBLIC void free_in_sandbox(void *ptr);
     USWITCH_PUBLIC void init_del(int quota, int alloc_only);
     USWITCH_PUBLIC bool init_seccomp(const std::vector<unsigned int> &allowed_syscalls,
@@ -98,6 +100,7 @@ private:
     static void free_hook(void *ptr);
     static void *aligned_alloc_hook(size_t align, size_t len);
     static void* malloc_in_sandbox_hook(size_t size);
+    static void* realloc_in_sandbox_hook(void* ptr, size_t size);
     static void* malloc_in_hook(size_t size);
     static void free_in_sandbox_hook(void* ptr);
     static void* relinquish_hook(void* ptr);
@@ -123,6 +126,7 @@ private:
     static void *mremap_callback(uswctx_t ctx, void *data, void *old_address, size_t old_size,
         size_t new_size, int flags, void *new_address);
     static void* malloc_in_sandbox_callback(uswctx_t ctx, void *data,size_t size);
+    static void* realloc_in_sandbox_callback(uswctx_t ctx, void *data,void* ptr, size_t size);
     static void* malloc_in_callback(uswctx_t ctx, void *data,size_t size);
     static void* relinquish_callback(uswctx_t ctx, void *data,void* ptr);
     static void free_in_sandbox_callback(uswctx_t ctx, void *data,void* ptr);
