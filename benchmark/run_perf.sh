@@ -285,28 +285,28 @@ python3 average_values_perf.py t3-4-9.perf >> t3-4.avg.std.perf
 python3 average_values_perf.py t3-4-10.perf >> t3-4.avg.std.perf
 
 echo "Start regular web page"
-for run in {1..5}; do taskset -c 0 ./test8-uswitch -p 6969 -H 0.0.0.0 -c 10 webtest/ & sleep 3 && taskset -c 1 ./run_wrk_script_1.sh 10 >> t4-1-1.perf  && pkill test8-uswitch && sleep 2; done
-for run in {1..5}; do taskset -c 0 ./test8-uswitch -p 6969 -H 0.0.0.0 -c 20 webtest/ & sleep 3 && taskset -c 1 ./run_wrk_script_1.sh 20 >> t4-1-2.perf && pkill test8-uswitch && sleep 2; done
-for run in {1..5}; do taskset -c 0 ./test8-uswitch -p 6969 -H 0.0.0.0 -c 30 webtest/ & sleep 3 && taskset -c 1 ./run_wrk_script_1.sh 30 >> t4-1-3.perf && pkill test8-uswitch && sleep 2; done
-for run in {1..5}; do taskset -c 0 ./test8-uswitch -p 6969 -H 0.0.0.0 -c 40 webtest/ & sleep 3 && taskset -c 1 ./run_wrk_script_1.sh 40 >> t4-1-4.perf && pkill test8-uswitch && sleep 2; done
-for run in {1..5}; do taskset -c 0 ./test8-uswitch -p 6969 -H 0.0.0.0 -c 50 webtest/ & sleep 3 && taskset -c 1 ./run_wrk_script_1.sh 50 >> t4-1-5.perf && pkill test8-uswitch && sleep 2; done
-for run in {1..5}; do taskset -c 0 ./test8-uswitch -p 6969 -H 0.0.0.0 -c 60 webtest/ & sleep 3 && taskset -c 1 ./run_wrk_script_1.sh 60 >> t4-1-6.perf && pkill test8-uswitch && sleep 2; done
-for run in {1..5}; do taskset -c 0 ./test8-uswitch -p 6969 -H 0.0.0.0 -c 70 webtest/ & sleep 3 && taskset -c 1 ./run_wrk_script_1.sh 70 >> t4-1-7.perf && pkill test8-uswitch && sleep 2; done
-for run in {1..5}; do taskset -c 0 ./test8-uswitch -p 6969 -H 0.0.0.0 -c 80 webtest/ & sleep 3 && taskset -c 1 ./run_wrk_script_1.sh 80 >> t4-1-8.perf && pkill test8-uswitch && sleep 2; done
-for run in {1..5}; do taskset -c 0 ./test8-uswitch -p 6969 -H 0.0.0.0 -c 90 webtest/ & sleep 3 && taskset -c 1 ./run_wrk_script_1.sh 90 >> t4-1-9.perf && pkill test8-uswitch && sleep 2; done
-for run in {1..5}; do taskset -c 0 ./test8-uswitch -p 6969 -H 0.0.0.0 -c 100 webtest/ & sleep 3 && taskset -c 1 ./run_wrk_script_1.sh 100 >> t4-1-10.perf && pkill test8-uswitch && sleep 2; done
+for run in {1..10}; do taskset -c 0 ./test8-uswitch -p 6969 -H 0.0.0.0 -c 10 webtest/ & sleep 3 && taskset -c 1 ./run_wrk_script_1.sh 10 >> t4-1-1.perf  && pkill test8-uswitch && sleep 2; done
+for run in {1..10}; do taskset -c 0 ./test8-uswitch -p 6969 -H 0.0.0.0 -c 20 webtest/ & sleep 3 && taskset -c 1 ./run_wrk_script_1.sh 20 >> t4-1-2.perf && pkill test8-uswitch && sleep 2; done
+for run in {1..10}; do taskset -c 0 ./test8-uswitch -p 6969 -H 0.0.0.0 -c 30 webtest/ & sleep 3 && taskset -c 1 ./run_wrk_script_1.sh 30 >> t4-1-3.perf && pkill test8-uswitch && sleep 2; done
+for run in {1..10}; do taskset -c 0 ./test8-uswitch -p 6969 -H 0.0.0.0 -c 40 webtest/ & sleep 3 && taskset -c 1 ./run_wrk_script_1.sh 40 >> t4-1-4.perf && pkill test8-uswitch && sleep 2; done
+for run in {1..10}; do taskset -c 0 ./test8-uswitch -p 6969 -H 0.0.0.0 -c 50 webtest/ & sleep 3 && taskset -c 1 ./run_wrk_script_1.sh 50 >> t4-1-5.perf && pkill test8-uswitch && sleep 2; done
+for run in {1..10}; do taskset -c 0 ./test8-uswitch -p 6969 -H 0.0.0.0 -c 60 webtest/ & sleep 3 && taskset -c 1 ./run_wrk_script_1.sh 60 >> t4-1-6.perf && pkill test8-uswitch && sleep 2; done
+for run in {1..10}; do taskset -c 0 ./test8-uswitch -p 6969 -H 0.0.0.0 -c 70 webtest/ & sleep 3 && taskset -c 1 ./run_wrk_script_1.sh 70 >> t4-1-7.perf && pkill test8-uswitch && sleep 2; done
+for run in {1..10}; do taskset -c 0 ./test8-uswitch -p 6969 -H 0.0.0.0 -c 80 webtest/ & sleep 3 && taskset -c 1 ./run_wrk_script_1.sh 80 >> t4-1-8.perf && pkill test8-uswitch && sleep 2; done
+for run in {1..10}; do taskset -c 0 ./test8-uswitch -p 6969 -H 0.0.0.0 -c 90 webtest/ & sleep 3 && taskset -c 1 ./run_wrk_script_1.sh 90 >> t4-1-9.perf && pkill test8-uswitch && sleep 2; done
+for run in {1..10}; do taskset -c 0 ./test8-uswitch -p 6969 -H 0.0.0.0 -c 100 webtest/ & sleep 3 && taskset -c 1 ./run_wrk_script_1.sh 100 >> t4-1-10.perf && pkill test8-uswitch && sleep 2; done
 echo "Done regular web page"
 echo "Start big web page"
-for run in {1..5}; do taskset -c 0 ./test8-uswitch -p 6969 -H 0.0.0.0 -c 10 webtest/ & sleep 3 && taskset -c 1 ./run_wrk_script_2.sh 10 >> t4-2-1.perf  && pkill test8-uswitch && sleep 2; done
-for run in {1..5}; do taskset -c 0 ./test8-uswitch -p 6969 -H 0.0.0.0 -c 20 webtest/ & sleep 3 && taskset -c 1 ./run_wrk_script_2.sh 20 >> t4-2-2.perf && pkill test8-uswitch && sleep 2; done
-for run in {1..5}; do taskset -c 0 ./test8-uswitch -p 6969 -H 0.0.0.0 -c 30 webtest/ & sleep 3 && taskset -c 1 ./run_wrk_script_2.sh 30 >> t4-2-3.perf && pkill test8-uswitch && sleep 2; done
-for run in {1..5}; do taskset -c 0 ./test8-uswitch -p 6969 -H 0.0.0.0 -c 40 webtest/ & sleep 3 && taskset -c 1 ./run_wrk_script_2.sh 40 >> t4-2-4.perf && pkill test8-uswitch && sleep 2; done
-for run in {1..5}; do taskset -c 0 ./test8-uswitch -p 6969 -H 0.0.0.0 -c 50 webtest/ & sleep 3 && taskset -c 1 ./run_wrk_script_2.sh 50 >> t4-2-5.perf && pkill test8-uswitch && sleep 2; done
-for run in {1..5}; do taskset -c 0 ./test8-uswitch -p 6969 -H 0.0.0.0 -c 60 webtest/ & sleep 3 && taskset -c 1 ./run_wrk_script_2.sh 60 >> t4-2-6.perf && pkill test8-uswitch && sleep 2; done
-for run in {1..5}; do taskset -c 0 ./test8-uswitch -p 6969 -H 0.0.0.0 -c 70 webtest/ & sleep 3 && taskset -c 1 ./run_wrk_script_2.sh 70 >> t4-2-7.perf && pkill test8-uswitch && sleep 2; done
-for run in {1..5}; do taskset -c 0 ./test8-uswitch -p 6969 -H 0.0.0.0 -c 80 webtest/ & sleep 3 && taskset -c 1 ./run_wrk_script_2.sh 80 >> t4-2-8.perf && pkill test8-uswitch && sleep 2; done
-for run in {1..5}; do taskset -c 0 ./test8-uswitch -p 6969 -H 0.0.0.0 -c 90 webtest/ & sleep 3 && taskset -c 1 ./run_wrk_script_2.sh 90 >> t4-2-9.perf && pkill test8-uswitch && sleep 2; done
-for run in {1..5}; do taskset -c 0 ./test8-uswitch -p 6969 -H 0.0.0.0 -c 100 webtest/ & sleep 3 && taskset -c 1 ./run_wrk_script_2.sh 100 >> t4-2-10.perf && pkill test8-uswitch && sleep 2; done
+for run in {1..10}; do taskset -c 0 ./test8-uswitch -p 6969 -H 0.0.0.0 -c 10 webtest/ & sleep 3 && taskset -c 1 ./run_wrk_script_2.sh 10 >> t4-2-1.perf  && pkill test8-uswitch && sleep 2; done
+for run in {1..10}; do taskset -c 0 ./test8-uswitch -p 6969 -H 0.0.0.0 -c 20 webtest/ & sleep 3 && taskset -c 1 ./run_wrk_script_2.sh 20 >> t4-2-2.perf && pkill test8-uswitch && sleep 2; done
+for run in {1..10}; do taskset -c 0 ./test8-uswitch -p 6969 -H 0.0.0.0 -c 30 webtest/ & sleep 3 && taskset -c 1 ./run_wrk_script_2.sh 30 >> t4-2-3.perf && pkill test8-uswitch && sleep 2; done
+for run in {1..10}; do taskset -c 0 ./test8-uswitch -p 6969 -H 0.0.0.0 -c 40 webtest/ & sleep 3 && taskset -c 1 ./run_wrk_script_2.sh 40 >> t4-2-4.perf && pkill test8-uswitch && sleep 2; done
+for run in {1..10}; do taskset -c 0 ./test8-uswitch -p 6969 -H 0.0.0.0 -c 50 webtest/ & sleep 3 && taskset -c 1 ./run_wrk_script_2.sh 50 >> t4-2-5.perf && pkill test8-uswitch && sleep 2; done
+for run in {1..10}; do taskset -c 0 ./test8-uswitch -p 6969 -H 0.0.0.0 -c 60 webtest/ & sleep 3 && taskset -c 1 ./run_wrk_script_2.sh 60 >> t4-2-6.perf && pkill test8-uswitch && sleep 2; done
+for run in {1..10}; do taskset -c 0 ./test8-uswitch -p 6969 -H 0.0.0.0 -c 70 webtest/ & sleep 3 && taskset -c 1 ./run_wrk_script_2.sh 70 >> t4-2-7.perf && pkill test8-uswitch && sleep 2; done
+for run in {1..10}; do taskset -c 0 ./test8-uswitch -p 6969 -H 0.0.0.0 -c 80 webtest/ & sleep 3 && taskset -c 1 ./run_wrk_script_2.sh 80 >> t4-2-8.perf && pkill test8-uswitch && sleep 2; done
+for run in {1..10}; do taskset -c 0 ./test8-uswitch -p 6969 -H 0.0.0.0 -c 90 webtest/ & sleep 3 && taskset -c 1 ./run_wrk_script_2.sh 90 >> t4-2-9.perf && pkill test8-uswitch && sleep 2; done
+for run in {1..10}; do taskset -c 0 ./test8-uswitch -p 6969 -H 0.0.0.0 -c 100 webtest/ & sleep 3 && taskset -c 1 ./run_wrk_script_2.sh 100 >> t4-2-10.perf && pkill test8-uswitch && sleep 2; done
 echo "Done big web page"
 
 python3 average_wrk.py t4-1-1.perf t4-1-2.perf t4-1-3.perf t4-1-4.perf t4-1-5.perf t4-1-6.perf t4-1-7.perf t4-1-8.perf t4-1-9.perf t4-1-10.perf > t4-1.avg.perf

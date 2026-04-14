@@ -4,101 +4,101 @@ Running wrk on port 6969...
 Running 10s test @ http://0.0.0.0:6969/bigpage.html
   1 threads and 10 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency    23.49ms   20.87ms  47.71ms   53.73%
-    Req/Sec   426.18     53.17   575.00     70.00%
-  4245 requests in 10.00s, 4.66GB read
-Requests/sec:    424.41
-Transfer/sec:    477.41MB
+    Latency    21.96ms   20.03ms  51.42ms   30.93%
+    Req/Sec   456.54     65.42   666.00     70.00%
+  4552 requests in 10.02s, 5.00GB read
+Requests/sec:    454.47
+Transfer/sec:    511.14MB
 -----------------------------------------------------------------------
 Running wrk on port 6970...
 Running 10s test @ http://0.0.0.0:6970/bigpage.html
   1 threads and 10 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency    22.96ms   20.86ms  52.32ms   26.65%
-    Req/Sec   436.29     58.76   590.00     67.00%
-  4341 requests in 10.00s, 4.77GB read
-Requests/sec:    433.93
-Transfer/sec:    488.09MB
+    Latency    21.68ms   18.44ms  57.13ms   23.13%
+    Req/Sec   466.46     61.06   590.00     66.00%
+  4646 requests in 10.00s, 5.10GB read
+Requests/sec:    464.44
+Transfer/sec:    522.33MB
 -----------------------------------------------------------------------
 Running wrk on port 6971...
 Running 10s test @ http://0.0.0.0:6971/bigpage.html
   1 threads and 10 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency    23.25ms   20.88ms  55.90ms   51.98%
-    Req/Sec   430.74     61.08   646.00     71.00%
-  4288 requests in 10.00s, 4.71GB read
-Requests/sec:    428.77
-Transfer/sec:    482.21MB
+    Latency    23.62ms   20.86ms  58.06ms   53.98%
+    Req/Sec   423.56     54.78   590.00     71.00%
+  4220 requests in 10.01s, 4.64GB read
+Requests/sec:    421.74
+Transfer/sec:    474.42MB
 -----------------------------------------------------------------------
 Running wrk on port 6972...
 Running 10s test @ http://0.0.0.0:6972/bigpage.html
   1 threads and 10 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency    22.74ms   20.89ms  51.49ms   36.34%
-    Req/Sec   440.73     60.17   575.00     66.00%
-  4387 requests in 10.00s, 4.82GB read
-Requests/sec:    438.64
-Transfer/sec:    493.18MB
+    Latency    23.05ms   20.86ms  52.31ms   29.82%
+    Req/Sec   434.50     55.28   595.00     67.00%
+  4330 requests in 10.02s, 4.76GB read
+Requests/sec:    432.34
+Transfer/sec:    486.21MB
 -----------------------------------------------------------------------
 Running wrk on port 6973...
 Running 10s test @ http://0.0.0.0:6973/bigpage.html
   1 threads and 10 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency    21.78ms   18.60ms  55.52ms   21.59%
-    Req/Sec   462.32     65.53   660.00     70.00%
-  4605 requests in 10.00s, 5.06GB read
-Requests/sec:    460.33
-Transfer/sec:    517.72MB
+    Latency    21.85ms   18.54ms  47.48ms   22.08%
+    Req/Sec   460.14     72.75   767.00     68.00%
+  4581 requests in 10.01s, 5.03GB read
+Requests/sec:    457.79
+Transfer/sec:    514.77MB
 -----------------------------------------------------------------------
 Running wrk on port 6974...
 Running 10s test @ http://0.0.0.0:6974/bigpage.html
   1 threads and 10 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency    22.52ms   20.88ms  49.19ms   35.39%
-    Req/Sec   444.35     64.95   620.00     71.00%
-  4426 requests in 10.00s, 4.86GB read
-Requests/sec:    442.41
-Transfer/sec:    497.51MB
+    Latency    21.03ms   17.30ms  46.90ms   31.55%
+    Req/Sec   495.14     68.63   717.00     66.00%
+  4936 requests in 10.02s, 5.42GB read
+Requests/sec:    492.75
+Transfer/sec:    554.00MB
 -----------------------------------------------------------------------
 Running wrk on port 6975...
 Running 10s test @ http://0.0.0.0:6975/bigpage.html
   1 threads and 10 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency    22.54ms   20.88ms  55.63ms   37.94%
-    Req/Sec   444.22     62.58   626.00     68.00%
-  4423 requests in 10.00s, 4.86GB read
-Requests/sec:    442.27
-Transfer/sec:    497.36MB
+    Latency    22.64ms   20.88ms  51.35ms   37.70%
+    Req/Sec   442.20     53.23   575.00     65.00%
+  4411 requests in 10.02s, 4.85GB read
+Requests/sec:    440.21
+Transfer/sec:    495.14MB
 -----------------------------------------------------------------------
 Running wrk on port 6976...
 Running 10s test @ http://0.0.0.0:6976/bigpage.html
   1 threads and 10 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency    22.65ms   20.86ms  51.07ms   38.20%
-    Req/Sec   442.08     56.67   585.00     64.00%
-  4402 requests in 10.00s, 4.83GB read
-Requests/sec:    440.02
-Transfer/sec:    494.82MB
+    Latency    21.93ms   20.12ms  56.46ms   34.60%
+    Req/Sec   457.02     54.58   636.00     68.00%
+  4558 requests in 10.02s, 5.01GB read
+Requests/sec:    454.97
+Transfer/sec:    511.71MB
 -----------------------------------------------------------------------
 Running wrk on port 6977...
 Running 10s test @ http://0.0.0.0:6977/bigpage.html
   1 threads and 10 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency    21.55ms   18.08ms  56.59ms   25.85%
-    Req/Sec   471.04     68.29   757.00     73.00%
-  4689 requests in 10.00s, 5.15GB read
-Requests/sec:    468.84
-Transfer/sec:    527.17MB
+    Latency    21.86ms   18.57ms  49.90ms   21.91%
+    Req/Sec   459.96     61.38   630.00     67.00%
+  4583 requests in 10.01s, 5.03GB read
+Requests/sec:    457.80
+Transfer/sec:    514.89MB
 -----------------------------------------------------------------------
 Running wrk on port 6978...
 Running 10s test @ http://0.0.0.0:6978/bigpage.html
   1 threads and 10 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency    21.96ms   20.43ms  55.06ms   29.74%
-    Req/Sec   456.43     53.72   585.00     67.00%
-  4544 requests in 10.00s, 4.99GB read
-Requests/sec:    454.30
-Transfer/sec:    510.85MB
+    Latency    20.62ms   17.44ms  52.20ms   30.65%
+    Req/Sec   520.21     69.39   700.00     66.00%
+  5181 requests in 10.01s, 5.69GB read
+Requests/sec:    517.84
+Transfer/sec:    582.05MB
 -----------------------------------------------------------------------
 All tests completed!
 Starting wrk tests from port 6969 to 6978 (10 total)...
@@ -107,101 +107,101 @@ Running wrk on port 6969...
 Running 10s test @ http://0.0.0.0:6969/bigpage.html
   1 threads and 10 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency    22.84ms   20.87ms  49.90ms   32.30%
-    Req/Sec   438.33     62.40   640.00     67.00%
-  4364 requests in 10.00s, 4.79GB read
-Requests/sec:    436.37
-Transfer/sec:    490.85MB
+    Latency    22.49ms   20.86ms  47.78ms   38.14%
+    Req/Sec   444.95     61.88   600.00     67.00%
+  4436 requests in 10.02s, 4.87GB read
+Requests/sec:    442.86
+Transfer/sec:    498.13MB
 -----------------------------------------------------------------------
 Running wrk on port 6970...
 Running 10s test @ http://0.0.0.0:6970/bigpage.html
   1 threads and 10 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency    21.23ms   17.53ms  48.56ms   29.80%
-    Req/Sec   484.54     65.76   633.00     71.00%
-  4824 requests in 10.00s, 5.30GB read
-Requests/sec:    482.29
-Transfer/sec:    542.37MB
+    Latency    22.20ms   20.76ms  49.41ms   37.76%
+    Req/Sec   450.99     75.41   640.00     67.00%
+  4493 requests in 10.01s, 4.93GB read
+Requests/sec:    448.88
+Transfer/sec:    504.78MB
 -----------------------------------------------------------------------
 Running wrk on port 6971...
 Running 10s test @ http://0.0.0.0:6971/bigpage.html
   1 threads and 10 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency    21.87ms   18.70ms  49.60ms   20.69%
-    Req/Sec   459.18     57.57   623.00     68.00%
-  4574 requests in 10.01s, 5.02GB read
-Requests/sec:    457.13
-Transfer/sec:    514.03MB
+    Latency    23.06ms   20.87ms  50.26ms   30.66%
+    Req/Sec   434.08     56.57   560.00     68.00%
+  4326 requests in 10.01s, 4.75GB read
+Requests/sec:    432.15
+Transfer/sec:    485.99MB
 -----------------------------------------------------------------------
 Running wrk on port 6972...
 Running 10s test @ http://0.0.0.0:6972/bigpage.html
   1 threads and 10 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency    22.68ms   20.85ms  53.34ms   37.17%
-    Req/Sec   441.52     65.42   580.00     66.00%
-  4396 requests in 10.00s, 4.83GB read
-Requests/sec:    439.49
-Transfer/sec:    494.23MB
+    Latency    22.13ms   20.68ms  53.39ms   34.83%
+    Req/Sec   452.72     53.79   595.00     63.00%
+  4512 requests in 10.01s, 4.95GB read
+Requests/sec:    450.62
+Transfer/sec:    506.62MB
 -----------------------------------------------------------------------
 Running wrk on port 6973...
 Running 10s test @ http://0.0.0.0:6973/bigpage.html
   1 threads and 10 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency    22.30ms   20.85ms  54.75ms   37.71%
-    Req/Sec   449.32     62.47   580.00     72.00%
-  4472 requests in 10.00s, 4.91GB read
-Requests/sec:    447.03
-Transfer/sec:    502.70MB
+    Latency    21.47ms   18.02ms  51.44ms   26.14%
+    Req/Sec   475.35     58.71   660.00     67.00%
+  4735 requests in 10.01s, 5.20GB read
+Requests/sec:    473.11
+Transfer/sec:    531.97MB
 -----------------------------------------------------------------------
 Running wrk on port 6974...
 Running 10s test @ http://0.0.0.0:6974/bigpage.html
   1 threads and 10 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency    22.44ms   20.87ms  55.69ms   36.17%
-    Req/Sec   446.19     62.12   606.00     60.00%
-  4443 requests in 10.00s, 4.88GB read
-Requests/sec:    444.17
-Transfer/sec:    499.59MB
+    Latency    20.52ms   17.48ms  51.54ms   30.40%
+    Req/Sec   525.93     57.99   673.00     70.00%
+  5242 requests in 10.02s, 5.76GB read
+Requests/sec:    523.37
+Transfer/sec:    588.49MB
 -----------------------------------------------------------------------
 Running wrk on port 6975...
 Running 10s test @ http://0.0.0.0:6975/bigpage.html
   1 threads and 10 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency    21.50ms   18.08ms  56.71ms   25.69%
-    Req/Sec   473.40     68.75   620.00     67.00%
-  4716 requests in 10.00s, 5.18GB read
-Requests/sec:    471.44
-Transfer/sec:    530.19MB
+    Latency    22.30ms   20.77ms  54.79ms   37.68%
+    Req/Sec   448.85     66.72   595.00     64.00%
+  4474 requests in 10.01s, 4.91GB read
+Requests/sec:    446.98
+Transfer/sec:    502.74MB
 -----------------------------------------------------------------------
 Running wrk on port 6976...
 Running 10s test @ http://0.0.0.0:6976/bigpage.html
   1 threads and 10 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency    22.52ms   20.89ms  47.03ms   35.69%
-    Req/Sec   444.40     58.39   616.00     70.00%
-  4425 requests in 10.00s, 4.86GB read
-Requests/sec:    442.42
-Transfer/sec:    497.51MB
+    Latency    21.84ms   18.53ms  48.59ms   22.13%
+    Req/Sec   460.93     67.06   666.00     67.00%
+  4595 requests in 10.02s, 5.05GB read
+Requests/sec:    458.80
+Transfer/sec:    515.90MB
 -----------------------------------------------------------------------
 Running wrk on port 6977...
 Running 10s test @ http://0.0.0.0:6977/bigpage.html
   1 threads and 10 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency    21.66ms   18.58ms  55.30ms   21.64%
-    Req/Sec   466.46     60.39   650.00     68.00%
-  4645 requests in 10.00s, 5.10GB read
-Requests/sec:    464.36
-Transfer/sec:    522.26MB
+    Latency    22.82ms   20.84ms  50.30ms   32.72%
+    Req/Sec   438.73     62.85   630.00     64.00%
+  4370 requests in 10.01s, 4.80GB read
+Requests/sec:    436.47
+Transfer/sec:    490.95MB
 -----------------------------------------------------------------------
 Running wrk on port 6978...
 Running 10s test @ http://0.0.0.0:6978/bigpage.html
   1 threads and 10 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency    21.35ms   17.83ms  57.28ms   27.63%
-    Req/Sec   479.09     62.03   620.00     70.00%
-  4771 requests in 10.01s, 5.24GB read
-Requests/sec:    476.85
-Transfer/sec:    536.27MB
+    Latency    22.59ms   20.84ms  52.54ms   38.95%
+    Req/Sec   442.74     66.45   656.00     70.00%
+  4416 requests in 10.02s, 4.85GB read
+Requests/sec:    440.79
+Transfer/sec:    495.69MB
 -----------------------------------------------------------------------
 All tests completed!
 Starting wrk tests from port 6969 to 6978 (10 total)...
@@ -210,101 +210,101 @@ Running wrk on port 6969...
 Running 10s test @ http://0.0.0.0:6969/bigpage.html
   1 threads and 10 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency    21.92ms   19.26ms  49.25ms   20.43%
-    Req/Sec   457.45     62.22   590.00     62.00%
-  4555 requests in 10.00s, 5.00GB read
-Requests/sec:    455.30
-Transfer/sec:    512.09MB
+    Latency    21.55ms   18.04ms  54.31ms   25.85%
+    Req/Sec   471.94     62.11   636.00     74.00%
+  4701 requests in 10.01s, 5.16GB read
+Requests/sec:    469.66
+Transfer/sec:    528.10MB
 -----------------------------------------------------------------------
 Running wrk on port 6970...
 Running 10s test @ http://0.0.0.0:6970/bigpage.html
   1 threads and 10 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency    24.25ms   20.84ms  48.25ms   55.12%
-    Req/Sec   412.78     53.95   530.00     69.00%
-  4111 requests in 10.00s, 4.52GB read
-Requests/sec:    410.93
-Transfer/sec:    462.29MB
+    Latency    21.58ms   18.06ms  52.98ms   25.65%
+    Req/Sec   470.42     59.78   660.00     71.00%
+  4690 requests in 10.01s, 5.15GB read
+Requests/sec:    468.34
+Transfer/sec:    526.62MB
 -----------------------------------------------------------------------
 Running wrk on port 6971...
 Running 10s test @ http://0.0.0.0:6971/bigpage.html
   1 threads and 10 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency    22.61ms   20.87ms  56.39ms   37.89%
-    Req/Sec   442.59     63.00   650.00     76.00%
-  4409 requests in 10.01s, 4.84GB read
-Requests/sec:    440.66
-Transfer/sec:    495.54MB
+    Latency    21.57ms   18.06ms  48.65ms   25.84%
+    Req/Sec   470.47     69.36   626.00     63.00%
+  4686 requests in 10.01s, 5.15GB read
+Requests/sec:    468.27
+Transfer/sec:    526.63MB
 -----------------------------------------------------------------------
 Running wrk on port 6972...
 Running 10s test @ http://0.0.0.0:6972/bigpage.html
   1 threads and 10 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency    21.74ms   18.65ms  52.67ms   21.05%
-    Req/Sec   463.79     56.06   616.00     67.00%
-  4618 requests in 10.00s, 5.07GB read
-Requests/sec:    461.61
-Transfer/sec:    519.05MB
+    Latency    21.38ms   17.94ms  49.83ms   26.83%
+    Req/Sec   478.73     60.28   656.00     70.00%
+  4767 requests in 10.00s, 5.24GB read
+Requests/sec:    476.50
+Transfer/sec:    535.87MB
 -----------------------------------------------------------------------
 Running wrk on port 6973...
 Running 10s test @ http://0.0.0.0:6973/bigpage.html
   1 threads and 10 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency    21.90ms   18.73ms  55.71ms   20.61%
-    Req/Sec   458.26     63.82   670.00     64.00%
-  4562 requests in 10.00s, 5.01GB read
-Requests/sec:    456.18
-Transfer/sec:    513.07MB
+    Latency    20.61ms   17.43ms  52.82ms   31.02%
+    Req/Sec   520.54     67.04   700.00     69.00%
+  5184 requests in 10.01s, 5.69GB read
+Requests/sec:    517.91
+Transfer/sec:    582.25MB
 -----------------------------------------------------------------------
 Running wrk on port 6974...
 Running 10s test @ http://0.0.0.0:6974/bigpage.html
   1 threads and 10 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency    22.27ms   20.81ms  55.73ms   38.58%
-    Req/Sec   449.67     60.12   690.00     72.00%
-  4476 requests in 10.00s, 4.92GB read
-Requests/sec:    447.48
-Transfer/sec:    503.31MB
+    Latency    21.72ms   18.47ms  48.23ms   23.14%
+    Req/Sec   464.43     69.36   676.00     68.00%
+  4628 requests in 10.01s, 5.08GB read
+Requests/sec:    462.13
+Transfer/sec:    519.75MB
 -----------------------------------------------------------------------
 Running wrk on port 6975...
 Running 10s test @ http://0.0.0.0:6975/bigpage.html
   1 threads and 10 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency    22.16ms   20.83ms  52.54ms   35.75%
-    Req/Sec   451.72     62.04   610.00     68.00%
-  4498 requests in 10.00s, 4.94GB read
-Requests/sec:    449.72
-Transfer/sec:    505.82MB
+    Latency    21.11ms   17.43ms  52.25ms   30.41%
+    Req/Sec   491.45     59.66   680.00     65.00%
+  4897 requests in 10.01s, 5.38GB read
+Requests/sec:    489.17
+Transfer/sec:    550.10MB
 -----------------------------------------------------------------------
 Running wrk on port 6976...
 Running 10s test @ http://0.0.0.0:6976/bigpage.html
   1 threads and 10 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency    21.57ms   18.19ms  55.28ms   24.78%
-    Req/Sec   470.05     56.36   600.00     72.00%
-  4679 requests in 10.00s, 5.14GB read
-Requests/sec:    467.79
-Transfer/sec:    526.10MB
+    Latency    21.49ms   18.11ms  53.72ms   25.26%
+    Req/Sec   473.23     63.23   626.00     68.00%
+  4716 requests in 10.01s, 5.18GB read
+Requests/sec:    471.28
+Transfer/sec:    529.90MB
 -----------------------------------------------------------------------
 Running wrk on port 6977...
 Running 10s test @ http://0.0.0.0:6977/bigpage.html
   1 threads and 10 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency    21.25ms   17.51ms  54.25ms   30.26%
-    Req/Sec   483.91     67.50   626.00     65.00%
-  4821 requests in 10.00s, 5.29GB read
-Requests/sec:    481.94
-Transfer/sec:    541.87MB
+    Latency    21.85ms   18.48ms  55.23ms   22.63%
+    Req/Sec   460.87     56.97   630.00     69.00%
+  4592 requests in 10.01s, 5.04GB read
+Requests/sec:    458.73
+Transfer/sec:    515.82MB
 -----------------------------------------------------------------------
 Running wrk on port 6978...
 Running 10s test @ http://0.0.0.0:6978/bigpage.html
   1 threads and 10 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency    22.45ms   20.87ms  56.29ms   37.17%
-    Req/Sec   446.00     69.55   620.00     70.00%
-  4440 requests in 10.00s, 4.88GB read
-Requests/sec:    443.86
-Transfer/sec:    499.25MB
+    Latency    22.62ms   20.86ms  53.49ms   38.20%
+    Req/Sec   442.54     60.29   650.00     70.00%
+  4408 requests in 10.01s, 4.84GB read
+Requests/sec:    440.51
+Transfer/sec:    495.37MB
 -----------------------------------------------------------------------
 All tests completed!
 Starting wrk tests from port 6969 to 6978 (10 total)...
@@ -313,101 +313,101 @@ Running wrk on port 6969...
 Running 10s test @ http://0.0.0.0:6969/bigpage.html
   1 threads and 10 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency    22.65ms   20.85ms  55.93ms   39.33%
-    Req/Sec   441.74     66.59   600.00     62.00%
-  4401 requests in 10.01s, 4.83GB read
-Requests/sec:    439.73
-Transfer/sec:    494.60MB
+    Latency    22.31ms   20.79ms  57.91ms   38.18%
+    Req/Sec   448.47     69.06   640.00     68.00%
+  4472 requests in 10.01s, 4.91GB read
+Requests/sec:    446.62
+Transfer/sec:    502.33MB
 -----------------------------------------------------------------------
 Running wrk on port 6970...
 Running 10s test @ http://0.0.0.0:6970/bigpage.html
   1 threads and 10 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency    23.43ms   20.88ms  54.42ms   53.44%
-    Req/Sec   427.62     58.40   646.00     70.00%
-  4258 requests in 10.00s, 4.68GB read
-Requests/sec:    425.64
-Transfer/sec:    478.68MB
+    Latency    22.77ms   20.83ms  54.68ms   34.61%
+    Req/Sec   439.62     55.19   595.00     67.00%
+  4383 requests in 10.02s, 4.81GB read
+Requests/sec:    437.61
+Transfer/sec:    492.24MB
 -----------------------------------------------------------------------
 Running wrk on port 6971...
 Running 10s test @ http://0.0.0.0:6971/bigpage.html
   1 threads and 10 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency    24.52ms   20.84ms  55.72ms   55.91%
-    Req/Sec   408.63     52.91   555.00     70.00%
-  4068 requests in 10.00s, 4.47GB read
-Requests/sec:    406.77
-Transfer/sec:    457.51MB
+    Latency    22.24ms   20.69ms  53.34ms   36.37%
+    Req/Sec   450.67     56.73   636.00     69.00%
+  4491 requests in 10.01s, 4.93GB read
+Requests/sec:    448.54
+Transfer/sec:    504.39MB
 -----------------------------------------------------------------------
 Running wrk on port 6972...
 Running 10s test @ http://0.0.0.0:6972/bigpage.html
   1 threads and 10 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency    22.12ms   20.80ms  55.31ms   35.02%
-    Req/Sec   452.77     63.35   606.00     67.00%
-  4508 requests in 10.00s, 4.95GB read
-Requests/sec:    450.59
-Transfer/sec:    506.80MB
+    Latency    24.20ms   20.81ms  52.62ms   54.70%
+    Req/Sec   413.96     55.05   590.00     73.00%
+  4125 requests in 10.01s, 4.53GB read
+Requests/sec:    412.02
+Transfer/sec:    463.50MB
 -----------------------------------------------------------------------
 Running wrk on port 6973...
 Running 10s test @ http://0.0.0.0:6973/bigpage.html
   1 threads and 10 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency    21.73ms   18.63ms  47.82ms   21.13%
-    Req/Sec   464.52     59.85   616.00     62.00%
-  4625 requests in 10.00s, 5.08GB read
-Requests/sec:    462.31
-Transfer/sec:    519.84MB
+    Latency    23.04ms   20.88ms  54.12ms   30.71%
+    Req/Sec   434.60     53.83   603.00     71.00%
+  4330 requests in 10.01s, 4.76GB read
+Requests/sec:    432.61
+Transfer/sec:    486.51MB
 -----------------------------------------------------------------------
 Running wrk on port 6974...
 Running 10s test @ http://0.0.0.0:6974/bigpage.html
   1 threads and 10 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency    22.06ms   20.71ms  48.49ms   30.94%
-    Req/Sec   454.37     61.84   616.00     71.00%
-  4523 requests in 10.00s, 4.97GB read
-Requests/sec:    452.10
-Transfer/sec:    508.38MB
+    Latency    21.21ms   17.51ms  53.34ms   30.18%
+    Req/Sec   487.42     59.84   636.00     60.00%
+  4852 requests in 10.01s, 5.33GB read
+Requests/sec:    484.78
+Transfer/sec:    545.17MB
 -----------------------------------------------------------------------
 Running wrk on port 6975...
 Running 10s test @ http://0.0.0.0:6975/bigpage.html
   1 threads and 10 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency    23.64ms   20.84ms  50.79ms   53.34%
-    Req/Sec   423.44     58.77   580.00     69.00%
-  4217 requests in 10.00s, 4.63GB read
-Requests/sec:    421.52
-Transfer/sec:    473.95MB
+    Latency    21.50ms   18.04ms  53.08ms   26.19%
+    Req/Sec   473.27     62.70   636.00     62.00%
+  4716 requests in 10.01s, 5.18GB read
+Requests/sec:    471.23
+Transfer/sec:    529.84MB
 -----------------------------------------------------------------------
 Running wrk on port 6976...
 Running 10s test @ http://0.0.0.0:6976/bigpage.html
   1 threads and 10 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency    21.55ms   18.06ms  55.83ms   25.93%
-    Req/Sec   472.13     65.74   606.00     69.00%
-  4696 requests in 10.00s, 5.16GB read
-Requests/sec:    469.56
-Transfer/sec:    527.98MB
+    Latency    22.85ms   20.86ms  49.53ms   33.45%
+    Req/Sec   438.08     58.40   585.00     69.00%
+  4366 requests in 10.01s, 4.79GB read
+Requests/sec:    435.99
+Transfer/sec:    490.30MB
 -----------------------------------------------------------------------
 Running wrk on port 6977...
 Running 10s test @ http://0.0.0.0:6977/bigpage.html
   1 threads and 10 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency    22.77ms   20.86ms  55.51ms   37.68%
-    Req/Sec   440.10     54.00   585.00     68.00%
-  4379 requests in 10.00s, 4.81GB read
-Requests/sec:    437.79
-Transfer/sec:    492.32MB
+    Latency    22.93ms   20.88ms  55.91ms   28.86%
+    Req/Sec   436.67     59.62   565.00     67.00%
+  4351 requests in 10.01s, 4.78GB read
+Requests/sec:    434.58
+Transfer/sec:    488.84MB
 -----------------------------------------------------------------------
 Running wrk on port 6978...
 Running 10s test @ http://0.0.0.0:6978/bigpage.html
   1 threads and 10 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency    21.26ms   17.49ms  51.75ms   30.24%
-    Req/Sec   484.25     68.05   646.00     72.00%
-  4820 requests in 10.01s, 5.29GB read
-Requests/sec:    481.72
-Transfer/sec:    541.62MB
+    Latency    21.89ms   18.63ms  56.02ms   21.51%
+    Req/Sec   458.84     65.61   646.00     65.00%
+  4572 requests in 10.01s, 5.02GB read
+Requests/sec:    456.69
+Transfer/sec:    513.54MB
 -----------------------------------------------------------------------
 All tests completed!
 Starting wrk tests from port 6969 to 6978 (10 total)...
@@ -416,100 +416,1645 @@ Running wrk on port 6969...
 Running 10s test @ http://0.0.0.0:6969/bigpage.html
   1 threads and 10 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency    22.96ms   20.87ms  48.64ms   28.11%
-    Req/Sec   436.02     55.60   636.00     70.00%
-  4342 requests in 10.00s, 4.77GB read
-Requests/sec:    434.02
-Transfer/sec:    488.19MB
+    Latency    23.22ms   20.84ms  47.62ms   48.20%
+    Req/Sec   431.20     58.41   585.00     70.00%
+  4297 requests in 10.01s, 4.72GB read
+Requests/sec:    429.12
+Transfer/sec:    482.69MB
 -----------------------------------------------------------------------
 Running wrk on port 6970...
 Running 10s test @ http://0.0.0.0:6970/bigpage.html
   1 threads and 10 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency    21.63ms   18.51ms  55.05ms   22.28%
-    Req/Sec   467.71     59.79   616.00     72.00%
-  4659 requests in 10.00s, 5.12GB read
-Requests/sec:    465.78
-Transfer/sec:    523.85MB
+    Latency    23.03ms   20.85ms  57.36ms   29.48%
+    Req/Sec   434.61     61.01   574.00     64.00%
+  4331 requests in 10.01s, 4.76GB read
+Requests/sec:    432.68
+Transfer/sec:    486.69MB
 -----------------------------------------------------------------------
 Running wrk on port 6971...
 Running 10s test @ http://0.0.0.0:6971/bigpage.html
   1 threads and 10 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency    21.56ms   18.04ms  48.76ms   26.10%
-    Req/Sec   471.00     75.25   660.00     66.00%
-  4688 requests in 10.00s, 5.15GB read
-Requests/sec:    468.60
-Transfer/sec:    527.02MB
+    Latency    23.60ms   20.85ms  48.02ms   53.38%
+    Req/Sec   424.32     61.68   660.00     71.00%
+  4228 requests in 10.01s, 4.64GB read
+Requests/sec:    422.23
+Transfer/sec:    474.85MB
 -----------------------------------------------------------------------
 Running wrk on port 6972...
 Running 10s test @ http://0.0.0.0:6972/bigpage.html
   1 threads and 10 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency    23.16ms   20.85ms  49.19ms   45.60%
-    Req/Sec   432.14     64.93   626.00     72.00%
-  4303 requests in 10.00s, 4.73GB read
-Requests/sec:    430.24
-Transfer/sec:    483.84MB
+    Latency    21.92ms   18.83ms  55.70ms   19.89%
+    Req/Sec   457.84     66.80   595.00     67.00%
+  4563 requests in 10.01s, 5.01GB read
+Requests/sec:    455.72
+Transfer/sec:    512.44MB
 -----------------------------------------------------------------------
 Running wrk on port 6973...
 Running 10s test @ http://0.0.0.0:6973/bigpage.html
   1 threads and 10 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency    23.03ms   20.88ms  47.96ms   30.24%
-    Req/Sec   434.89     58.39   580.00     68.00%
-  4329 requests in 10.00s, 4.75GB read
-Requests/sec:    432.74
-Transfer/sec:    486.66MB
+    Latency    22.15ms   20.72ms  55.47ms   34.40%
+    Req/Sec   452.09     71.82   666.00     63.00%
+  4504 requests in 10.01s, 4.95GB read
+Requests/sec:    450.01
+Transfer/sec:    506.04MB
 -----------------------------------------------------------------------
 Running wrk on port 6974...
 Running 10s test @ http://0.0.0.0:6974/bigpage.html
   1 threads and 10 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency    21.29ms   17.52ms  53.36ms   30.18%
-    Req/Sec   482.29     62.68   636.00     68.00%
-  4801 requests in 10.00s, 5.27GB read
-Requests/sec:    480.01
-Transfer/sec:    539.71MB
+    Latency    21.71ms   18.41ms  51.64ms   23.28%
+    Req/Sec   465.92     66.26   616.00     70.00%
+  4646 requests in 10.02s, 5.10GB read
+Requests/sec:    463.83
+Transfer/sec:    521.54MB
 -----------------------------------------------------------------------
 Running wrk on port 6975...
 Running 10s test @ http://0.0.0.0:6975/bigpage.html
   1 threads and 10 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency    22.49ms   20.87ms  52.12ms   37.68%
-    Req/Sec   445.30     69.33   650.00     69.00%
-  4435 requests in 10.01s, 4.87GB read
-Requests/sec:    443.27
-Transfer/sec:    498.47MB
+    Latency    22.63ms   20.87ms  50.67ms   38.14%
+    Req/Sec   442.59     63.66   590.00     71.00%
+  4411 requests in 10.02s, 4.85GB read
+Requests/sec:    440.27
+Transfer/sec:    495.21MB
 -----------------------------------------------------------------------
 Running wrk on port 6976...
 Running 10s test @ http://0.0.0.0:6976/bigpage.html
   1 threads and 10 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency    22.97ms   20.92ms  54.59ms   29.41%
-    Req/Sec   435.77     72.11   686.00     71.00%
-  4340 requests in 10.00s, 4.77GB read
-Requests/sec:    433.84
-Transfer/sec:    487.89MB
+    Latency    21.87ms   18.51ms  48.95ms   22.27%
+    Req/Sec   459.59     68.36   626.00     70.00%
+  4581 requests in 10.01s, 5.03GB read
+Requests/sec:    457.50
+Transfer/sec:    514.45MB
 -----------------------------------------------------------------------
 Running wrk on port 6977...
 Running 10s test @ http://0.0.0.0:6977/bigpage.html
   1 threads and 10 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency    22.81ms   20.87ms  55.26ms   34.13%
-    Req/Sec   438.84     58.03   590.00     67.00%
-  4370 requests in 10.00s, 4.80GB read
-Requests/sec:    436.98
-Transfer/sec:    491.42MB
+    Latency    21.71ms   18.48ms  55.37ms   22.61%
+    Req/Sec   465.28     60.36   640.00     65.00%
+  4635 requests in 10.01s, 5.09GB read
+Requests/sec:    463.06
+Transfer/sec:    520.79MB
 -----------------------------------------------------------------------
 Running wrk on port 6978...
 Running 10s test @ http://0.0.0.0:6978/bigpage.html
   1 threads and 10 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency    21.81ms   18.56ms  55.21ms   21.80%
-    Req/Sec   461.53     59.24   636.00     67.00%
-  4597 requests in 10.00s, 5.05GB read
-Requests/sec:    459.50
-Transfer/sec:    516.69MB
+    Latency    21.73ms   18.44ms  50.77ms   23.01%
+    Req/Sec   464.61     57.11   626.00     68.00%
+  4635 requests in 10.02s, 5.09GB read
+Requests/sec:    462.60
+Transfer/sec:    520.16MB
+-----------------------------------------------------------------------
+All tests completed!
+Starting wrk tests from port 6969 to 6978 (10 total)...
+=======================================================================
+Running wrk on port 6969...
+Running 10s test @ http://0.0.0.0:6969/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    21.33ms   17.66ms  55.94ms   29.15%
+    Req/Sec   481.54     67.43   660.00     64.00%
+  4798 requests in 10.01s, 5.27GB read
+Requests/sec:    479.18
+Transfer/sec:    538.66MB
+-----------------------------------------------------------------------
+Running wrk on port 6970...
+Running 10s test @ http://0.0.0.0:6970/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    21.98ms   20.43ms  54.48ms   33.44%
+    Req/Sec   455.96     60.93   646.00     75.00%
+  4545 requests in 10.01s, 4.99GB read
+Requests/sec:    453.89
+Transfer/sec:    510.50MB
+-----------------------------------------------------------------------
+Running wrk on port 6971...
+Running 10s test @ http://0.0.0.0:6971/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    23.14ms   20.87ms  56.98ms   46.05%
+    Req/Sec   433.03     59.75   595.00     65.00%
+  4312 requests in 10.01s, 4.74GB read
+Requests/sec:    430.90
+Transfer/sec:    484.69MB
+-----------------------------------------------------------------------
+Running wrk on port 6972...
+Running 10s test @ http://0.0.0.0:6972/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    23.16ms   20.87ms  54.81ms   47.46%
+    Req/Sec   432.74     64.47   565.00     64.00%
+  4309 requests in 10.01s, 4.73GB read
+Requests/sec:    430.57
+Transfer/sec:    484.21MB
+-----------------------------------------------------------------------
+Running wrk on port 6973...
+Running 10s test @ http://0.0.0.0:6973/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    23.05ms   20.85ms  50.88ms   28.45%
+    Req/Sec   434.48     51.27   560.00     68.00%
+  4331 requests in 10.01s, 4.76GB read
+Requests/sec:    432.56
+Transfer/sec:    486.45MB
+-----------------------------------------------------------------------
+Running wrk on port 6974...
+Running 10s test @ http://0.0.0.0:6974/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    23.08ms   20.87ms  56.98ms   33.69%
+    Req/Sec   433.89     60.24   640.00     72.00%
+  4323 requests in 10.01s, 4.75GB read
+Requests/sec:    431.73
+Transfer/sec:    485.63MB
+-----------------------------------------------------------------------
+Running wrk on port 6975...
+Running 10s test @ http://0.0.0.0:6975/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    22.93ms   20.89ms  55.63ms   28.11%
+    Req/Sec   436.72     56.22   590.00     66.00%
+  4350 requests in 10.01s, 4.78GB read
+Requests/sec:    434.45
+Transfer/sec:    488.57MB
+-----------------------------------------------------------------------
+Running wrk on port 6976...
+Running 10s test @ http://0.0.0.0:6976/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    23.32ms   20.86ms  50.80ms   51.54%
+    Req/Sec   429.51     56.65   590.00     72.00%
+  4284 requests in 10.02s, 4.70GB read
+Requests/sec:    427.59
+Transfer/sec:    480.87MB
+-----------------------------------------------------------------------
+Running wrk on port 6977...
+Running 10s test @ http://0.0.0.0:6977/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    23.45ms   20.84ms  53.04ms   53.29%
+    Req/Sec   427.23     63.96   660.00     66.00%
+  4254 requests in 10.01s, 4.67GB read
+Requests/sec:    425.14
+Transfer/sec:    478.02MB
+-----------------------------------------------------------------------
+Running wrk on port 6978...
+Running 10s test @ http://0.0.0.0:6978/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    23.47ms   20.83ms  54.60ms   53.42%
+    Req/Sec   426.60     60.11   570.00     63.00%
+  4251 requests in 10.01s, 4.67GB read
+Requests/sec:    424.60
+Transfer/sec:    477.52MB
+-----------------------------------------------------------------------
+All tests completed!
+Starting wrk tests from port 6969 to 6978 (10 total)...
+=======================================================================
+Running wrk on port 6969...
+Running 10s test @ http://0.0.0.0:6969/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    24.00ms   20.83ms  49.29ms   53.85%
+    Req/Sec   417.04     59.74   690.00     72.00%
+  4158 requests in 10.02s, 4.57GB read
+Requests/sec:    415.13
+Transfer/sec:    467.00MB
+-----------------------------------------------------------------------
+Running wrk on port 6970...
+Running 10s test @ http://0.0.0.0:6970/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    23.89ms   20.83ms  57.01ms   53.92%
+    Req/Sec   419.51     51.59   575.00     67.00%
+  4176 requests in 10.01s, 4.59GB read
+Requests/sec:    417.35
+Transfer/sec:    469.39MB
+-----------------------------------------------------------------------
+Running wrk on port 6971...
+Running 10s test @ http://0.0.0.0:6971/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    23.60ms   20.83ms  47.50ms   53.86%
+    Req/Sec   424.22     60.46   640.00     70.00%
+  4227 requests in 10.01s, 4.64GB read
+Requests/sec:    422.23
+Transfer/sec:    474.86MB
+-----------------------------------------------------------------------
+Running wrk on port 6972...
+Running 10s test @ http://0.0.0.0:6972/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    22.72ms   20.85ms  54.28ms   39.04%
+    Req/Sec   440.79     61.09   666.00     69.00%
+  4390 requests in 10.01s, 4.82GB read
+Requests/sec:    438.69
+Transfer/sec:    493.34MB
+-----------------------------------------------------------------------
+Running wrk on port 6973...
+Running 10s test @ http://0.0.0.0:6973/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    23.98ms   20.84ms  55.95ms   54.20%
+    Req/Sec   417.52     53.88   580.00     71.00%
+  4161 requests in 10.01s, 4.57GB read
+Requests/sec:    415.65
+Transfer/sec:    467.47MB
+-----------------------------------------------------------------------
+Running wrk on port 6974...
+Running 10s test @ http://0.0.0.0:6974/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    23.23ms   20.83ms  54.19ms   48.74%
+    Req/Sec   430.77     57.87   575.00     66.00%
+  4293 requests in 10.01s, 4.72GB read
+Requests/sec:    428.82
+Transfer/sec:    482.35MB
+-----------------------------------------------------------------------
+Running wrk on port 6975...
+Running 10s test @ http://0.0.0.0:6975/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    24.29ms   20.79ms  52.35ms   55.27%
+    Req/Sec   412.07     59.79   580.00     73.00%
+  4107 requests in 10.01s, 4.51GB read
+Requests/sec:    410.27
+Transfer/sec:    461.44MB
+-----------------------------------------------------------------------
+Running wrk on port 6976...
+Running 10s test @ http://0.0.0.0:6976/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    22.32ms   20.77ms  50.53ms   38.35%
+    Req/Sec   448.91     64.60   600.00     65.00%
+  4471 requests in 10.01s, 4.91GB read
+Requests/sec:    446.73
+Transfer/sec:    502.24MB
+-----------------------------------------------------------------------
+Running wrk on port 6977...
+Running 10s test @ http://0.0.0.0:6977/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    23.17ms   20.86ms  47.14ms   46.41%
+    Req/Sec   432.11     53.33   590.00     69.00%
+  4307 requests in 10.01s, 4.73GB read
+Requests/sec:    430.06
+Transfer/sec:    483.65MB
+-----------------------------------------------------------------------
+Running wrk on port 6978...
+Running 10s test @ http://0.0.0.0:6978/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    23.81ms   20.82ms  49.31ms   54.20%
+    Req/Sec   420.45     63.39   606.00     68.00%
+  4189 requests in 10.01s, 4.60GB read
+Requests/sec:    418.58
+Transfer/sec:    470.88MB
+-----------------------------------------------------------------------
+All tests completed!
+Starting wrk tests from port 6969 to 6978 (10 total)...
+=======================================================================
+Running wrk on port 6969...
+Running 10s test @ http://0.0.0.0:6969/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    23.40ms   20.83ms  48.33ms   52.84%
+    Req/Sec   427.66     58.55   590.00     67.00%
+  4263 requests in 10.01s, 4.68GB read
+Requests/sec:    425.71
+Transfer/sec:    478.76MB
+-----------------------------------------------------------------------
+Running wrk on port 6970...
+Running 10s test @ http://0.0.0.0:6970/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    22.84ms   20.86ms  54.29ms   33.70%
+    Req/Sec   438.28     64.03   606.00     62.00%
+  4364 requests in 10.01s, 4.79GB read
+Requests/sec:    436.16
+Transfer/sec:    490.59MB
+-----------------------------------------------------------------------
+Running wrk on port 6971...
+Running 10s test @ http://0.0.0.0:6971/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    22.47ms   20.86ms  49.81ms   36.17%
+    Req/Sec   445.27     56.38   620.00     76.00%
+  4436 requests in 10.01s, 4.87GB read
+Requests/sec:    443.33
+Transfer/sec:    498.54MB
+-----------------------------------------------------------------------
+Running wrk on port 6972...
+Running 10s test @ http://0.0.0.0:6972/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    23.85ms   20.82ms  54.78ms   53.81%
+    Req/Sec   419.68     53.68   620.00     68.00%
+  4182 requests in 10.01s, 4.59GB read
+Requests/sec:    417.82
+Transfer/sec:    469.91MB
+-----------------------------------------------------------------------
+Running wrk on port 6973...
+Running 10s test @ http://0.0.0.0:6973/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    23.24ms   20.85ms  51.62ms   50.33%
+    Req/Sec   430.95     62.80   585.00     63.00%
+  4293 requests in 10.01s, 4.72GB read
+Requests/sec:    428.74
+Transfer/sec:    482.27MB
+-----------------------------------------------------------------------
+Running wrk on port 6974...
+Running 10s test @ http://0.0.0.0:6974/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    22.99ms   20.87ms  47.97ms   28.83%
+    Req/Sec   435.37     64.82   666.00     74.00%
+  4337 requests in 10.01s, 4.76GB read
+Requests/sec:    433.34
+Transfer/sec:    487.44MB
+-----------------------------------------------------------------------
+Running wrk on port 6975...
+Running 10s test @ http://0.0.0.0:6975/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    22.53ms   20.85ms  52.61ms   38.72%
+    Req/Sec   444.22     59.16   610.00     67.00%
+  4430 requests in 10.01s, 4.87GB read
+Requests/sec:    442.35
+Transfer/sec:    497.56MB
+-----------------------------------------------------------------------
+Running wrk on port 6976...
+Running 10s test @ http://0.0.0.0:6976/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    22.61ms   20.85ms  48.21ms   39.10%
+    Req/Sec   442.65     63.31   606.00     70.00%
+  4408 requests in 10.01s, 4.84GB read
+Requests/sec:    440.43
+Transfer/sec:    495.38MB
+-----------------------------------------------------------------------
+Running wrk on port 6977...
+Running 10s test @ http://0.0.0.0:6977/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    23.74ms   20.85ms  53.32ms   53.84%
+    Req/Sec   421.71     51.82   580.00     73.00%
+  4204 requests in 10.01s, 4.62GB read
+Requests/sec:    419.97
+Transfer/sec:    472.32MB
+-----------------------------------------------------------------------
+Running wrk on port 6978...
+Running 10s test @ http://0.0.0.0:6978/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    23.50ms   20.84ms  50.69ms   54.18%
+    Req/Sec   426.11     65.26   606.00     69.00%
+  4243 requests in 10.01s, 4.66GB read
+Requests/sec:    424.02
+Transfer/sec:    476.97MB
+-----------------------------------------------------------------------
+All tests completed!
+Starting wrk tests from port 6969 to 6978 (10 total)...
+=======================================================================
+Running wrk on port 6969...
+Running 10s test @ http://0.0.0.0:6969/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    22.34ms   20.80ms  56.16ms   37.11%
+    Req/Sec   448.19     66.02   585.00     64.00%
+  4466 requests in 10.01s, 4.90GB read
+Requests/sec:    446.01
+Transfer/sec:    501.55MB
+-----------------------------------------------------------------------
+Running wrk on port 6970...
+Running 10s test @ http://0.0.0.0:6970/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    23.30ms   20.81ms  50.10ms   50.56%
+    Req/Sec   429.67     66.82   640.00     66.00%
+  4282 requests in 10.01s, 4.70GB read
+Requests/sec:    427.62
+Transfer/sec:    481.02MB
+-----------------------------------------------------------------------
+Running wrk on port 6971...
+Running 10s test @ http://0.0.0.0:6971/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    23.58ms   20.84ms  49.87ms   53.84%
+    Req/Sec   424.74     56.88   626.00     72.00%
+  4231 requests in 10.01s, 4.65GB read
+Requests/sec:    422.83
+Transfer/sec:    475.65MB
+-----------------------------------------------------------------------
+Running wrk on port 6972...
+Running 10s test @ http://0.0.0.0:6972/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    22.46ms   20.79ms  51.67ms   39.33%
+    Req/Sec   445.93     64.76   640.00     68.00%
+  4442 requests in 10.01s, 4.88GB read
+Requests/sec:    443.74
+Transfer/sec:    498.89MB
+-----------------------------------------------------------------------
+Running wrk on port 6973...
+Running 10s test @ http://0.0.0.0:6973/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    23.23ms   20.89ms  52.60ms   50.93%
+    Req/Sec   430.81     61.68   620.00     74.00%
+  4294 requests in 10.01s, 4.72GB read
+Requests/sec:    428.99
+Transfer/sec:    482.45MB
+-----------------------------------------------------------------------
+Running wrk on port 6974...
+Running 10s test @ http://0.0.0.0:6974/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    23.47ms   20.84ms  49.80ms   53.23%
+    Req/Sec   426.76     58.06   640.00     68.00%
+  4252 requests in 10.01s, 4.67GB read
+Requests/sec:    424.80
+Transfer/sec:    477.86MB
+-----------------------------------------------------------------------
+Running wrk on port 6975...
+Running 10s test @ http://0.0.0.0:6975/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    23.32ms   20.86ms  49.49ms   51.95%
+    Req/Sec   429.31     62.85   626.00     73.00%
+  4277 requests in 10.01s, 4.70GB read
+Requests/sec:    427.15
+Transfer/sec:    480.50MB
+-----------------------------------------------------------------------
+Running wrk on port 6976...
+Running 10s test @ http://0.0.0.0:6976/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    22.47ms   20.84ms  49.34ms   39.19%
+    Req/Sec   445.41     60.67   630.00     74.00%
+  4437 requests in 10.01s, 4.87GB read
+Requests/sec:    443.42
+Transfer/sec:    498.76MB
+-----------------------------------------------------------------------
+Running wrk on port 6977...
+Running 10s test @ http://0.0.0.0:6977/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    21.21ms   17.49ms  50.67ms   30.24%
+    Req/Sec   486.09     58.65   640.00     66.00%
+  4842 requests in 10.01s, 5.32GB read
+Requests/sec:    483.67
+Transfer/sec:    543.92MB
+-----------------------------------------------------------------------
+Running wrk on port 6978...
+Running 10s test @ http://0.0.0.0:6978/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    22.58ms   20.86ms  56.03ms   37.78%
+    Req/Sec   443.34     61.76   610.00     69.00%
+  4417 requests in 10.01s, 4.85GB read
+Requests/sec:    441.31
+Transfer/sec:    496.15MB
+-----------------------------------------------------------------------
+All tests completed!
+Starting wrk tests from port 6969 to 6978 (10 total)...
+=======================================================================
+Running wrk on port 6969...
+Running 10s test @ http://0.0.0.0:6969/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    23.37ms   20.86ms  49.48ms   52.59%
+    Req/Sec   428.45     64.33   610.00     69.00%
+  4270 requests in 10.01s, 4.69GB read
+Requests/sec:    426.40
+Transfer/sec:    479.43MB
+-----------------------------------------------------------------------
+Running wrk on port 6970...
+Running 10s test @ http://0.0.0.0:6970/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    23.36ms   20.87ms  55.75ms   52.53%
+    Req/Sec   428.72     57.93   575.00     69.00%
+  4270 requests in 10.01s, 4.69GB read
+Requests/sec:    426.59
+Transfer/sec:    479.74MB
+-----------------------------------------------------------------------
+Running wrk on port 6971...
+Running 10s test @ http://0.0.0.0:6971/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    23.46ms   20.88ms  49.63ms   53.17%
+    Req/Sec   426.83     57.14   545.00     66.00%
+  4254 requests in 10.02s, 4.67GB read
+Requests/sec:    424.75
+Transfer/sec:    477.68MB
+-----------------------------------------------------------------------
+Running wrk on port 6972...
+Running 10s test @ http://0.0.0.0:6972/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    22.84ms   20.86ms  55.82ms   32.86%
+    Req/Sec   438.31     65.05   585.00     63.00%
+  4367 requests in 10.01s, 4.80GB read
+Requests/sec:    436.30
+Transfer/sec:    490.76MB
+-----------------------------------------------------------------------
+Running wrk on port 6973...
+Running 10s test @ http://0.0.0.0:6973/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    24.30ms   20.84ms  50.99ms   55.33%
+    Req/Sec   412.13     58.10   636.00     72.00%
+  4104 requests in 10.00s, 4.51GB read
+Requests/sec:    410.21
+Transfer/sec:    461.36MB
+-----------------------------------------------------------------------
+Running wrk on port 6974...
+Running 10s test @ http://0.0.0.0:6974/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    22.89ms   20.87ms  48.70ms   29.16%
+    Req/Sec   437.30     64.76   620.00     70.00%
+  4359 requests in 10.01s, 4.79GB read
+Requests/sec:    435.39
+Transfer/sec:    489.74MB
+-----------------------------------------------------------------------
+Running wrk on port 6975...
+Running 10s test @ http://0.0.0.0:6975/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    24.58ms   20.81ms  55.41ms   55.75%
+    Req/Sec   407.23     54.95   545.00     70.00%
+  4058 requests in 10.01s, 4.46GB read
+Requests/sec:    405.42
+Transfer/sec:    455.99MB
+-----------------------------------------------------------------------
+Running wrk on port 6976...
+Running 10s test @ http://0.0.0.0:6976/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    23.82ms   20.87ms  54.57ms   53.57%
+    Req/Sec   420.57     56.53   585.00     70.00%
+  4189 requests in 10.01s, 4.60GB read
+Requests/sec:    418.36
+Transfer/sec:    470.62MB
+-----------------------------------------------------------------------
+Running wrk on port 6977...
+Running 10s test @ http://0.0.0.0:6977/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    22.86ms   20.84ms  50.09ms   29.18%
+    Req/Sec   437.80     62.02   626.00     70.00%
+  4363 requests in 10.01s, 4.79GB read
+Requests/sec:    435.70
+Transfer/sec:    490.09MB
+-----------------------------------------------------------------------
+Running wrk on port 6978...
+Running 10s test @ http://0.0.0.0:6978/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    23.67ms   20.86ms  56.01ms   54.25%
+    Req/Sec   423.19     55.87   565.00     67.00%
+  4214 requests in 10.00s, 4.63GB read
+Requests/sec:    421.20
+Transfer/sec:    473.80MB
+-----------------------------------------------------------------------
+All tests completed!
+Starting wrk tests from port 6969 to 6978 (10 total)...
+=======================================================================
+Running wrk on port 6969...
+Running 10s test @ http://0.0.0.0:6969/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    23.16ms   20.88ms  50.12ms   46.67%
+    Req/Sec   431.90     63.28   600.00     71.00%
+  4307 requests in 10.01s, 4.73GB read
+Requests/sec:    430.07
+Transfer/sec:    483.76MB
+-----------------------------------------------------------------------
+Running wrk on port 6970...
+Running 10s test @ http://0.0.0.0:6970/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    23.46ms   20.86ms  49.59ms   53.61%
+    Req/Sec   426.66     64.78   676.00     70.00%
+  4252 requests in 10.01s, 4.67GB read
+Requests/sec:    424.68
+Transfer/sec:    477.61MB
+-----------------------------------------------------------------------
+Running wrk on port 6971...
+Running 10s test @ http://0.0.0.0:6971/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    22.89ms   20.87ms  55.62ms   29.50%
+    Req/Sec   437.52     64.13   630.00     71.00%
+  4358 requests in 10.01s, 4.79GB read
+Requests/sec:    435.43
+Transfer/sec:    489.68MB
+-----------------------------------------------------------------------
+Running wrk on port 6972...
+Running 10s test @ http://0.0.0.0:6972/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    23.65ms   20.83ms  54.17ms   53.94%
+    Req/Sec   423.55     56.57   590.00     72.00%
+  4218 requests in 10.01s, 4.63GB read
+Requests/sec:    421.47
+Transfer/sec:    474.01MB
+-----------------------------------------------------------------------
+Running wrk on port 6973...
+Running 10s test @ http://0.0.0.0:6973/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    23.94ms   20.83ms  50.74ms   54.32%
+    Req/Sec   418.03     57.69   585.00     65.00%
+  4166 requests in 10.01s, 4.58GB read
+Requests/sec:    416.27
+Transfer/sec:    468.29MB
+-----------------------------------------------------------------------
+Running wrk on port 6974...
+Running 10s test @ http://0.0.0.0:6974/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    23.82ms   20.87ms  56.60ms   53.92%
+    Req/Sec   420.19     58.52   585.00     68.00%
+  4183 requests in 10.00s, 4.59GB read
+Requests/sec:    418.19
+Transfer/sec:    470.32MB
+-----------------------------------------------------------------------
+Running wrk on port 6975...
+Running 10s test @ http://0.0.0.0:6975/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    22.87ms   20.88ms  53.37ms   31.60%
+    Req/Sec   437.66     61.40   626.00     73.00%
+  4359 requests in 10.01s, 4.79GB read
+Requests/sec:    435.63
+Transfer/sec:    490.00MB
+-----------------------------------------------------------------------
+Running wrk on port 6976...
+Running 10s test @ http://0.0.0.0:6976/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    22.80ms   20.88ms  50.25ms   35.12%
+    Req/Sec   438.91     66.09   620.00     71.00%
+  4375 requests in 10.01s, 4.81GB read
+Requests/sec:    436.93
+Transfer/sec:    491.46MB
+-----------------------------------------------------------------------
+Running wrk on port 6977...
+Running 10s test @ http://0.0.0.0:6977/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    23.41ms   20.90ms  53.44ms   52.91%
+    Req/Sec   428.01     58.44   595.00     72.00%
+  4263 requests in 10.01s, 4.68GB read
+Requests/sec:    425.88
+Transfer/sec:    479.07MB
+-----------------------------------------------------------------------
+Running wrk on port 6978...
+Running 10s test @ http://0.0.0.0:6978/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    23.45ms   20.86ms  55.77ms   53.79%
+    Req/Sec   427.01     51.83   570.00     70.00%
+  4255 requests in 10.01s, 4.67GB read
+Requests/sec:    425.03
+Transfer/sec:    478.01MB
+-----------------------------------------------------------------------
+All tests completed!
+Starting wrk tests from port 6969 to 6978 (10 total)...
+=======================================================================
+Running wrk on port 6969...
+Running 10s test @ http://0.0.0.0:6969/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    23.29ms   20.87ms  59.44ms   50.59%
+    Req/Sec   430.21     54.73   560.00     69.00%
+  4288 requests in 10.02s, 4.71GB read
+Requests/sec:    428.13
+Transfer/sec:    481.48MB
+-----------------------------------------------------------------------
+Running wrk on port 6970...
+Running 10s test @ http://0.0.0.0:6970/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    23.53ms   20.86ms  54.78ms   53.71%
+    Req/Sec   425.54     55.06   585.00     66.00%
+  4240 requests in 10.01s, 4.66GB read
+Requests/sec:    423.54
+Transfer/sec:    476.43MB
+-----------------------------------------------------------------------
+Running wrk on port 6971...
+Running 10s test @ http://0.0.0.0:6971/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    23.95ms   20.82ms  48.79ms   54.07%
+    Req/Sec   417.86     54.95   590.00     68.00%
+  4165 requests in 10.01s, 4.57GB read
+Requests/sec:    416.03
+Transfer/sec:    467.89MB
+-----------------------------------------------------------------------
+Running wrk on port 6972...
+Running 10s test @ http://0.0.0.0:6972/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    23.20ms   20.84ms  53.24ms   47.17%
+    Req/Sec   431.42     57.10   564.00     67.00%
+  4300 requests in 10.01s, 4.72GB read
+Requests/sec:    429.47
+Transfer/sec:    482.98MB
+-----------------------------------------------------------------------
+Running wrk on port 6973...
+Running 10s test @ http://0.0.0.0:6973/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    23.69ms   20.87ms  49.04ms   53.55%
+    Req/Sec   422.59     61.36   590.00     69.00%
+  4210 requests in 10.01s, 4.62GB read
+Requests/sec:    420.72
+Transfer/sec:    473.17MB
+-----------------------------------------------------------------------
+Running wrk on port 6974...
+Running 10s test @ http://0.0.0.0:6974/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    23.91ms   20.83ms  55.83ms   53.62%
+    Req/Sec   418.85     55.08   636.00     74.00%
+  4171 requests in 10.01s, 4.58GB read
+Requests/sec:    416.73
+Transfer/sec:    468.68MB
+-----------------------------------------------------------------------
+Running wrk on port 6975...
+Running 10s test @ http://0.0.0.0:6975/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    23.21ms   20.86ms  53.78ms   50.00%
+    Req/Sec   431.33     52.92   590.00     72.00%
+  4298 requests in 10.01s, 4.72GB read
+Requests/sec:    429.46
+Transfer/sec:    483.08MB
+-----------------------------------------------------------------------
+Running wrk on port 6976...
+Running 10s test @ http://0.0.0.0:6976/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    22.92ms   20.86ms  50.02ms   26.61%
+    Req/Sec   436.89     60.64   585.00     68.00%
+  4350 requests in 10.00s, 4.78GB read
+Requests/sec:    434.86
+Transfer/sec:    489.04MB
+-----------------------------------------------------------------------
+Running wrk on port 6977...
+Running 10s test @ http://0.0.0.0:6977/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    23.10ms   20.86ms  47.84ms   33.61%
+    Req/Sec   433.51     65.32   616.00     66.00%
+  4318 requests in 10.01s, 4.74GB read
+Requests/sec:    431.29
+Transfer/sec:    485.03MB
+-----------------------------------------------------------------------
+Running wrk on port 6978...
+Running 10s test @ http://0.0.0.0:6978/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    23.49ms   20.86ms  56.78ms   53.71%
+    Req/Sec   426.80     54.24   515.00     64.00%
+  4254 requests in 10.02s, 4.67GB read
+Requests/sec:    424.65
+Transfer/sec:    477.46MB
+-----------------------------------------------------------------------
+All tests completed!
+Starting wrk tests from port 6969 to 6978 (10 total)...
+=======================================================================
+Running wrk on port 6969...
+Running 10s test @ http://0.0.0.0:6969/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    22.49ms   20.88ms  59.19ms   36.54%
+    Req/Sec   445.59     54.26   560.00     59.00%
+  4439 requests in 10.01s, 4.87GB read
+Requests/sec:    443.36
+Transfer/sec:    498.46MB
+-----------------------------------------------------------------------
+Running wrk on port 6970...
+Running 10s test @ http://0.0.0.0:6970/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    23.32ms   20.84ms  48.00ms   51.37%
+    Req/Sec   429.43     61.83   616.00     74.00%
+  4280 requests in 10.02s, 4.70GB read
+Requests/sec:    427.30
+Transfer/sec:    480.64MB
+-----------------------------------------------------------------------
+Running wrk on port 6971...
+Running 10s test @ http://0.0.0.0:6971/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    22.96ms   20.88ms  53.99ms   28.00%
+    Req/Sec   436.32     61.65   575.00     64.00%
+  4351 requests in 10.02s, 4.78GB read
+Requests/sec:    434.32
+Transfer/sec:    488.54MB
+-----------------------------------------------------------------------
+Running wrk on port 6972...
+Running 10s test @ http://0.0.0.0:6972/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    23.37ms   20.82ms  52.98ms   51.44%
+    Req/Sec   428.50     59.75   600.00     72.00%
+  4270 requests in 10.01s, 4.69GB read
+Requests/sec:    426.41
+Transfer/sec:    479.55MB
+-----------------------------------------------------------------------
+Running wrk on port 6973...
+Running 10s test @ http://0.0.0.0:6973/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    23.34ms   20.85ms  54.26ms   50.99%
+    Req/Sec   429.32     55.28   565.00     66.00%
+  4277 requests in 10.01s, 4.70GB read
+Requests/sec:    427.26
+Transfer/sec:    480.62MB
+-----------------------------------------------------------------------
+Running wrk on port 6974...
+Running 10s test @ http://0.0.0.0:6974/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    22.85ms   20.87ms  50.05ms   32.60%
+    Req/Sec   438.04     57.64   630.00     71.00%
+  4363 requests in 10.01s, 4.79GB read
+Requests/sec:    435.75
+Transfer/sec:    490.15MB
+-----------------------------------------------------------------------
+Running wrk on port 6975...
+Running 10s test @ http://0.0.0.0:6975/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    23.05ms   20.86ms  53.30ms   30.53%
+    Req/Sec   434.19     58.43   575.00     65.00%
+  4326 requests in 10.01s, 4.75GB read
+Requests/sec:    432.24
+Transfer/sec:    486.09MB
+-----------------------------------------------------------------------
+Running wrk on port 6976...
+Running 10s test @ http://0.0.0.0:6976/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    23.82ms   20.85ms  53.53ms   53.35%
+    Req/Sec   420.31     59.30   585.00     67.00%
+  4187 requests in 10.01s, 4.60GB read
+Requests/sec:    418.28
+Transfer/sec:    470.53MB
+-----------------------------------------------------------------------
+Running wrk on port 6977...
+Running 10s test @ http://0.0.0.0:6977/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    23.81ms   20.83ms  47.74ms   53.87%
+    Req/Sec   419.97     51.76   620.00     73.00%
+  4184 requests in 10.00s, 4.60GB read
+Requests/sec:    418.23
+Transfer/sec:    470.49MB
+-----------------------------------------------------------------------
+Running wrk on port 6978...
+Running 10s test @ http://0.0.0.0:6978/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    22.96ms   20.88ms  53.38ms   29.12%
+    Req/Sec   436.32     64.73   636.00     72.00%
+  4346 requests in 10.01s, 4.77GB read
+Requests/sec:    434.20
+Transfer/sec:    488.40MB
+-----------------------------------------------------------------------
+All tests completed!
+Starting wrk tests from port 6969 to 6978 (10 total)...
+=======================================================================
+Running wrk on port 6969...
+Running 10s test @ http://0.0.0.0:6969/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    23.52ms   20.88ms  58.57ms   53.40%
+    Req/Sec   425.99     54.94   585.00     70.00%
+  4244 requests in 10.01s, 4.66GB read
+Requests/sec:    423.99
+Transfer/sec:    476.84MB
+-----------------------------------------------------------------------
+Running wrk on port 6970...
+Running 10s test @ http://0.0.0.0:6970/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    22.99ms   20.90ms  56.26ms   29.93%
+    Req/Sec   435.32     61.80   600.00     67.00%
+  4338 requests in 10.01s, 4.77GB read
+Requests/sec:    433.38
+Transfer/sec:    487.48MB
+-----------------------------------------------------------------------
+Running wrk on port 6971...
+Running 10s test @ http://0.0.0.0:6971/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    22.32ms   20.88ms  54.25ms   34.58%
+    Req/Sec   448.32     59.46   603.00     73.00%
+  4469 requests in 10.01s, 4.91GB read
+Requests/sec:    446.38
+Transfer/sec:    502.07MB
+-----------------------------------------------------------------------
+Running wrk on port 6972...
+Running 10s test @ http://0.0.0.0:6972/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    24.29ms   20.82ms  50.44ms   55.36%
+    Req/Sec   411.91     51.71   540.00     59.00%
+  4103 requests in 10.00s, 4.51GB read
+Requests/sec:    410.14
+Transfer/sec:    461.29MB
+-----------------------------------------------------------------------
+Running wrk on port 6973...
+Running 10s test @ http://0.0.0.0:6973/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    23.05ms   20.92ms  47.15ms   33.50%
+    Req/Sec   434.49     57.10   616.00     72.00%
+  4326 requests in 10.00s, 4.75GB read
+Requests/sec:    432.48
+Transfer/sec:    486.47MB
+-----------------------------------------------------------------------
+Running wrk on port 6974...
+Running 10s test @ http://0.0.0.0:6974/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    22.77ms   20.87ms  50.52ms   36.47%
+    Req/Sec   439.66     69.01   666.00     70.00%
+  4379 requests in 10.01s, 4.81GB read
+Requests/sec:    437.56
+Transfer/sec:    492.06MB
+-----------------------------------------------------------------------
+Running wrk on port 6975...
+Running 10s test @ http://0.0.0.0:6975/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    24.23ms   20.87ms  54.66ms   55.00%
+    Req/Sec   413.37     55.43   515.00     62.00%
+  4117 requests in 10.00s, 4.52GB read
+Requests/sec:    411.55
+Transfer/sec:    462.86MB
+-----------------------------------------------------------------------
+Running wrk on port 6976...
+Running 10s test @ http://0.0.0.0:6976/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    23.91ms   20.87ms  51.75ms   53.89%
+    Req/Sec   418.86     60.26   603.00     73.00%
+  4173 requests in 10.01s, 4.58GB read
+Requests/sec:    417.02
+Transfer/sec:    468.89MB
+-----------------------------------------------------------------------
+Running wrk on port 6977...
+Running 10s test @ http://0.0.0.0:6977/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    22.49ms   20.94ms  53.37ms   33.90%
+    Req/Sec   445.49     53.36   575.00     62.00%
+  4437 requests in 10.01s, 4.87GB read
+Requests/sec:    443.42
+Transfer/sec:    498.64MB
+-----------------------------------------------------------------------
+Running wrk on port 6978...
+Running 10s test @ http://0.0.0.0:6978/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    22.02ms   20.55ms  54.87ms   31.97%
+    Req/Sec   454.54     58.75   630.00     66.00%
+  4531 requests in 10.01s, 4.98GB read
+Requests/sec:    452.76
+Transfer/sec:    509.11MB
+-----------------------------------------------------------------------
+All tests completed!
+Starting wrk tests from port 6969 to 6978 (10 total)...
+=======================================================================
+Running wrk on port 6969...
+Running 10s test @ http://0.0.0.0:6969/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    23.15ms   20.90ms  59.29ms   47.40%
+    Req/Sec   432.43     60.81   600.00     70.00%
+  4308 requests in 10.01s, 4.73GB read
+Requests/sec:    430.57
+Transfer/sec:    484.34MB
+-----------------------------------------------------------------------
+Running wrk on port 6970...
+Running 10s test @ http://0.0.0.0:6970/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    23.57ms   20.86ms  53.35ms   54.17%
+    Req/Sec   424.68     61.67   616.00     71.00%
+  4230 requests in 10.00s, 4.65GB read
+Requests/sec:    422.86
+Transfer/sec:    475.67MB
+-----------------------------------------------------------------------
+Running wrk on port 6971...
+Running 10s test @ http://0.0.0.0:6971/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    23.25ms   20.85ms  48.72ms   50.73%
+    Req/Sec   430.61     63.69   626.00     68.00%
+  4289 requests in 10.01s, 4.71GB read
+Requests/sec:    428.44
+Transfer/sec:    481.94MB
+-----------------------------------------------------------------------
+Running wrk on port 6972...
+Running 10s test @ http://0.0.0.0:6972/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    22.75ms   20.93ms  52.60ms   33.78%
+    Req/Sec   440.30     62.73   626.00     67.00%
+  4389 requests in 10.01s, 4.82GB read
+Requests/sec:    438.31
+Transfer/sec:    492.89MB
+-----------------------------------------------------------------------
+Running wrk on port 6973...
+Running 10s test @ http://0.0.0.0:6973/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    22.95ms   20.89ms  55.63ms   28.56%
+    Req/Sec   436.58     54.95   595.00     69.00%
+  4347 requests in 10.01s, 4.77GB read
+Requests/sec:    434.41
+Transfer/sec:    488.52MB
+-----------------------------------------------------------------------
+Running wrk on port 6974...
+Running 10s test @ http://0.0.0.0:6974/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    22.50ms   20.84ms  48.16ms   37.92%
+    Req/Sec   444.90     72.97   646.00     68.00%
+  4432 requests in 10.01s, 4.87GB read
+Requests/sec:    442.94
+Transfer/sec:    498.11MB
+-----------------------------------------------------------------------
+Running wrk on port 6975...
+Running 10s test @ http://0.0.0.0:6975/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    21.56ms   18.04ms  54.80ms   26.20%
+    Req/Sec   470.52     60.76   666.00     72.00%
+  4686 requests in 10.00s, 5.15GB read
+Requests/sec:    468.42
+Transfer/sec:    526.70MB
+-----------------------------------------------------------------------
+Running wrk on port 6976...
+Running 10s test @ http://0.0.0.0:6976/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    22.22ms   20.73ms  50.65ms   37.64%
+    Req/Sec   450.76     54.27   585.00     72.00%
+  4491 requests in 10.01s, 4.93GB read
+Requests/sec:    448.58
+Transfer/sec:    504.55MB
+-----------------------------------------------------------------------
+Running wrk on port 6977...
+Running 10s test @ http://0.0.0.0:6977/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    23.34ms   20.84ms  48.15ms   51.58%
+    Req/Sec   429.08     55.93   580.00     64.00%
+  4273 requests in 10.01s, 4.69GB read
+Requests/sec:    426.82
+Transfer/sec:    480.11MB
+-----------------------------------------------------------------------
+Running wrk on port 6978...
+Running 10s test @ http://0.0.0.0:6978/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    22.27ms   20.80ms  50.10ms   36.36%
+    Req/Sec   449.42     63.64   640.00     63.00%
+  4479 requests in 10.01s, 4.92GB read
+Requests/sec:    447.49
+Transfer/sec:    503.32MB
+-----------------------------------------------------------------------
+All tests completed!
+Starting wrk tests from port 6969 to 6978 (10 total)...
+=======================================================================
+Running wrk on port 6969...
+Running 10s test @ http://0.0.0.0:6969/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    22.73ms   20.88ms  47.76ms   36.37%
+    Req/Sec   440.65     62.21   610.00     67.00%
+  4389 requests in 10.01s, 4.82GB read
+Requests/sec:    438.51
+Transfer/sec:    493.02MB
+-----------------------------------------------------------------------
+Running wrk on port 6970...
+Running 10s test @ http://0.0.0.0:6970/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    23.43ms   20.87ms  55.32ms   53.23%
+    Req/Sec   427.04     59.76   620.00     71.00%
+  4257 requests in 10.01s, 4.68GB read
+Requests/sec:    425.30
+Transfer/sec:    478.41MB
+-----------------------------------------------------------------------
+Running wrk on port 6971...
+Running 10s test @ http://0.0.0.0:6971/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    22.62ms   20.92ms  54.36ms   34.25%
+    Req/Sec   442.92     53.01   585.00     73.00%
+  4411 requests in 10.01s, 4.84GB read
+Requests/sec:    440.78
+Transfer/sec:    495.68MB
+-----------------------------------------------------------------------
+Running wrk on port 6972...
+Running 10s test @ http://0.0.0.0:6972/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    23.44ms   20.84ms  54.56ms   53.00%
+    Req/Sec   426.89     57.08   610.00     69.00%
+  4257 requests in 10.02s, 4.68GB read
+Requests/sec:    425.06
+Transfer/sec:    478.14MB
+-----------------------------------------------------------------------
+Running wrk on port 6973...
+Running 10s test @ http://0.0.0.0:6973/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    24.32ms   20.85ms  56.41ms   55.29%
+    Req/Sec   411.73     52.11   535.00     68.00%
+  4099 requests in 10.00s, 4.50GB read
+Requests/sec:    409.83
+Transfer/sec:    460.94MB
+-----------------------------------------------------------------------
+Running wrk on port 6974...
+Running 10s test @ http://0.0.0.0:6974/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    22.22ms   20.78ms  55.99ms   37.26%
+    Req/Sec   450.87     63.04   646.00     64.00%
+  4490 requests in 10.01s, 4.93GB read
+Requests/sec:    448.64
+Transfer/sec:    504.50MB
+-----------------------------------------------------------------------
+Running wrk on port 6975...
+Running 10s test @ http://0.0.0.0:6975/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    22.96ms   20.88ms  49.77ms   29.03%
+    Req/Sec   436.48     67.90   670.00     69.00%
+  4350 requests in 10.02s, 4.78GB read
+Requests/sec:    434.21
+Transfer/sec:    488.30MB
+-----------------------------------------------------------------------
+Running wrk on port 6976...
+Running 10s test @ http://0.0.0.0:6976/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    23.93ms   20.82ms  51.44ms   54.11%
+    Req/Sec   418.72     60.80   595.00     68.00%
+  4171 requests in 10.02s, 4.58GB read
+Requests/sec:    416.46
+Transfer/sec:    468.48MB
+-----------------------------------------------------------------------
+Running wrk on port 6977...
+Running 10s test @ http://0.0.0.0:6977/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    23.57ms   20.80ms  47.30ms   54.24%
+    Req/Sec   424.62     66.35   646.00     72.00%
+  4233 requests in 10.01s, 4.65GB read
+Requests/sec:    422.75
+Transfer/sec:    475.44MB
+-----------------------------------------------------------------------
+Running wrk on port 6978...
+Running 10s test @ http://0.0.0.0:6978/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    24.57ms   20.79ms  56.14ms   56.20%
+    Req/Sec   407.47     55.93   620.00     71.00%
+  4061 requests in 10.01s, 4.46GB read
+Requests/sec:    405.60
+Transfer/sec:    456.30MB
+-----------------------------------------------------------------------
+All tests completed!
+Starting wrk tests from port 6969 to 6978 (10 total)...
+=======================================================================
+Running wrk on port 6969...
+Running 10s test @ http://0.0.0.0:6969/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    23.41ms   20.86ms  57.51ms   52.49%
+    Req/Sec   427.77     63.64   584.00     66.00%
+  4261 requests in 10.01s, 4.68GB read
+Requests/sec:    425.56
+Transfer/sec:    478.71MB
+-----------------------------------------------------------------------
+Running wrk on port 6970...
+Running 10s test @ http://0.0.0.0:6970/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    23.75ms   20.85ms  55.79ms   53.68%
+    Req/Sec   421.24     52.74   550.00     70.00%
+  4198 requests in 10.01s, 4.61GB read
+Requests/sec:    419.42
+Transfer/sec:    471.81MB
+-----------------------------------------------------------------------
+Running wrk on port 6971...
+Running 10s test @ http://0.0.0.0:6971/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    23.80ms   20.85ms  55.19ms   54.11%
+    Req/Sec   420.83     60.81   613.00     70.00%
+  4194 requests in 10.01s, 4.61GB read
+Requests/sec:    418.89
+Transfer/sec:    471.12MB
+-----------------------------------------------------------------------
+Running wrk on port 6972...
+Running 10s test @ http://0.0.0.0:6972/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    25.66ms   20.70ms  55.87ms   58.39%
+    Req/Sec   390.61     51.54   555.00     70.00%
+  3892 requests in 10.01s, 4.28GB read
+Requests/sec:    388.74
+Transfer/sec:    437.37MB
+-----------------------------------------------------------------------
+Running wrk on port 6973...
+Running 10s test @ http://0.0.0.0:6973/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    23.72ms   20.85ms  49.04ms   54.05%
+    Req/Sec   422.38     58.46   620.00     67.00%
+  4207 requests in 10.01s, 4.62GB read
+Requests/sec:    420.25
+Transfer/sec:    472.64MB
+-----------------------------------------------------------------------
+Running wrk on port 6974...
+Running 10s test @ http://0.0.0.0:6974/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    21.16ms   17.51ms  56.19ms   30.42%
+    Req/Sec   489.06     74.40   717.00     64.00%
+  4876 requests in 10.01s, 5.35GB read
+Requests/sec:    487.08
+Transfer/sec:    547.75MB
+-----------------------------------------------------------------------
+Running wrk on port 6975...
+Running 10s test @ http://0.0.0.0:6975/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    21.53ms   17.99ms  53.01ms   26.25%
+    Req/Sec   472.43     61.56   680.00     70.00%
+  4710 requests in 10.01s, 5.17GB read
+Requests/sec:    470.48
+Transfer/sec:    529.13MB
+-----------------------------------------------------------------------
+Running wrk on port 6976...
+Running 10s test @ http://0.0.0.0:6976/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    22.84ms   20.85ms  50.55ms   31.49%
+    Req/Sec   438.57     56.41   610.00     73.00%
+  4372 requests in 10.02s, 4.80GB read
+Requests/sec:    436.53
+Transfer/sec:    490.91MB
+-----------------------------------------------------------------------
+Running wrk on port 6977...
+Running 10s test @ http://0.0.0.0:6977/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    23.51ms   20.86ms  53.73ms   53.15%
+    Req/Sec   425.91     64.48   626.00     71.00%
+  4244 requests in 10.01s, 4.66GB read
+Requests/sec:    423.84
+Transfer/sec:    476.66MB
+-----------------------------------------------------------------------
+Running wrk on port 6978...
+Running 10s test @ http://0.0.0.0:6978/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    23.56ms   20.84ms  56.30ms   53.86%
+    Req/Sec   424.72     56.37   585.00     71.00%
+  4230 requests in 10.01s, 4.65GB read
+Requests/sec:    422.78
+Transfer/sec:    475.58MB
+-----------------------------------------------------------------------
+All tests completed!
+Starting wrk tests from port 6969 to 6978 (10 total)...
+=======================================================================
+Running wrk on port 6969...
+Running 10s test @ http://0.0.0.0:6969/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    23.82ms   20.83ms  50.54ms   54.25%
+    Req/Sec   420.51     68.94   616.00     67.00%
+  4193 requests in 10.02s, 4.61GB read
+Requests/sec:    418.50
+Transfer/sec:    470.67MB
+-----------------------------------------------------------------------
+Running wrk on port 6970...
+Running 10s test @ http://0.0.0.0:6970/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    24.20ms   20.81ms  49.66ms   54.96%
+    Req/Sec   413.76     57.06   616.00     69.00%
+  4123 requests in 10.01s, 4.53GB read
+Requests/sec:    411.78
+Transfer/sec:    463.13MB
+-----------------------------------------------------------------------
+Running wrk on port 6971...
+Running 10s test @ http://0.0.0.0:6971/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    25.24ms   20.75ms  56.15ms   57.21%
+    Req/Sec   397.11     51.17   515.00     65.00%
+  3956 requests in 10.01s, 4.35GB read
+Requests/sec:    395.23
+Transfer/sec:    444.66MB
+-----------------------------------------------------------------------
+Running wrk on port 6972...
+Running 10s test @ http://0.0.0.0:6972/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    24.88ms   20.73ms  50.80ms   56.52%
+    Req/Sec   402.57     57.73   570.00     63.00%
+  4011 requests in 10.01s, 4.41GB read
+Requests/sec:    400.64
+Transfer/sec:    450.74MB
+-----------------------------------------------------------------------
+Running wrk on port 6973...
+Running 10s test @ http://0.0.0.0:6973/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    23.48ms   20.87ms  53.54ms   53.44%
+    Req/Sec   426.25     62.62   636.00     63.00%
+  4250 requests in 10.01s, 4.67GB read
+Requests/sec:    424.38
+Transfer/sec:    477.38MB
+-----------------------------------------------------------------------
+Running wrk on port 6974...
+Running 10s test @ http://0.0.0.0:6974/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    21.43ms   17.94ms  53.10ms   26.99%
+    Req/Sec   477.49     65.24   626.00     72.00%
+  4760 requests in 10.01s, 5.23GB read
+Requests/sec:    475.34
+Transfer/sec:    534.58MB
+-----------------------------------------------------------------------
+Running wrk on port 6975...
+Running 10s test @ http://0.0.0.0:6975/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    23.25ms   20.86ms  48.42ms   50.16%
+    Req/Sec   430.97     68.13   610.00     69.00%
+  4295 requests in 10.01s, 4.72GB read
+Requests/sec:    428.91
+Transfer/sec:    482.35MB
+-----------------------------------------------------------------------
+Running wrk on port 6976...
+Running 10s test @ http://0.0.0.0:6976/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    22.39ms   20.82ms  55.21ms   38.74%
+    Req/Sec   447.37     61.96   656.00     60.00%
+  4459 requests in 10.02s, 4.90GB read
+Requests/sec:    445.17
+Transfer/sec:    500.60MB
+-----------------------------------------------------------------------
+Running wrk on port 6977...
+Running 10s test @ http://0.0.0.0:6977/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    22.85ms   20.87ms  51.48ms   36.10%
+    Req/Sec   438.18     65.22   606.00     66.00%
+  4368 requests in 10.02s, 4.80GB read
+Requests/sec:    436.07
+Transfer/sec:    490.49MB
+-----------------------------------------------------------------------
+Running wrk on port 6978...
+Running 10s test @ http://0.0.0.0:6978/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    24.21ms   20.83ms  55.65ms   55.27%
+    Req/Sec   413.45     57.78   616.00     75.00%
+  4119 requests in 10.01s, 4.53GB read
+Requests/sec:    411.61
+Transfer/sec:    463.05MB
+-----------------------------------------------------------------------
+All tests completed!
+Starting wrk tests from port 6969 to 6978 (10 total)...
+=======================================================================
+Running wrk on port 6969...
+Running 10s test @ http://0.0.0.0:6969/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    22.31ms   20.76ms  57.88ms   36.81%
+    Req/Sec   448.53     59.03   560.00     65.00%
+  4472 requests in 10.01s, 4.91GB read
+Requests/sec:    446.75
+Transfer/sec:    502.49MB
+-----------------------------------------------------------------------
+Running wrk on port 6970...
+Running 10s test @ http://0.0.0.0:6970/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    23.35ms   20.83ms  55.85ms   51.60%
+    Req/Sec   428.38     58.19   595.00     71.00%
+  4271 requests in 10.01s, 4.69GB read
+Requests/sec:    426.58
+Transfer/sec:    479.85MB
+-----------------------------------------------------------------------
+Running wrk on port 6971...
+Running 10s test @ http://0.0.0.0:6971/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    23.47ms   20.85ms  52.66ms   52.67%
+    Req/Sec   426.50     54.02   575.00     65.00%
+  4251 requests in 10.01s, 4.67GB read
+Requests/sec:    424.52
+Transfer/sec:    477.44MB
+-----------------------------------------------------------------------
+Running wrk on port 6972...
+Running 10s test @ http://0.0.0.0:6972/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    22.49ms   20.83ms  54.26ms   39.94%
+    Req/Sec   444.98     54.36   585.00     62.00%
+  4435 requests in 10.02s, 4.87GB read
+Requests/sec:    442.82
+Transfer/sec:    497.97MB
+-----------------------------------------------------------------------
+Running wrk on port 6973...
+Running 10s test @ http://0.0.0.0:6973/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    22.52ms   20.87ms  47.02ms   36.85%
+    Req/Sec   444.70     58.78   590.00     72.00%
+  4433 requests in 10.01s, 4.87GB read
+Requests/sec:    442.72
+Transfer/sec:    497.86MB
+-----------------------------------------------------------------------
+Running wrk on port 6974...
+Running 10s test @ http://0.0.0.0:6974/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    22.92ms   20.89ms  51.94ms   28.96%
+    Req/Sec   436.76     55.88   613.00     69.00%
+  4353 requests in 10.01s, 4.78GB read
+Requests/sec:    434.74
+Transfer/sec:    489.01MB
+-----------------------------------------------------------------------
+Running wrk on port 6975...
+Running 10s test @ http://0.0.0.0:6975/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    21.07ms   17.31ms  55.44ms   32.09%
+    Req/Sec   493.93     72.34   680.00     69.00%
+  4922 requests in 10.01s, 5.41GB read
+Requests/sec:    491.54
+Transfer/sec:    552.75MB
+-----------------------------------------------------------------------
+Running wrk on port 6976...
+Running 10s test @ http://0.0.0.0:6976/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    22.04ms   20.42ms  50.85ms   34.29%
+    Req/Sec   454.54     64.47   656.00     69.00%
+  4531 requests in 10.01s, 4.98GB read
+Requests/sec:    452.49
+Transfer/sec:    508.81MB
+-----------------------------------------------------------------------
+Running wrk on port 6977...
+Running 10s test @ http://0.0.0.0:6977/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    21.93ms   19.99ms  50.13ms   30.38%
+    Req/Sec   457.01     72.63   676.00     67.00%
+  4556 requests in 10.02s, 5.00GB read
+Requests/sec:    454.89
+Transfer/sec:    511.51MB
+-----------------------------------------------------------------------
+Running wrk on port 6978...
+Running 10s test @ http://0.0.0.0:6978/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    22.41ms   20.82ms  51.51ms   38.37%
+    Req/Sec   446.50     70.51   700.00     69.00%
+  4454 requests in 10.02s, 4.89GB read
+Requests/sec:    444.52
+Transfer/sec:    499.99MB
+-----------------------------------------------------------------------
+All tests completed!
+Starting wrk tests from port 6969 to 6978 (10 total)...
+=======================================================================
+Running wrk on port 6969...
+Running 10s test @ http://0.0.0.0:6969/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    21.27ms   17.49ms  57.72ms   30.30%
+    Req/Sec   484.11     62.78   666.00     72.00%
+  4825 requests in 10.01s, 5.30GB read
+Requests/sec:    481.83
+Transfer/sec:    541.85MB
+-----------------------------------------------------------------------
+Running wrk on port 6970...
+Running 10s test @ http://0.0.0.0:6970/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    22.30ms   20.74ms  54.88ms   38.09%
+    Req/Sec   449.11     60.26   670.00     73.00%
+  4477 requests in 10.02s, 4.92GB read
+Requests/sec:    446.99
+Transfer/sec:    502.64MB
+-----------------------------------------------------------------------
+Running wrk on port 6971...
+Running 10s test @ http://0.0.0.0:6971/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    22.37ms   20.82ms  55.67ms   38.00%
+    Req/Sec   447.96     50.66   626.00     66.00%
+  4465 requests in 10.01s, 4.90GB read
+Requests/sec:    445.84
+Transfer/sec:    501.46MB
+-----------------------------------------------------------------------
+Running wrk on port 6972...
+Running 10s test @ http://0.0.0.0:6972/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    22.60ms   20.87ms  52.34ms   37.58%
+    Req/Sec   442.87     58.83   606.00     73.00%
+  4417 requests in 10.02s, 4.85GB read
+Requests/sec:    441.03
+Transfer/sec:    495.95MB
+-----------------------------------------------------------------------
+Running wrk on port 6973...
+Running 10s test @ http://0.0.0.0:6973/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    21.52ms   18.00ms  54.51ms   26.35%
+    Req/Sec   473.27     63.37   660.00     74.00%
+  4715 requests in 10.01s, 5.18GB read
+Requests/sec:    471.05
+Transfer/sec:    529.76MB
+-----------------------------------------------------------------------
+Running wrk on port 6974...
+Running 10s test @ http://0.0.0.0:6974/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    21.61ms   18.06ms  50.44ms   26.20%
+    Req/Sec   469.41     69.00   650.00     67.00%
+  4683 requests in 10.02s, 5.14GB read
+Requests/sec:    467.22
+Transfer/sec:    525.45MB
+-----------------------------------------------------------------------
+Running wrk on port 6975...
+Running 10s test @ http://0.0.0.0:6975/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    23.14ms   20.86ms  49.12ms   42.88%
+    Req/Sec   432.81     57.24   590.00     75.00%
+  4313 requests in 10.01s, 4.74GB read
+Requests/sec:    430.69
+Transfer/sec:    484.45MB
+-----------------------------------------------------------------------
+Running wrk on port 6976...
+Running 10s test @ http://0.0.0.0:6976/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    23.49ms   20.87ms  56.48ms   52.60%
+    Req/Sec   426.28     60.92   560.00     63.00%
+  4249 requests in 10.01s, 4.67GB read
+Requests/sec:    424.33
+Transfer/sec:    477.11MB
+-----------------------------------------------------------------------
+Running wrk on port 6977...
+Running 10s test @ http://0.0.0.0:6977/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    23.03ms   20.88ms  55.54ms   29.97%
+    Req/Sec   434.54     58.74   585.00     69.00%
+  4331 requests in 10.01s, 4.76GB read
+Requests/sec:    432.63
+Transfer/sec:    486.64MB
+-----------------------------------------------------------------------
+Running wrk on port 6978...
+Running 10s test @ http://0.0.0.0:6978/bigpage.html
+  1 threads and 10 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    21.58ms   18.01ms  55.85ms   26.53%
+    Req/Sec   470.17     59.19   600.00     60.00%
+  4689 requests in 10.02s, 5.15GB read
+Requests/sec:    468.00
+Transfer/sec:    526.34MB
 -----------------------------------------------------------------------
 All tests completed!

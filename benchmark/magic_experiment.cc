@@ -82,7 +82,7 @@ char* call_strdup(char* ptr) {
     uswctx_t ctx = sandboxes[1]->get_context();
     char* ret;
     uswitch_call_dynamic(ctx, strdup_mod_s, ret, (const char*)ptr);
-    //ret = (char*)sandboxes[1]->revoke_from_sandbox(ret);
+    ret = (char*)sandboxes[1]->revoke_from_sandbox(ret);
     return ret;
 
 }

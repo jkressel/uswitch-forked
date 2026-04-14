@@ -24,7 +24,6 @@ void info_callback(uswctx_t ctx, void *data, png_structp png, png_infop info) {
 
 void row_callback(png_structp png, png_bytep new_row, png_uint_32 row_num, int pass) {
 
-	printf("New row ptr %p\n");
 }
 
 void end_callback(png_structp png, png_infop info) {
@@ -36,35 +35,123 @@ void (*row_callback_uswitch)(png_structp png, png_bytep new_row, png_uint_32 row
 
 void (*end_callback_uswitch)(png_structp png, png_infop info);
 
+void (*mem_read_callback_uswitch)(png_structp png_ptr, png_bytep outBytes, png_size_t byteCountToRead);
+// Structure to keep track of where we are in the buffer
+struct MemReaderState {
+    uint8_t* buffer;
+    size_t size;
+    size_t offset;
+};
 
-
+// The custom read callback (must be accessible to uSwitch)
+//void mem_read_callback(png_structp png_ptr, png_bytep outBytes, png_size_t byteCountToRead) {
+//    // libpng has a utility to get the IO pointer we pass in later
+//    MemReaderState* state = (MemReaderState*)png_get_io_ptr(png_ptr);
+//    
+//    if (state->offset + byteCountToRead <= state->size) {
+//        memcpy(outBytes, state->buffer + state->offset, byteCountToRead);
+//        state->offset += byteCountToRead;
+//    } else {
+//        //png_error(png_ptr, "Sandbox read error: EOF");
+//    }
+//}
 
 
 static void load_png_file_2(USwitchSandbox *sandbox, uint8_t *input, size_t size) {
+//#define GET_FUNC_PTR(name) decltype(name) *name##_s = (decltype(name) *)sandbox->get_symbol_addr(#name)
+//    GET_FUNC_PTR(png_create_read_struct);
+//    GET_FUNC_PTR(png_create_info_struct);
+//    GET_FUNC_PTR(png_set_progressive_read_fn);
+//    GET_FUNC_PTR(png_process_data);
+//    GET_FUNC_PTR(png_destroy_read_struct);
+//    GET_FUNC_PTR(png_read_png);
+//#undef GET_FUNC_PTR
+//    uint8_t *sandbox_buffer = (uint8_t *)sandbox->malloc_in_sandbox(size);
+//    uswctx_t ctx = sandbox->get_context();
+//    memcpy(sandbox_buffer, input, size);
+//    png_structp *png = (png_structp *)sandbox->malloc_in_sandbox(sizeof(png_structp));
+//    size_t len = strlen(PNG_LIBPNG_VER_STRING);
+//    char *ver_str = (char *)sandbox->malloc_in_sandbox(len + 1);
+//    memcpy(ver_str, PNG_LIBPNG_VER_STRING, len + 1);
+//    uswitch_call_dynamic(ctx, png_create_read_struct_s, png, ver_str, nullptr, nullptr, nullptr);
+//    png_infop *info = (png_infop *)sandbox->malloc_in_sandbox(sizeof(png_infop));
+//    uswitch_call_dynamic(ctx, png_create_info_struct_s, info, *png);
+//    uswitch_call_dynamic(ctx, png_set_progressive_read_fn_s, *png, nullptr, info_callback_uswitch, row_callback_uswitch, end_callback_uswitch);
+//    uswitch_call_dynamic(ctx, png_process_data_s, *png, *info, sandbox_buffer, size);
+//    uswitch_call_dynamic(ctx, png_destroy_read_struct_s, png, info, nullptr);
+//    sandbox->free_in_sandbox(png);
+//    sandbox->free_in_sandbox(info);
+//    sandbox->free_in_sandbox(sandbox_buffer);
+//    sandbox->free_in_sandbox(ver_str);
+//
+//
+//
+//
 #define GET_FUNC_PTR(name) decltype(name) *name##_s = (decltype(name) *)sandbox->get_symbol_addr(#name)
     GET_FUNC_PTR(png_create_read_struct);
     GET_FUNC_PTR(png_create_info_struct);
-    GET_FUNC_PTR(png_set_progressive_read_fn);
-    GET_FUNC_PTR(png_process_data);
-    GET_FUNC_PTR(png_destroy_read_struct);
+    // New pointers for the Pull API and data extraction
+    GET_FUNC_PTR(png_set_read_fn);
+    GET_FUNC_PTR(png_read_png);
+    GET_FUNC_PTR(png_get_image_height);
+    GET_FUNC_PTR(png_get_rowbytes);
+    GET_FUNC_PTR(png_get_rows);
 #undef GET_FUNC_PTR
-    uint8_t *sandbox_buffer = (uint8_t *)sandbox->malloc_in_sandbox(size);
+
     uswctx_t ctx = sandbox->get_context();
+
+    // 1. Allocate and copy the raw image into the sandbox
+    uint8_t *sandbox_buffer = (uint8_t *)sandbox->malloc_in_sandbox(size);
     memcpy(sandbox_buffer, input, size);
+
+    // 2. Setup PNG structs
     png_structp *png = (png_structp *)sandbox->malloc_in_sandbox(sizeof(png_structp));
     size_t len = strlen(PNG_LIBPNG_VER_STRING);
     char *ver_str = (char *)sandbox->malloc_in_sandbox(len + 1);
     memcpy(ver_str, PNG_LIBPNG_VER_STRING, len + 1);
+    
     uswitch_call_dynamic(ctx, png_create_read_struct_s, png, ver_str, nullptr, nullptr, nullptr);
+    
     png_infop *info = (png_infop *)sandbox->malloc_in_sandbox(sizeof(png_infop));
     uswitch_call_dynamic(ctx, png_create_info_struct_s, info, *png);
-    uswitch_call_dynamic(ctx, png_set_progressive_read_fn_s, *png, nullptr, info_callback_uswitch, row_callback_uswitch, end_callback_uswitch);
-    uswitch_call_dynamic(ctx, png_process_data_s, *png, *info, sandbox_buffer, size);
-    uswitch_call_dynamic(ctx, png_destroy_read_struct_s, png, info, nullptr);
-    sandbox->free_in_sandbox(png);
-    sandbox->free_in_sandbox(info);
-    sandbox->free_in_sandbox(sandbox_buffer);
-    sandbox->free_in_sandbox(ver_str);
+
+    // 3. Initialize the IO State for our custom memory reader inside the sandbox
+    MemReaderState *io_state = (MemReaderState *)sandbox->malloc_in_sandbox(sizeof(MemReaderState));
+    io_state->buffer = sandbox_buffer;
+    io_state->size = size;
+    io_state->offset = 0;
+
+    // 4. Bind the read callback (Replaces png_set_progressive_read_fn)
+    uswitch_call_dynamic(ctx, png_set_read_fn_s, *png, io_state, mem_read_callback_uswitch);
+
+    // 5. Read the entire image (Replaces png_process_data)
+    // PNG_TRANSFORM_IDENTITY is 0 (no transforms). 
+    // libpng is now allocating the row arrays inside the sandbox heap.
+    uswitch_call_dynamic(ctx, png_read_png_s, *png, *info, 0, nullptr);
+
+    // 6. Extract Metadata
+    uint32_t height;
+    uswitch_call_dynamic(ctx, png_get_image_height_s, height, *png, *info);
+    long unsigned int row_bytes;
+    uswitch_call_dynamic(ctx, png_get_rowbytes_s, row_bytes, *png, *info);
+
+    // 7. Get the array of row pointers from the sandbox
+    png_bytepp guest_row_pointers;
+    uswitch_call_dynamic(ctx, png_get_rows_s, guest_row_pointers, *png, *info);
+
+    // ========================================================================
+    // 8. THE CROSS-COMPARTMENT DEEP COPY
+    // ========================================================================
+    uint8_t *host_image = (uint8_t *)malloc(height * row_bytes);
+
+    for (uint32_t y = 0; y < height; y++) {
+        // Because uSwitch/RLBox usually maps sandbox memory into the host's 
+        // address space, we can dereference the pointer array directly here.
+        png_bytep guest_single_row = guest_row_pointers[y];
+        
+        // Copy the pixels out of the sandbox to our safe host buffer
+        memcpy(host_image + (y * row_bytes), guest_single_row, row_bytes);
+    }
 }
 
 static void load_png_file(USwitchSandbox *sandbox, uint8_t *input, size_t size) {
@@ -137,13 +224,6 @@ int main(int argc, char **argv) {
     }
     sleep(2000);
     return 0;
-    static const std::vector<unsigned int> AllowedSyscalls {
-#ifdef ONLYMEMPROT
-        __NR_brk, __NR_mmap, __NR_munmap,
-        __NR_lseek, __NR_fstat, __NR_read, __NR_write,
-        __NR_close, __NR_exit_group, __NR_newfstatat,
-#endif
-        __NR_exit, __NR_futex, __NR_sched_yield, 451};
 
 uint64_t t1 = time_nanosec();
     for (int j = 0; j < comps; j++) {
@@ -151,10 +231,11 @@ uint64_t t1 = time_nanosec();
     	info_callback_uswitch = uswitch_register_callback_get_fp(16, ctx, sandboxes[j]->get_symbol_addr("png_read_update_info"), info_callback);
     	row_callback_uswitch = uswitch_register_callback_get_fp(16, ctx, row_callback);
     	end_callback_uswitch = uswitch_register_callback_get_fp(16, ctx, end_callback);
-    	std::vector<uint64_t> times(n);
+//    	mem_read_callback_uswitch = uswitch_register_callback_get_fp(16, ctx, mem_read_callback);
+	std::vector<uint64_t> times(n);
     	for (int i= 0; i < n; ++i) {
-        	//load_png_file(sandboxes[j], input, size);
-		load_png_file_2(sandboxes[j], input, size);
+        	load_png_file(sandboxes[j], input, size);
+		//load_png_file_2(sandboxes[j], input, size);
     	}
     }
     uint64_t t2 = time_nanosec();
